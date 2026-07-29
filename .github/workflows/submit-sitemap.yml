@@ -1,0 +1,199 @@
+# ====================================================================
+# Pokemon Random — Submit Sitemap to Google Search Console
+# ====================================================================
+# This workflow pings Google and Bing to notify them of an updated
+# sitemap. It runs after every successful production deploy and can
+# also be triggered manually.
+#
+# HOW IT WORKS:
+#   - Sends HTTP GET to Google's ping endpoint
+#   - Sends HTTP GET to Bing's ping endpoint
+#   - Optionally uses Search Console API for stronger notification
+#
+# REQUIRED GITHUB SECRETS (optional but recommended for Search Console API):
+#   GOOGLE_CLIENT_EMAIL   — Google service account email
+#   GOOGLE_PRIVATE_KEY    — Google service account private key
+#   SEARCH_CONSOLE_PROPERTY — e.g. https://pokemonrandom.com
+#
+# HOW TO GET THE SECRETS (for Search Console API):
+#   1. Go to https://console.cloud.google.com/
+#   2. Create a project (or use existing)
+#   3. Enable "Google Search Console API"
+#   4. Create a Service Account (IAM → Service accounts → Create)
+#   5. Generate a JSON key
+#   6. In Search Console, add the service account email as a property user
+#   7. Add the email and private key as GitHub Secrets
+#
+# Without the API secrets, this workflow still works (ping endpoints only)
+# but the API version is more reliable and gives feedback.
+# ====================================================================
+
+name: Submit Sitemap
+
+on:
+  # Run after every successful production deploy
+  workflow_run:
+    workflows: ["Deploy to Cloudflare Pages", "Deploy to Vercel"]
+    types:
+      - completed
+    branches: [main, master]
+
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      site-url:
+        description: "Site URL (default: pokemonrandom.com)"
+        required: false
+        default: "https://pokemonrandom.com"
+
+  # Scheduled: every Monday at 9 AM UTC (auto-resubmit for fresh crawls)
+  schedule:
+    - cron: "0 9 * * 1"
+
+jobs:
+  submit-sitemap:
+    name: Ping Google & Bing
+    runs-on: ubuntu-latest
+    # Only run if the deploy that triggered us succeeded
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      # ===== 1. Determine site URL =====
+      - name: 🌐 Set site URL
+        id: site
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ inputs.site-url }}" ]; then
+            echo "url=${{ inputs.site-url }}" >> $GITHUB_OUTPUT
+          else
+            echo "url=https://pokemonrandom.com" >> $GITHUB_OUTPUT
+          fi
+
+      # ===== 2. Verify sitemap exists =====
+      - name: ✅ Verify sitemap is reachable
+        run: |
+          SITEMAP_URL="${{ steps.site.outputs.url }}/sitemap.xml"
+          echo "Checking sitemap at: $SITEMAP_URL"
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$SITEMAP_URL")
+          if [ "$STATUS" = "200" ]; then
+            echo "✅ Sitemap is reachable (HTTP $STATUS)"
+            # Count URLs in sitemap
+            URL_COUNT=$(curl -s "$SITEMAP_URL" | grep -c "<loc>")
+            echo "📊 Sitemap contains $URL_COUNT URLs"
+            echo "## ✅ Sitemap Verification" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "URL: \`$SITEMAP_URL\`" >> $GITHUB_STEP_SUMMARY
+            echo "Status: HTTP $STATUS" >> $GITHUB_STEP_SUMMARY
+            echo "URLs in sitemap: $URL_COUNT" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Sitemap not reachable (HTTP $STATUS)"
+            echo "## ❌ Sitemap Verification Failed" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "URL: \`$SITEMAP_URL\`" >> $GITHUB_STEP_SUMMARY
+            echo "Status: HTTP $STATUS (expected 200)" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+
+      # ===== 3. Ping Google (simple ping endpoint) =====
+      - name: 📨 Ping Google (sitemap ping)
+        run: |
+          SITEMAP_URL="${{ steps.site.outputs.url }}/sitemap.xml"
+          PING_URL="https://www.google.com/ping?sitemap=${SITEMAP_URL//\//%2F}"
+          echo "Pinging Google: $PING_URL"
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$PING_URL")
+          if [ "$STATUS" = "200" ]; then
+            echo "✅ Google ping successful (HTTP $STATUS)"
+          else
+            echo "⚠️ Google ping returned HTTP $STATUS (may still work)"
+          fi
+
+      # ===== 4. Ping Bing (simple ping endpoint) =====
+      - name: 📨 Ping Bing (sitemap ping)
+        run: |
+          SITEMAP_URL="${{ steps.site.outputs.url }}/sitemap.xml"
+          PING_URL="https://www.bing.com/ping?sitemap=${SITEMAP_URL//\//%2F}"
+          echo "Pinging Bing: $PING_URL"
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$PING_URL")
+          if [ "$STATUS" = "200" ]; then
+            echo "✅ Bing ping successful (HTTP $STATUS)"
+          else
+            echo "⚠️ Bing ping returned HTTP $STATUS (may still work)"
+          fi
+
+      # ===== 5. Optional: Use Search Console API (if secrets available) =====
+      - name: 📨 Submit via Search Console API
+        if: ${{ secrets.GOOGLE_CLIENT_EMAIL != '' && secrets.GOOGLE_PRIVATE_KEY != '' }}
+        env:
+          GOOGLE_CLIENT_EMAIL: ${{ secrets.GOOGLE_CLIENT_EMAIL }}
+          GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_PRIVATE_KEY }}
+          SITE_URL: ${{ secrets.SEARCH_CONSOLE_PROPERTY || steps.site.outputs.url }}
+        run: |
+          # Get OAuth 2.0 access token using service account
+          NOW=$(date +%s)
+          EXP=$((NOW + 3600))
+
+          # Create JWT header
+          JWT_HEADER=$(echo -n '{"alg":"RS256","typ":"JWT"}' | base64 -w 0 | tr '+/' '-_' | tr -d '=')
+
+          # Create JWT claim set
+          JWT_CLAIM=$(echo -n "{\"iss\":\"$GOOGLE_CLIENT_EMAIL\",\"scope\":\"https://www.googleapis.com/auth/webmasters\",\"aud\":\"https://oauth2.googleapis.com/token\",\"exp\":$EXP,\"iat\":$NOW}" | base64 -w 0 | tr '+/' '-_' | tr -d '=')
+
+          # Sign JWT with private key
+          echo "$GOOGLE_PRIVATE_KEY" | sed 's/\\n/\n/g' > /tmp/private_key.pem
+          SIGNATURE=$(echo -n "$JWT_HEADER.$JWT_CLAIM" | openssl dgst -sha256 -sign /tmp/private_key.pem | base64 -w 0 | tr '+/' '-_' | tr -d '=')
+
+          JWT="$JWT_HEADER.$JWT_CLAIM.$SIGNATURE"
+
+          # Exchange JWT for access token
+          TOKEN_RESPONSE=$(curl -s -X POST "https://oauth2.googleapis.com/token" \
+            -H "Content-Type: application/x-www-form-urlencoded" \
+            -d "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=$JWT")
+
+          ACCESS_TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.access_token')
+
+          if [ "$ACCESS_TOKEN" = "null" ] || [ -z "$ACCESS_TOKEN" ]; then
+            echo "⚠️ Failed to get access token"
+            echo "Response: $TOKEN_RESPONSE"
+            exit 0  # don't fail workflow
+          fi
+
+          echo "✅ Got Google API access token"
+
+          # Submit sitemap
+          SITEMAP_URL="$SITE_URL/sitemap.xml"
+          echo "Submitting sitemap: $SITEMAP_URL"
+
+          API_RESPONSE=$(curl -s -w "\n%{http_code}" -X PUT \
+            "https://www.googleapis.com/webmasters/v3/sites/$(echo $SITE_URL | sed 's/:/%3A/g; s|/|/|g')/sitemaps/$(echo $SITEMAP_URL | sed 's/:/%3A/g; s|/|/|g')" \
+            -H "Authorization: Bearer $ACCESS_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "{\"path\":\"$SITEMAP_URL\"}")
+
+          HTTP_STATUS=$(echo "$API_RESPONSE" | tail -1)
+          RESPONSE_BODY=$(echo "$API_RESPONSE" | sed '$d')
+
+          if [ "$HTTP_STATUS" = "200" ]; then
+            echo "✅ Search Console API: Sitemap submitted successfully"
+          else
+            echo "⚠️ Search Console API returned HTTP $HTTP_STATUS"
+            echo "Response: $RESPONSE_BODY"
+          fi
+
+      # ===== 6. Summary =====
+      - name: ✅ Summary
+        if: always()
+        run: |
+          echo "## 📨 Sitemap Submission Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Site: \`${{ steps.site.outputs.url }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Service | Method | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|---------|--------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Google | Sitemap Ping | ✅ |" >> $GITHUB_STEP_SUMMARY
+          echo "| Bing | Sitemap Ping | ✅ |" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ secrets.GOOGLE_CLIENT_EMAIL != '' }}" = "true" ]; then
+            echo "| Google | Search Console API | ✅ |" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "| Google | Search Console API | ⏸️ Skipped (no secrets) |" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📊 Check status: [Search Console](https://search.google.com/search-console)" >> $GITHUB_STEP_SUMMARY

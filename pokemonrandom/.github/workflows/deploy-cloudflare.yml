@@ -1,0 +1,151 @@
+# ====================================================================
+# Pokemon Random — Deploy to Cloudflare Pages
+# ====================================================================
+# This workflow builds and deploys the Next.js app to Cloudflare Pages
+# every time you push to the `main` branch (production) or open a PR
+# (creates a preview deployment).
+#
+# REQUIRED GITHUB SECRETS (Settings → Secrets and variables → Actions):
+#   CLOUDFLARE_API_TOKEN     — Cloudflare API token with Pages permissions
+#   CLOUDFLARE_ACCOUNT_ID    — Your Cloudflare Account ID
+#
+# OPTIONAL GITHUB SECRETS (for env vars at build time):
+#   NEXT_PUBLIC_SITE_URL     — e.g. https://pokemonrandom.com
+#   ADMIN_PASSWORD           — Admin dashboard password
+#   NEXT_PUBLIC_GA_ID        — Google Analytics 4 ID
+#   NEXT_PUBLIC_ADSENSE_CLIENT — AdSense publisher ID
+#   NEXT_PUBLIC_AD_SLOT_HEADER — AdSense slot ID for header
+#   NEXT_PUBLIC_AD_SLOT_INCONTENT — AdSense slot for in-content
+#   NEXT_PUBLIC_AD_SLOT_SIDEBAR — AdSense slot for sidebar
+#   NEXT_PUBLIC_AD_SLOT_FOOTER — AdSense slot for footer
+#   NEXT_PUBLIC_AD_SLOT_MOBILE — AdSense slot for mobile
+#   NEXT_PUBLIC_SEARCH_CONSOLE — Search Console verification token
+#
+# HOW TO GET THE CLOUDFLARE SECRETS:
+#   1. CLOUDFLARE_API_TOKEN:
+#      - Go to https://dash.cloudflare.com/profile/api-tokens
+#      - Click "Create Token"
+#      - Use the "Edit Cloudflare Workers" template (or create custom)
+#      - Permissions: Account → Cloudflare Pages → Edit
+#      - Copy the token, add it as a GitHub Secret
+#
+#   2. CLOUDFLARE_ACCOUNT_ID:
+#      - In Cloudflare dashboard, look at the URL or right sidebar
+#      - Or: dash.cloudflare.com → Workers & Pages → your project → Settings
+#      - Copy Account ID, add it as a GitHub Secret
+# ====================================================================
+
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  # Allow manual trigger from the Actions tab
+  workflow_dispatch:
+
+# Cancel in-progress deployments when a new push comes in
+concurrency:
+  group: cloudflare-pages-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      # ===== 1. Checkout code =====
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # ===== 2. Setup Bun (faster than npm) =====
+      - name: 🅱️ Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      # ===== 3. Setup Node.js (fallback for some build tools) =====
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: bun
+
+      # ===== 4. Install dependencies =====
+      - name: 📥 Install dependencies
+        run: bun install --frozen-lockfile
+
+      # ===== 5. Run lint check =====
+      - name: 🔍 Lint check
+        run: bun run lint
+        continue-on-error: true # don't fail deployment for lint warnings
+
+      # ===== 6. Build with @cloudflare/next-on-pages =====
+      - name: 🔨 Build for Cloudflare Pages
+        run: npx @cloudflare/next-on-pages@1
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL || 'https://pokemonrandom.com' }}
+          NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
+          NEXT_PUBLIC_ADSENSE_CLIENT: ${{ secrets.NEXT_PUBLIC_ADSENSE_CLIENT }}
+          NEXT_PUBLIC_AD_SLOT_HEADER: ${{ secrets.NEXT_PUBLIC_AD_SLOT_HEADER }}
+          NEXT_PUBLIC_AD_SLOT_INCONTENT: ${{ secrets.NEXT_PUBLIC_AD_SLOT_INCONTENT }}
+          NEXT_PUBLIC_AD_SLOT_SIDEBAR: ${{ secrets.NEXT_PUBLIC_AD_SLOT_SIDEBAR }}
+          NEXT_PUBLIC_AD_SLOT_FOOTER: ${{ secrets.NEXT_PUBLIC_AD_SLOT_FOOTER }}
+          NEXT_PUBLIC_AD_SLOT_MOBILE: ${{ secrets.NEXT_PUBLIC_AD_SLOT_MOBILE }}
+          NEXT_PUBLIC_SEARCH_CONSOLE: ${{ secrets.NEXT_PUBLIC_SEARCH_CONSOLE }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+
+      # ===== 7. Create .node-version for Cloudflare Pages =====
+      - name: 📝 Create Node version file
+        run: echo "20" > .vercel/output/static/.node-version
+
+      # ===== 8. Deploy to Cloudflare Pages =====
+      - name: 🚀 Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: pokemonrandom
+          directory: .vercel/output/static
+          # Production branch (only push to main = production)
+          branch: ${{ github.head_ref || github.ref_name }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      # ===== 9. Output deployment URL =====
+      - name: ✅ Deployment Summary
+        if: always()
+        run: |
+          echo "## 🚀 Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ job.status }}" = "success" ]; then
+            echo "✅ **Status:** Successfully deployed!" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "🔗 **Production URL:** https://pokemonrandom.pages.dev" >> $GITHUB_STEP_SUMMARY
+            echo "🔗 **Custom Domain:** https://pokemonrandom.com (if configured)" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "📊 **Next Steps:**" >> $GITHUB_STEP_SUMMARY
+            echo "1. Test the deployment URL" >> $GITHUB_STEP_SUMMARY
+            echo "2. Check Cloudflare dashboard for analytics" >> $GITHUB_STEP_SUMMARY
+            echo "3. Submit sitemap to Google Search Console" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Status:** Deployment failed" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Check the logs above for error details." >> $GITHUB_STEP_SUMMARY
+          fi
+
+      # ===== 10. Send Slack/Discord notifications =====
+      - name: 📢 Send Notifications
+        if: always()
+        uses: ./.github/workflows/notify.yml
+        with:
+          status: ${{ job.status }}
+          environment: ${{ github.event_name == 'pull_request' && 'preview' || 'production' }}
+          site-url: ${{ secrets.NEXT_PUBLIC_SITE_URL || 'https://pokemonrandom.pages.dev' }}
+        secrets: inherit

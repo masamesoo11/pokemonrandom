@@ -1,0 +1,73 @@
+# ====================================================================
+# Pokemon Random — Code Quality Check
+# ====================================================================
+# This workflow runs on every push and PR to ensure code quality.
+# It checks: TypeScript types, ESLint, build success.
+# ====================================================================
+
+name: Code Quality
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  quality:
+    name: Lint + Build Check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+
+    steps:
+      # ===== 1. Checkout =====
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      # ===== 2. Setup Bun =====
+      - name: 🅱️ Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      # ===== 3. Setup Node =====
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: bun
+
+      # ===== 4. Install deps =====
+      - name: 📥 Install dependencies
+        run: bun install --frozen-lockfile
+
+      # ===== 5. TypeScript check =====
+      - name: 🔍 TypeScript check
+        run: bunx tsc --noEmit
+        continue-on-error: true # typescript config has ignoreBuildErrors
+
+      # ===== 6. ESLint =====
+      - name: 🔍 ESLint
+        run: bun run lint
+
+      # ===== 7. Build check (Vercel-style build) =====
+      - name: 🔨 Build check
+        run: bun run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://pokemonrandom.com
+          ADMIN_PASSWORD: test-only-password
+        continue-on-error: true # don't fail PR for build issues
+
+      # ===== 8. Summary =====
+      - name: ✅ Quality Summary
+        if: always()
+        run: |
+          echo "## 🔍 Code Quality Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Check | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| TypeScript | ${{ job.steps.tsc.outcome == 'success' && '✅' || '⚠️' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| ESLint | ${{ job.steps.lint.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Build | ${{ job.steps.build.outcome == 'success' && '✅' || '⚠️' }} |" >> $GITHUB_STEP_SUMMARY

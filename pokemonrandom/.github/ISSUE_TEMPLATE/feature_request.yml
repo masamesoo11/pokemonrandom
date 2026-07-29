@@ -1,0 +1,75 @@
+---
+name: ✨ Feature Request
+about: Suggest a new feature or improvement for Pokemon Random
+title: "[FEATURE] "
+labels: ["enhancement", "triage"]
+assignees: []
+---
+
+## ✨ Feature Description
+
+<!-- A clear and concise description of the feature you'd like to see. -->
+
+## 🎯 Problem or Use Case
+
+<!-- What problem does this feature solve? Or what use case does it address? -->
+
+## 💡 Proposed Solution
+
+<!-- Describe the solution you'd like. Be as specific as possible. -->
+
+## 🎨 Mockup or Example
+
+<!-- If you have a mockup, screenshot, or example from another site, paste it here. -->
+
+## 🔄 Alternatives Considered
+
+<!-- Have you considered any alternative solutions? -->
+
+## 📊 Tool Affected
+
+<!-- Which tool should this feature be added to? -->
+
+- [ ] 🎲 Random Pokemon Generator
+- [ ] ⚔️ Team Builder
+- [ ] 🎡 Type Wheel Spinner
+- [ ] 🎮 Guess That Pokemon
+- [ ] 🎚️ Pokemon Randomizer
+- [ ] 🆚 Pokemon Comparison
+- [ ] 📊 Type Effectiveness Chart
+- [ ] ⭐ Pokemon of the Day
+- [ ] 📄 New page (specify below)
+- [ ] 🔐 Admin Dashboard
+- [ ] 🌓 Theme/UI
+- [ ] 📱 Mobile experience
+- [ ] 🔍 SEO improvement
+- [ ] Other: <!-- specify -->
+
+## 🎯 Audience
+
+<!-- Who would benefit from this feature? -->
+
+- [ ] All users
+- [ ] Competitive players
+- [ ] Content creators
+- [ ] Nuzlocke players
+- [ ] Casual fans
+- [ ] Developers
+
+## ⭐ Priority
+
+<!-- How important is this feature to you? -->
+
+- [ ] 🟢 Nice to have
+- [ ] 🟡 Would be very useful
+- [ ] 🔴 Critical for my use case
+
+## 💡 Additional Context
+
+<!-- Add any other context or screenshots about the feature request here. -->
+
+## ✅ Checklist
+
+- [ ] I have searched existing issues to ensure this is not a duplicate
+- [ ] I have clearly described the feature and its use case
+- [ ] I have indicated which tool this applies to

@@ -1,0 +1,90 @@
+---
+name: 🎮 New Pokemon Tool Suggestion
+about: Suggest a new Pokemon tool or game to add to Pokemon Random
+title: "[TOOL] "
+labels: ["enhancement", "new-tool", "triage"]
+assignees: []
+---
+
+## 🎮 Tool Name
+
+<!-- What should this tool be called? e.g. "Pokemon Type Calculator" -->
+
+## 📝 Description
+
+<!-- Describe the tool in detail. What does it do? How does it work? -->
+
+## 🎯 Use Case
+
+<!-- When would someone use this tool? What problem does it solve? -->
+
+## 🛠️ How It Would Work (User Flow)
+
+1. User does X
+2. Tool does Y
+3. User sees Z
+
+## 🎨 Mockup / Sketch
+
+<!-- If you have a mockup or wireframe, paste it here. Even ASCII art helps! -->
+
+```
+Sketch your idea here (ASCII art welcome)
+```
+
+## 📊 Similar Tools (Reference)
+
+<!-- Are there similar tools on other sites? Link them so we can study them. -->
+
+- [Example tool 1](https://example.com)
+- [Example tool 2](https://example.com)
+
+## 🔌 Data Source
+
+<!-- What data does this tool need? PokeAPI has:
+- Pokemon (sprites, stats, types, abilities, moves, cries)
+- Types (effectiveness chart)
+- Moves (power, accuracy, type, effect)
+- Items
+- Locations
+- Evolution chains
+- Species (flavor text, generation, habitat)
+-->
+
+- [ ] Pokemon data (sprites, stats, types)
+- [ ] Move data
+- [ ] Item data
+- [ ] Type effectiveness
+- [ ] Evolution data
+- [ ] Location data
+- [ ] Other: <!-- specify -->
+
+## 🎯 Target Audience
+
+<!-- Who would use this tool? -->
+
+- [ ] Competitive players (VGC, Smogon)
+- [ ] Nuzlocke players
+- [ ] Content creators
+- [ ] Casual fans
+- [ ] Shiny hunters
+- [ ] Pokemon collectors
+- [ ] ROM hackers
+- [ ] Other: <!-- specify -->
+
+## ⭐ Priority
+
+- [ ] 🟢 Nice to have
+- [ ] 🟡 Would be very useful
+- [ ] 🔴 Critical — I need this now!
+
+## 💡 Inspiration
+
+<!-- What gave you this idea? (Another site, a game feature, etc.) -->
+
+## ✅ Checklist
+
+- [ ] I have searched existing issues to ensure this is not a duplicate
+- [ ] I have clearly described the tool and its use case
+- [ ] I have indicated the data source needed
+- [ ] I have provided a user flow example
