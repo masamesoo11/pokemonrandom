@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "SMXXyz7buu1ktZzAipTe6"
+uri = "file://pokemonrandom-github.zip"
+type = "unspecified"
+title = "PokéRandom — ملفات المشروع للرفع"
