@@ -39,8 +39,8 @@ export const metadata: Metadata = {
       "Free Pokémon tools: random generator, team builder, shiny checker, type chart, quiz, and complete Pokédex with all 1,025 Pokémon. No signup required.",
     url: "https://pokemonrandom.com/",
     type: "website",
-    publishedTime: "2026-07-31T00:00:00+00:00",
-    modifiedTime: "2026-08-22T00:00:00+00:00",
+    
+    
     siteName: "Pokémon Random",
   },
   twitter: {
