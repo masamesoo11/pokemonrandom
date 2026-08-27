@@ -131,7 +131,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
-      </head>
+            <meta property="og:image" content="https://pokemonrandom.com/og-image.png" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:image" content="https://pokemonrandom.com/og-image.png" />
+    </head>
       <body
         className={`${geistSans.variable} antialiased bg-background text-foreground`}
       >
