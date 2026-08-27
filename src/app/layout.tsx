@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     locale: siteConfig.locale,
     images: [
       {
-        url: "/og-image.png",
+        url: "https://pokemonrandom.com/og-image.png",
         width: 1200,
         height: 630,
         alt: siteConfig.title,
@@ -53,6 +53,7 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
+    images: ["https://pokemonrandom.com/og-image.png"],
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
