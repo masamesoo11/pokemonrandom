@@ -43,9 +43,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     type: "website",
     locale: siteConfig.locale,
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: siteConfig.name }],
-    // original
-    old_images: [
+    images: [
       {
         url: "/og-image.png",
         width: 1200,
@@ -59,9 +57,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     creator: siteConfig.twitter,
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: siteConfig.name }],
-    // original
-    old_images: ["/og-image.png"],
+    images: ["/og-image.png"],
   },
   manifest: "/manifest.json",
   icons: {
