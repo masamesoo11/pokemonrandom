@@ -53,12 +53,11 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    images: ["https://pokemonrandom.com/og-image.png"],
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
     creator: siteConfig.twitter,
-    images: [{ url: "https://pokemonrandom.com/og-image.png", width: 1200, height: 630, alt: "Pokemon Random - Free Pokemon Tools" }],
+    images: ["https://pokemonrandom.com/og-image.png"],
   },
   manifest: "/manifest.json",
   icons: {
