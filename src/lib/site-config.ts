@@ -21,14 +21,15 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://pokemonrandom.com",
   locale: "en_US",
   twitter: "@pokemonrandom",
-  // Analytics
+  // Analytics — set via env var (NEXT_PUBLIC_GA_ID=G-GJ6BBMYYTF)
   gaId: process.env.NEXT_PUBLIC_GA_ID ?? "",
   // AdSense
   adsenseClient: process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "",
-  // Search Console verification token (goes into <meta name="google-site-verification">)
-  searchConsoleToken: process.env.NEXT_PUBLIC_SEARCH_CONSOLE ?? "",
+  // Search Console verification token
+  searchConsoleToken:
+    process.env.NEXT_PUBLIC_SEARCH_CONSOLE ?? "",
   // Admin
-  adminPassword: process.env.ADMIN_PASSWORD ?? "admin123",
+  adminPassword: process.env.ADMIN_PASSWORD ?? "",
 };
 
 /**

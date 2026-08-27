@@ -106,12 +106,7 @@ const structuredData = {
     price: "0",
     priceCurrency: "USD",
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.8",
-    ratingCount: "2847",
-  },
-  publisher: {
+    publisher: {
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
@@ -145,6 +140,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         <AdSenseLoader />
         <CookieConsentBanner />
+      <script src="/ads-injector.js" defer></script>
       </body>
     </html>
   );

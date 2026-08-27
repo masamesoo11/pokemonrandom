@@ -1,9 +1,10 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
-  // "standalone" works for Vercel and Docker. For Cloudflare Pages use "export" mode.
-  // We keep "standalone" as default; the deployment platform chooses the right adapter.
-  output: "standalone",
+  // Use static export for Cloudflare Pages (no SSR needed — all pages are SSG).
+  // Output goes to `out/` directory which we then deploy directly.
+  output: "export",
   // Disable image optimization - Cloudflare Pages doesn't support next/image optimization,
   // and our Pokemon sprites come from external CDN anyway.
   images: {
@@ -11,11 +12,20 @@ const nextConfig: NextConfig = {
   },
   // TypeScript settings
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
-  reactStrictMode: false,
-  // Ensure trailing slashes are consistent (better for SEO)
-  trailingSlash: false,
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
+  reactStrictMode: true,
+  // Use webpack instead of turbopack
+  webpack: (config) => { config.cache = false; return config; },
+  // Ensure trailing slashes are consistent (better for SEO + matches existing site URLs)
+  trailingSlash: true,
+  // Pin workspace root to this project (avoid /home/z/my-project/package-lock.json conflict)
+  turbopack: {
+    root: path.resolve(__dirname),
+  },
 };
 
 export default nextConfig;

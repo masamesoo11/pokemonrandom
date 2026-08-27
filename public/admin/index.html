@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin Dashboard — Pokemon Random</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f0a07; color: #f5f5f5; line-height: 1.6; min-height: 100vh; }
+    .login-screen { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; background: linear-gradient(135deg, #1a1a2e 0%, #0f0a07 100%); }
+    .login-card { background: #1a1a2e; border: 2px solid #fbbf24; border-radius: 16px; padding: 40px; max-width: 400px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+    .login-card h1 { text-align: center; font-size: 24px; margin-bottom: 8px; color: #fbbf24; }
+    .login-card p { text-align: center; color: #888; font-size: 14px; margin-bottom: 24px; }
+    .login-card input { width: 100%; padding: 12px 16px; background: #0f0a07; border: 1px solid #333; border-radius: 8px; color: #fff; font-size: 16px; margin-bottom: 16px; }
+    .login-card input:focus { outline: none; border-color: #fbbf24; }
+    .login-card button { width: 100%; padding: 12px; background: #f59e0b; color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; transition: all 0.2s; }
+    .login-card button:hover { background: #fbbf24; transform: translateY(-1px); }
+    .login-card .error { color: #ef4444; font-size: 14px; text-align: center; margin-top: 12px; min-height: 20px; }
+    .login-card .back { text-align: center; margin-top: 20px; }
+    .login-card .back a { color: #888; text-decoration: none; font-size: 13px; }
+    .dashboard { display: none; max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
+    .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #333; }
+    .header h1 { font-size: 28px; color: #fbbf24; }
+    .header .actions { display: flex; gap: 12px; }
+    .btn { padding: 10px 20px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 14px; }
+    .btn-primary { background: #f59e0b; color: #000; }
+    .btn-primary:hover { background: #fbbf24; }
+    .btn-secondary { background: #333; color: #fff; }
+    .btn-secondary:hover { background: #444; }
+    .btn-danger { background: #ef4444; color: #fff; }
+    .btn-danger:hover { background: #dc2626; }
+    .btn-sm { padding: 6px 12px; font-size: 13px; }
+    .card { background: #1a1a2e; border: 1px solid #333; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+    .card h2 { font-size: 18px; margin-bottom: 16px; color: #fbbf24; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; color: #888; margin-bottom: 6px; font-weight: 600; }
+    .form-group input { width: 100%; padding: 10px 14px; background: #0f0a07; border: 1px solid #333; border-radius: 6px; color: #fff; font-size: 14px; font-family: monospace; }
+    .form-group input:focus { outline: none; border-color: #f59e0b; }
+    .form-group .hint { font-size: 12px; color: #666; margin-top: 4px; }
+    .ad-card { background: #0f0a07; border: 1px solid #333; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+    .ad-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .ad-card-header .ad-name { font-weight: 700; font-size: 16px; }
+    .ad-card-header .ad-desc { font-size: 12px; color: #888; margin-top: 2px; }
+    .ad-toggle { position: relative; width: 50px; height: 26px; cursor: pointer; flex-shrink: 0; }
+    .ad-toggle input { opacity: 0; width: 0; height: 0; }
+    .ad-toggle .slider { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #444; border-radius: 26px; transition: 0.3s; }
+    .ad-toggle .slider:before { content: ""; position: absolute; height: 20px; width: 20px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: 0.3s; }
+    .ad-toggle input:checked + .slider { background: #10b981; }
+    .ad-toggle input:checked + .slider:before { transform: translateX(24px); }
+    .ad-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .ad-fields.full { grid-template-columns: 1fr; }
+    .ad-fields label { font-size: 12px; color: #888; display: block; margin-bottom: 4px; font-weight: 600; }
+    .ad-fields input { width: 100%; padding: 8px 12px; background: #1a1a2e; border: 1px solid #444; border-radius: 6px; color: #fff; font-size: 13px; font-family: monospace; }
+    .ad-fields textarea { width: 100%; min-height: 100px; padding: 10px 12px; background: #1a1a2e; border: 1px solid #444; border-radius: 6px; color: #fff; font-size: 12px; font-family: monospace; resize: vertical; }
+    .ad-fields textarea:focus, .ad-fields input:focus { outline: none; border-color: #f59e0b; }
+    .tabs { display: flex; gap: 4px; margin-bottom: 12px; border-bottom: 1px solid #333; }
+    .tab { padding: 8px 16px; cursor: pointer; font-size: 13px; color: #888; border-bottom: 2px solid transparent; transition: all 0.2s; }
+    .tab.active { color: #fbbf24; border-bottom-color: #fbbf24; }
+    .tab:hover { color: #f5f5f5; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .toast { position: fixed; bottom: 20px; right: 20px; padding: 16px 24px; background: #10b981; color: #fff; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transform: translateX(400px); transition: transform 0.3s; z-index: 1000; }
+    .toast.show { transform: translateX(0); }
+    .toast.error { background: #ef4444; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-bottom: 20px; }
+    .stat-card { background: #1a1a2e; border: 1px solid #333; border-radius: 12px; padding: 20px; text-align: center; }
+    .stat-card .stat-value { font-size: 32px; font-weight: 800; color: #fbbf24; }
+    .stat-card .stat-label { font-size: 12px; color: #888; margin-top: 4px; }
+    @media (max-width: 640px) { .ad-fields { grid-template-columns: 1fr; } .header { flex-direction: column; gap: 12px; } }
+  </style>
+</head>
+<body>
+
+<div id="loginScreen" class="login-screen">
+  <div class="login-card">
+    <h1>Admin Dashboard</h1>
+    <p>Pokemon Random — Ads & Settings</p>
+    <input type="password" id="passwordInput" placeholder="Enter admin password" autofocus />
+    <button onclick="login()">Login</button>
+    <div id="loginError" class="error"></div>
+    <div class="back"><a href="/">Back to site</a></div>
+  </div>
+</div>
+
+<div id="dashboard" class="dashboard">
+  <div class="header">
+    <h1>Admin Dashboard</h1>
+    <div class="actions">
+      <button class="btn btn-primary" onclick="saveAll()">Save Changes</button>
+      <button class="btn btn-secondary" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card"><div class="stat-value" id="statAdsEnabled">0/5</div><div class="stat-label">Ads Enabled</div></div>
+    <div class="stat-card"><div class="stat-value" id="statCustom">0</div><div class="stat-label">Custom Codes</div></div>
+    <div class="stat-card"><div class="stat-value" id="statAdSense">No</div><div class="stat-label">AdSense</div></div>
+    <div class="stat-card"><div class="stat-value" id="statLastUpdate">—</div><div class="stat-label">Last Updated</div></div>
+  </div>
+
+  <div class="card">
+    <h2>General Settings</h2>
+    <div class="form-group">
+      <label>Google AdSense Client ID (optional)</label>
+      <input type="text" id="adsenseClient" placeholder="ca-pub-XXXXXXXXXXXXXXXX" />
+      <div class="hint">Only needed if using AdSense. Leave empty for custom codes only.</div>
+    </div>
+    <div class="form-group">
+      <label>Google Analytics 4 ID</label>
+      <input type="text" id="gaId" placeholder="G-XXXXXXXXXX" />
+    </div>
+    <div class="form-group">
+      <label>Admin Password</label>
+      <input type="text" id="adminPassword" placeholder="Leave empty to keep current" />
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Ad Slots — 5 Positions</h2>
+    <div class="hint" style="margin-bottom: 16px;">
+      Each slot has two modes: <strong>AdSense</strong> (Slot ID) or <strong>Custom Code</strong> (any ad network HTML/JS).
+    </div>
+    <div id="adSlotsContainer"></div>
+  </div>
+
+  <div class="card" style="border-color: #ef4444;">
+    <h2 style="color: #ef4444;">Danger Zone</h2>
+    <button class="btn btn-danger btn-sm" onclick="resetSettings()">Reset All to Defaults</button>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+const API_BASE = "https://poke-admin-api.sodanefs.workers.dev";
+const AD_SLOTS = [
+  { name: "headerBanner", label: "Header Banner", desc: "728x90 above the fold" },
+  { name: "inContent", label: "In-Content", desc: "Between content sections" },
+  { name: "sidebar", label: "Sidebar", desc: "300x250 rectangle" },
+  { name: "footer", label: "Footer", desc: "Bottom of page" },
+  { name: "mobileAnchor", label: "Mobile Anchor", desc: "320x50 sticky on mobile" },
+];
+
+let currentConfig = null;
+let sessionAuth = sessionStorage.getItem("poke_admin_auth");
+const RL_KEY = "poke_admin_rl";
+
+function checkRateLimit() {
+  const data = JSON.parse(sessionStorage.getItem(RL_KEY) || '{"attempts":0,"lockUntil":0}');
+  if (data.lockUntil > Date.now()) {
+    const mins = Math.ceil((data.lockUntil - Date.now()) / 60000);
+    return { blocked: true, msg: "Too many attempts. Try again in " + mins + " min." };
+  }
+  return { blocked: false, data };
+}
+function recordFailedAttempt() {
+  const data = JSON.parse(sessionStorage.getItem(RL_KEY) || '{"attempts":0,"lockUntil":0}');
+  data.attempts++;
+  if (data.attempts >= 5) { data.lockUntil = Date.now() + 900000; data.attempts = 0; }
+  sessionStorage.setItem(RL_KEY, JSON.stringify(data));
+  return data;
+}
+function resetRateLimit() { sessionStorage.setItem(RL_KEY, JSON.stringify({ attempts: 0, lockUntil: 0 })); }
+
+function login() {
+  const rl = checkRateLimit();
+  if (rl.blocked) { document.getElementById("loginError").textContent = rl.msg; return; }
+  const password = document.getElementById("passwordInput").value;
+  fetch(`${API_BASE}/ads_config`)
+  .then(r => { if (!r.ok) throw new Error("Failed"); return r.json(); })
+  .then(config => {
+    if (password === config.adminPassword) {
+      sessionStorage.setItem("poke_admin_auth", "true");
+      resetRateLimit();
+      currentConfig = config;
+      showDashboard();
+    } else {
+      const data = recordFailedAttempt();
+      const remaining = 5 - data.attempts;
+      document.getElementById("loginError").textContent = remaining > 0
+        ? "Wrong password. " + remaining + " attempts left."
+        : "Locked. Try again in 15 min.";
+    }
+  })
+  .catch(err => document.getElementById("loginError").textContent = "Error: " + err.message);
+}
+
+function logout() {
+  sessionStorage.removeItem("poke_admin_auth");
+  document.getElementById("dashboard").style.display = "none";
+  document.getElementById("loginScreen").style.display = "flex";
+  document.getElementById("passwordInput").value = "";
+}
+
+function showDashboard() {
+  document.getElementById("loginScreen").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
+  loadConfig();
+}
+
+function loadConfig() {
+  if (currentConfig) { renderAdSlots(currentConfig); populateForm(currentConfig); return; }
+  fetch(`${API_BASE}/ads_config`)
+  .then(r => r.json())
+  .then(config => { currentConfig = config; renderAdSlots(config); populateForm(config); })
+  .catch(err => showToast("Error: " + err.message, true));
+}
+
+function escapeHtml(text) {
+  const div = document.createElement("div");
+  div.textContent = text || "";
+  return div.innerHTML;
+}
+
+function renderAdSlots(config) {
+  const container = document.getElementById("adSlotsContainer");
+  container.innerHTML = "";
+  AD_SLOTS.forEach(slot => {
+    const ad = (config.ads || {})[slot.name] || {};
+    const card = document.createElement("div");
+    card.className = "ad-card";
+    const escapedCode = escapeHtml(ad.customCode || "");
+    card.innerHTML = `
+      <div class="ad-card-header">
+        <div>
+          <div class="ad-name">${slot.label}</div>
+          <div class="ad-desc">${slot.desc}</div>
+        </div>
+        <label class="ad-toggle">
+          <input type="checkbox" id="ad_${slot.name}_enabled" ${ad.enabled ? "checked" : ""} />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="tabs">
+        <div class="tab active" onclick="switchTab(this, '${slot.name}', 'adsense')">AdSense</div>
+        <div class="tab" onclick="switchTab(this, '${slot.name}', 'custom')">Custom Code</div>
+      </div>
+      <div class="tab-content active" id="tab_${slot.name}_adsense">
+        <div class="ad-fields">
+          <div>
+            <label>AdSense Slot ID</label>
+            <input type="text" id="ad_${slot.name}_slotId" value="${escapeHtml(ad.slotId || "")}" placeholder="e.g., 1234567890" />
+          </div>
+          <div>
+            <label>Ad Format</label>
+            <input type="text" id="ad_${slot.name}_format" value="${escapeHtml(ad.format || "auto")}" placeholder="auto" />
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="tab_${slot.name}_custom">
+        <div class="ad-fields full">
+          <div>
+            <label>Custom Ad Code (HTML/JS — any ad network)</label>
+            <textarea id="ad_${slot.name}_customCode" placeholder="Paste your ad code here...">${escapedCode}</textarea>
+          </div>
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function switchTab(tabEl, slotName, tabType) {
+  const card = tabEl.closest(".ad-card");
+  card.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  card.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+  tabEl.classList.add("active");
+  document.getElementById("tab_" + slotName + "_" + tabType).classList.add("active");
+}
+
+function populateForm(config) {
+  document.getElementById("adsenseClient").value = config.adsenseClient || "";
+  document.getElementById("gaId").value = config.gaId || "";
+  document.getElementById("adminPassword").value = "";
+  let enabledCount = 0;
+  let customCount = 0;
+  AD_SLOTS.forEach(slot => {
+    const ad = (config.ads || {})[slot.name] || {};
+    if (ad.enabled) enabledCount++;
+    if (ad.customCode && ad.customCode.trim()) customCount++;
+  });
+  document.getElementById("statAdsEnabled").textContent = enabledCount + "/5";
+  document.getElementById("statCustom").textContent = customCount;
+  document.getElementById("statAdSense").textContent = config.adsenseClient ? "Yes" : "No";
+  document.getElementById("statLastUpdate").textContent = config.updatedAt
+    ? new Date(config.updatedAt).toLocaleDateString() : "—";
+}
+
+function collectConfig() {
+  const ads = {};
+  AD_SLOTS.forEach(slot => {
+    ads[slot.name] = {
+      enabled: document.getElementById("ad_" + slot.name + "_enabled").checked,
+      slotId: (document.getElementById("ad_" + slot.name + "_slotId").value || "").trim(),
+      format: (document.getElementById("ad_" + slot.name + "_format").value || "auto").trim(),
+      customCode: (document.getElementById("ad_" + slot.name + "_customCode").value || "").trim(),
+    };
+  });
+  const newPassword = document.getElementById("adminPassword").value.trim();
+  return {
+    adsenseClient: document.getElementById("adsenseClient").value.trim(),
+    gaId: document.getElementById("gaId").value.trim(),
+    searchConsoleToken: currentConfig.searchConsoleToken || "",
+    adminPassword: newPassword || currentConfig.adminPassword,
+    ads: ads,
+    updatedAt: new Date().toISOString()
+  };
+}
+
+function saveAll() {
+  const config = collectConfig();
+  fetch(`${API_BASE}/ads_config`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(config)
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.success) {
+      currentConfig = config;
+      populateForm(config);
+      showToast("Settings saved! Ads will appear on site.");
+    } else {
+      showToast("Failed to save", true);
+    }
+  })
+  .catch(err => showToast("Error: " + err.message, true));
+}
+
+function resetSettings() {
+  if (!confirm("Reset all settings?")) return;
+  const defaultConfig = {
+    adsenseClient: "", gaId: "G-GJ6BBMYYTF",
+    searchConsoleToken: currentConfig.searchConsoleToken,
+    ads: {},
+    adminPassword: currentConfig.adminPassword,
+    updatedAt: new Date().toISOString()
+  };
+  AD_SLOTS.forEach(slot => {
+    defaultConfig.ads[slot.name] = { enabled: false, slotId: "", format: "auto", customCode: "" };
+  });
+  fetch(`${API_BASE}/ads_config`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(defaultConfig)
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.success) { currentConfig = defaultConfig; renderAdSlots(defaultConfig); populateForm(defaultConfig); showToast("Reset done!"); }
+    else showToast("Reset failed", true);
+  });
+}
+
+function showToast(msg, isError) {
+  const toast = document.getElementById("toast");
+  toast.textContent = msg;
+  toast.className = "toast show" + (isError ? " error" : "");
+  setTimeout(() => toast.className = "toast", 4000);
+}
+
+document.getElementById("passwordInput").addEventListener("keypress", e => { if (e.key === "Enter") login(); });
+if (sessionAuth === "true") showDashboard();
+</script>
+</body>
+</html>
