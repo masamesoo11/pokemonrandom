@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     creator: siteConfig.twitter,
-    images: ["/og-image.png"],
+    images: [{ url: "https://pokemonrandom.com/og-image.png", width: 1200, height: 630, alt: "Pokemon Random - Free Pokemon Tools" }],
   },
   manifest: "/manifest.json",
   icons: {
