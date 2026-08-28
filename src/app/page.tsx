@@ -399,6 +399,102 @@ export default function Home() {
             <Link href="/moves/">moves database</Link> with 920+ moves. For ability research,
             explore our <Link href="/abilities/">abilities database</Link> with 298+ abilities.
           </p>
+
+          <h3>Why Use Pokémon Random?</h3>
+          <p>
+            There are many Pokémon websites on the internet, but Pokémon Random stands out because
+            of its simplicity, speed, and focus on the tools that matter most to fans. Every tool
+            here loads instantly on desktop and mobile devices, with no popups, no login walls, and
+            no intrusive ads blocking the content. We use the official PokéAPI for all data, which
+            means the stats, abilities, types, and sprites you see are accurate and match the
+            information in the mainline Pokémon games. Whether you are playing through a Nuzlocke
+            challenge in Pokémon FireRed, building a competitive team for Pokémon Showdown, or just
+            killing time by spinning our type wheel, our tools are designed to get out of your way
+            and let you focus on having fun with Pokémon.
+          </p>
+
+          <h3>All 1,025 Pokémon Across Nine Generations</h3>
+          <p>
+            The Pokémon franchise began in 1996 with Generation 1 (Kanto) and 151 Pokémon. Since
+            then, eight more generations have been released, expanding the National Pokédex to
+            1,025 Pokémon as of Generation 9 (Paldea). Each generation introduced new Pokémon, new
+            regions, new gameplay mechanics, and new battle strategies. Generation 2 (Johto) added
+            100 Pokémon and introduced breeding and shiny forms. Generation 3 (Hoenn) brought 135
+            new Pokémon and double battles. Generation 4 (Sinnoh) added 107 Pokémon and the
+            physical special split. Generation 5 (Unova) introduced 156 new Pokémon, the largest
+            single generation. Generation 6 (Kalos) added 72 Pokémon and the Fairy type.
+            Generation 7 (Alola) brought 88 new Pokémon and regional variants. Generation 8
+            (Galar) added 89 Pokémon and Dynamax forms. Generation 9 (Paldea) introduced 110 new
+            Pokémon and Terastallize. Our database covers all of them, with detailed pages for
+            every single Pokémon.
+          </p>
+
+          <h3>Pokémon Types and Effectiveness</h3>
+          <p>
+            There are 18 Pokémon types in total: Normal, Fire, Water, Grass, Electric, Ice,
+            Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, and
+            Fairy. Each type has strengths and weaknesses against other types, creating a complex
+            rock paper scissors system that determines battle outcomes. For example, Water type
+            moves are super effective against Fire type Pokémon but not very effective against Grass
+            types. Understanding these matchups is the foundation of Pokémon battle strategy,
+            whether you are playing casually or competitively. Our <Link href="/type-chart/">type
+            chart</Link> shows the full 18 by 18 effectiveness matrix in an easy to read format, and
+            our <Link href="/type-wheel/">type wheel spinner</Link> is a fun way to randomly pick a
+            type for monotype challenges or themed runs.
+          </p>
+
+          <h3>Building a Balanced Pokémon Team</h3>
+          <p>
+            A standard Pokémon team consists of 6 Pokémon, and building a balanced team is one of
+            the most rewarding parts of the franchise. A good team typically covers multiple types
+            for both offense and defense, has Pokémon that fulfill different roles such as sweepers,
+            tanks, and support, and includes moves that can handle a wide range of threats. Our
+            <Link href="/random-team/"> random team builder</Link> rolls 6 unique Pokémon at once,
+            which is great for casual play or Nuzlocke style challenges. For more control, use our
+            <Link href="/pokemon-randomizer/"> advanced randomizer</Link> to filter by generation,
+            type, or legendary status. You can also use our{" "}
+            <Link href="/pokemon-compare/">comparison tool</Link> to evaluate two Pokémon side by
+            side and decide which one fits your team better.
+          </p>
+
+          <h3>Nuzlocke Challenges and Self Imposed Rulesets</h3>
+          <p>
+            The Nuzlocke challenge is a popular self imposed ruleset that makes Pokémon games
+            significantly harder. The core rules are simple: you can only catch the first Pokémon
+            you encounter in each route or area, and any Pokémon that faints is considered dead and
+            must be released or permanently boxed. Additional rules like the Nickname Rule, the
+            Species Clause, and the Set Mode Rule are often added to increase difficulty. Nuzlocke
+            challenges have spawned a huge community of content creators who document their runs on
+            YouTube, Twitch, and Reddit. Our randomizer tool is perfect for Nuzlocke players who
+            want to spice up their runs with random encounters, randomized starters, or type
+            restrictions.
+          </p>
+
+          <h3>Shiny Hunting and Rare Pokémon</h3>
+          <p>
+            Shiny Pokémon are extremely rare variants with alternate color schemes. The base odds
+            of encountering a shiny in most Pokémon games are 1 in 4,096, though methods like the
+            Masuda Method, chain fishing, and SOS battles can significantly improve those odds.
+            Shiny hunting has become a popular pastime for completionists and content creators
+            alike, with some players spending hundreds of hours chasing a single shiny. Our{" "}
+            <Link href="/shiny-pokemon/">shiny Pokémon checker</Link> lets you browse all 1,025
+            shiny forms in one place, so you can see which ones are worth the hunt and which ones
+            look better than their regular counterparts.
+          </p>
+
+          <h3>Pokémon Trivia and Fun Facts</h3>
+          <p>
+            The Pokémon franchise has a rich history spanning video games, trading cards, an
+            animated series, movies, and merchandise. Some fun facts: Pikachu is the official
+            mascot of the franchise and was chosen for its broad appeal to both boys and girls.
+            Magikarp, despite being one of the weakest Pokémon, evolves into Gyarados, one of the
+            strongest. Eevee has more evolution options than any other Pokémon, with 8 different
+            Eeveelutions as of Generation 9. Arceus is considered the creator of the Pokémon
+            universe according to the lore. The Pokédex number 1 belongs to Bulbasaur, while
+            number 1,025 currently belongs to the most recent Pokémon introduced in Generation 9.
+            Our <Link href="/pokemon-of-the-day/">Pokémon of the Day</Link> feature highlights a
+            different Pokémon every day, so check back daily to learn something new.
+          </p>
         </section>
       </main>
       <FooterAd />
