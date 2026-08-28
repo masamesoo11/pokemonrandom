@@ -495,6 +495,110 @@ export default function Home() {
             Our <Link href="/pokemon-of-the-day/">Pokémon of the Day</Link> feature highlights a
             different Pokémon every day, so check back daily to learn something new.
           </p>
+
+          <h3>Competitive Pokémon Battling</h3>
+          <p>
+            Competitive Pokémon battling is a deep and complex scene that has grown significantly
+            since the early days of the franchise. Players use services like Pokémon Showdown to
+            battle online with custom built teams, and communities like Smogon University maintain
+            tier lists and rule sets that define the competitive metagame. The main formats include
+            the VGC (Video Game Championships) format which uses double battles and is the official
+            competitive format endorsed by The Pokémon Company, the Singles format which is popular
+            on Pokémon Showdown and uses a 6 versus 6 single battle structure, and various
+            restricted formats like Anything Goes, Uber, OverUsed (OU), UnderUsed (UU), and Rarely
+            Used (RU) tiers that limit which Pokémon can be used together. Building a successful
+            competitive team requires understanding type matchups, ability synergy, item
+            selection, move pools, EV training, IV breeding, and prediction of opponent moves.
+            Whether you are a seasoned competitive player or just getting started, our tools can
+            help you research Pokémon stats and abilities to make informed team building decisions.
+          </p>
+
+          <h3>Pokémon Moves and Battle Mechanics</h3>
+          <p>
+            Pokémon moves are the attacks and abilities that Pokémon can use in battle. There are
+            over 920 moves in the franchise as of Generation 9, each with a type, power, accuracy,
+            PP (Power Points), and sometimes secondary effects like status conditions, stat
+            changes, or weather effects. Moves are categorized into Physical, Special, and Status
+            moves. Physical moves use the Attack stat of the user and the Defense stat of the
+            target to calculate damage. Special moves use the Special Attack stat of the user and
+            the Special Defense stat of the target. Status moves do not deal direct damage but
+            instead apply effects like Sleep, Paralysis, Burn, Poison, or stat boosts and
+            reductions. Some of the most iconic moves include Thunderbolt, Flamethrower, Ice Beam,
+            Earthquake, and Psychic, all of which are reliable STAB (Same Type Attack Bonus) moves
+            that every competitive team should consider. Browse our{" "}
+            <Link href="/moves/">moves database</Link> to look up any move and see its stats,
+            type, and which Pokémon can learn it.
+          </p>
+
+          <h3>Pokémon Abilities Explained</h3>
+          <p>
+            Abilities are passive effects that were introduced in Generation 3 and have become a
+            core mechanic of the franchise. Every Pokémon has at least one ability, and many have
+            multiple possible abilities with one being their standard ability and others being
+            hidden abilities that are rarer and often more powerful. As of Generation 9, there are
+            over 298 unique abilities in the game. Some abilities are universally useful, like
+            Intimidate which lowers the opponent Attack stat when the Pokémon enters battle, or
+            Levitate which grants immunity to Ground type moves. Other abilities are highly
+            situational but can be devastating in the right team composition, like Weather
+            abilities (Drizzle, Drought, Sand Stream, Snow Warning) that summon weather conditions
+            upon entry, or Ability based strategies like Protean which changes the Pokémon type to
+            match the move it uses. To dive deeper into abilities and find the perfect one for your
+            Pokémon, browse our <Link href="/abilities/">abilities database</Link> with detailed
+            descriptions of all 298+ abilities.
+          </p>
+
+          <h3>Pokémon Generations and Regions Explained</h3>
+          <p>
+            The Pokémon franchise is divided into nine generations, each corresponding to a main
+            series release and introducing a new region to explore. Generation 1 features the
+            Kanto region with the original 151 Pokémon including Bulbasaur, Charmander, Squirtle,
+            Pikachu, and Mewtwo. Generation 2 added the Johto region with 100 new Pokémon and
+            introduced breeding, shiny forms, and the day and night cycle. Generation 3 brought
+            the Hoenn region with 135 new Pokémon, double battles, and abilities. Generation 4
+            introduced the Sinnoh region with 107 new Pokémon, the physical special split, and
+            online battling via the GTS. Generation 5 featured the Unova region with 156 new
+            Pokémon, the largest single generation, and a more mature storyline. Generation 6
+            brought the Kalos region with 72 new Pokémon, the Fairy type, and Mega Evolution.
+            Generation 7 introduced the Alola region with 88 new Pokémon, Z Moves, and regional
+            variants. Generation 8 featured the Galar region with 89 new Pokémon, Dynamax, and
+            the Wild Area. Generation 9 introduced the Paldea region with 110 new Pokémon,
+            Terastallize, and an open world structure. You can browse Pokémon by generation using
+            our generation pages, such as{" "}
+            <Link href="/generation/1/">Generation 1 (Kanto)</Link> and{" "}
+            <Link href="/generation/4/">Generation 4 (Sinnoh)</Link>.
+          </p>
+
+          <h3>Pokémon for Casual Fans and Newcomers</h3>
+          <p>
+            Not everyone who visits Pokémon Random is a hardcore competitive player or a Nuzlocke
+            veteran. Many visitors are casual fans who just want to relive childhood memories,
+            learn about new Pokémon they have never heard of, or find a fun Pokémon to draw or
+            cosplay. Our tools are designed to be approachable for newcomers while still offering
+            depth for experienced players. The <Link href="/random-pokemon/">random Pokémon
+            generator</Link> is a great starting point: just click a button and discover a new
+            Pokémon with its full stats, type, abilities, and shiny form. The{" "}
+            <Link href="/pokemon-quiz/">Guess That Pokémon game</Link> is a fun way to test your
+            knowledge by identifying Pokémon from their silhouettes. The{" "}
+            <Link href="/type-wheel/">type wheel spinner</Link> is perfect for streamers and
+            content creators who want to add an element of chance to their Pokémon themed content.
+            And the complete <Link href="/pokemon/">Pokédex</Link> is always available if you want
+            to look up a specific Pokémon by name or number.
+          </p>
+
+          <h3>How Our Pokémon Database Works</h3>
+          <p>
+            All data on Pokémon Random is sourced from the official{" "}
+            <a href="https://pokeapi.co" rel="noopener noreferrer">PokéAPI</a>, a community
+            maintained open source RESTful API that provides comprehensive data about every
+            Pokémon, move, ability, type, and item in the franchise. The data is updated regularly
+            to reflect the latest games and is the same source used by many popular Pokémon fan
+            sites and tools. When you visit a Pokémon detail page, our servers fetch the data at
+            build time using static site generation, which means the page loads instantly in your
+            browser without any client side API calls. This approach provides the best of both
+            worlds: dynamic data accuracy and static site performance. If you notice any
+            inaccuracies or have suggestions for improvements, please{" "}
+            <Link href="/contact/">contact us</Link> and we will address them as soon as possible.
+          </p>
         </section>
       </main>
       <FooterAd />
