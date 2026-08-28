@@ -49,7 +49,7 @@ export default function PokemonIndexPage() {
             <span className="text-foreground">Pokédex</span>
           </nav>
 
-          <h1 className="text-4xl font-bold tracking-tight mb-4">Pokémon Database</h1>
+          <h1 className="text-4xl font-bold tracking-tight mb-4">Browse the Complete National Pokédex</h1>
           <p className="text-lg text-muted-foreground mb-8">
             Browse all 1,025 Pokémon from Generation 1 (Kanto) to Generation 9 (Paldea).
             Each entry includes base stats, types, abilities, evolution chains, shiny forms,

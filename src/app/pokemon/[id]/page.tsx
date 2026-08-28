@@ -218,7 +218,7 @@ export default async function PokemonDetailPage({ params }: PageProps) {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-sm font-mono text-muted-foreground">#{String(id).padStart(4, "0")}</span>
-                <h1 className="text-4xl font-bold tracking-tight">{name}</h1>
+                <h1 className="text-4xl font-bold tracking-tight">{name} <span className="text-lg text-muted-foreground font-normal">Pokédex Entry &amp; Stats</span></h1>
                 {legendary && <span className="px-2 py-0.5 rounded-full bg-yellow-400 text-yellow-950 text-xs font-bold">Legendary</span>}
                 {mythical && <span className="px-2 py-0.5 rounded-full bg-pink-400 text-pink-950 text-xs font-bold">Mythical</span>}
               </div>

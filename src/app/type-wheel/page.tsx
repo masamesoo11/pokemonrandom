@@ -47,7 +47,7 @@ export default function Page() {
           </nav>
 
 
-          <h1 className="text-4xl font-bold tracking-tight mb-4">Pokémon Type Wheel Spinner</h1>
+          <h1 className="text-4xl font-bold tracking-tight mb-4">Spin the Wheel for a Random Pokémon Type</h1>
           <p className="text-lg text-muted-foreground mb-8">
             Spin the wheel to get a random Pokémon type! Each of the 18 types has
             an equal chance of being selected. Perfect for challenges, team building

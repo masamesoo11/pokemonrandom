@@ -43,7 +43,7 @@ export default function BlogIndexPage() {
             <span className="text-foreground">Blog</span>
           </nav>
 
-          <h1 className="text-4xl font-bold tracking-tight mb-4">Pokémon Blog</h1>
+          <h1 className="text-4xl font-bold tracking-tight mb-4">Pokémon Guides, Tips, and Strategy Articles</h1>
           <p className="text-lg text-muted-foreground mb-8">
             In-depth guides, strategy articles, and complete Pokédex entries for Pokémon fans of all levels.
             Browse {posts.length} articles covering Nuzlocke challenges, shiny hunting, competitive battles,

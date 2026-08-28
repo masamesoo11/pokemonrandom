@@ -84,7 +84,7 @@ export default async function AbilitiesIndexPage() {
           </nav>
 
           {/* Header */}
-          <h1 className="text-4xl font-bold tracking-tight mb-4">Pokémon Abilities Database</h1>
+          <h1 className="text-4xl font-bold tracking-tight mb-4">All Pokémon Abilities Explained in Detail</h1>
           <p className="text-lg text-muted-foreground mb-8">
             Browse all {totalAbilities}+ Pokémon abilities from every generation. Each ability has
             its own page with effect description, flavor text, and a complete list of Pokémon

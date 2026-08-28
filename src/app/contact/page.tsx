@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <LegalPageLayout title="Contact Us" description="We'd love to hear from you.">
+    <LegalPageLayout title="Get in Touch with Pokemon Random" description="We'd love to hear from you.">
       <H2>Get in Touch</H2>
       <P>
         Have feedback, found a bug, want to suggest a feature, or just want to say

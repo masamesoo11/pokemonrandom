@@ -33,7 +33,7 @@ export default function RandomTeamPage() {
       <HeaderBannerAd />
       <main className="flex-1">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 space-y-8">
-          <h1 className="text-4xl font-bold tracking-tight">Random Pokémon Team Builder</h1>
+          <h1 className="text-4xl font-bold tracking-tight">Build Your Random Pokémon Team of 6</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">Build a random Pokémon team of six instantly with our free team generator. Perfect for casual playthroughs, competitive battles, Nuzlocke challenges, or just for fun. Each team member is pulled from the complete Pokédex of 1,025 Pokémon across all nine generations, with full stats, abilities, and official artwork.</p>
 
           <PokemonTeamBuilder />

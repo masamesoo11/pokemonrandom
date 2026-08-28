@@ -33,7 +33,7 @@ export default function PokemonQuizPage() {
       <HeaderBannerAd />
       <main className="flex-1">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 space-y-8">
-          <h1 className="text-4xl font-bold tracking-tight">Pokémon Quiz — Guess That Pokémon</h1>
+          <h1 className="text-4xl font-bold tracking-tight">Test Your Knowledge: Guess the Pokémon</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">Test your Pokémon knowledge with our free guessing game. We show you a silhouette of a Pokémon, and you have three attempts to guess its name. Earn points for correct guesses, build streaks, and challenge yourself with Pokémon from all nine generations. Perfect for fans of all skill levels.</p>
 
           <GuessPokemonGame />

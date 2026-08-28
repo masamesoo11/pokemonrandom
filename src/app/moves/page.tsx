@@ -87,7 +87,7 @@ export default async function MovesIndexPage() {
           </nav>
 
           {/* Header */}
-          <h1 className="text-4xl font-bold tracking-tight mb-4">Pokémon Moves Database</h1>
+          <h1 className="text-4xl font-bold tracking-tight mb-4">Every Pokémon Move with Stats and Effects</h1>
           <p className="text-lg text-muted-foreground mb-8">
             Browse all {totalMoves}+ Pokémon moves from every generation. Each move has its own
             page with power, accuracy, PP, type, effect description, and a complete list of
