@@ -98,6 +98,21 @@ export default function RandomStarterPage() {
       </a>
 
             </div>
+
+        {/* SEO Content Expanded — improves text-HTML ratio */}
+        <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+          <h2>Random Starter Pokémon Picker — Complete Guide</h2>
+            <h3>What Are Starter Pokémon</h3>
+            <p>Starter Pokémon are the first Pokémon that trainers receive at the beginning of their journey in every main series Pokémon game. Each generation introduces a new set of three starter Pokémon, one for each of the Grass, Fire, and Water types. This creates a rock paper scissors dynamic where Grass is strong against Water, Water is strong against Fire, and Fire is strong against Grass. Your choice of starter can significantly impact your playthrough, especially in the early game before you have a full team. Our random starter picker lets you leave that choice to chance, which can make for a more interesting and unpredictable playthrough.</p>
+            <h3>All Starter Pokémon Across Nine Generations</h3>
+            <p>There are 27 starter Pokémon across the nine generations of the franchise. Generation 1 Kanto features Bulbasaur, Charmander, and Squirtle. Generation 2 Johto has Chikorita, Cyndaquil, and Totodile. Generation 3 Hoenn introduced Treecko, Torchic, and Mudkip. Generation 4 Sinnoh brought Turtwig, Chimchar, and Piplup. Generation 5 Unova features Snivy, Tepig, and Oshawott. Generation 6 Kalos has Chespin, Fennekin, and Froakie. Generation 7 Alola introduced Rowlet, Litten, and Popplio. Generation 8 Galar brought Grookey, Scorbunny, and Sobble. Generation 9 Paldea features Sprigatito, Fuecoco, and Quaxly. Our picker includes all 27 starters.</p>
+            <h3>Starter Pokémon Final Evolutions</h3>
+            <p>Each starter Pokémon evolves twice, reaching its final form at level 36 in most cases. The final evolutions of starter Pokémon are often powerful and iconic, making them popular choices for both casual and competitive play. For example, Charizard the final evolution of Charmander is one of the most recognizable Pokémon in the franchise and has two Mega Evolutions. Blaziken the final evolution of Torchic was the first Pokémon to receive a Mega Evolution in Generation 6. Greninja the final evolution of Froakie has a unique Ash Greninja form that was introduced in the anime. When using our random starter picker, keep in mind the final evolution of the starter you get, as that is the form you will be using for most of your playthrough.</p>
+            <h3>Choosing a Starter for Nuzlocke Challenges</h3>
+            <p>In a Nuzlocke challenge, your choice of starter is even more important than in a normal playthrough because you have limited resources and cannot easily replace a fallen Pokémon. Some starters are better suited for Nuzlocke challenges than others due to their typing, stats, and movepool. For example, Mudkip Generation 3 is widely considered one of the best Nuzlocke starters because its final evolution Swampert has excellent typing, high stats, and a versatile movepool. Using our random starter picker adds an extra layer of challenge by removing the element of choice, forcing you to make do with whatever starter you are given.</p>
+            <h3>Starter Pokémon in Competitive Play</h3>
+            <p>While starter Pokémon are designed to be good choices for casual playthroughs, not all of them are viable in competitive play. Some starters, like Charizard, Blaziken, and Greninja, have been competitive staples thanks to their Mega Evolutions, hidden abilities, or unique forms. Others, like Emboar Generation 5 and Chesnaught Generation 6, have struggled to find a place in competitive teams. However, with the right moveset, ability, and team support, almost any starter can be viable in lower tier competitive formats. Use our tool to pick a random starter and then research its competitive viability to learn more about its strengths and weaknesses.</p>
+        </section>
           </section>
         </div>
       </main>

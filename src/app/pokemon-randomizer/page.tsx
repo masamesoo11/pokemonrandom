@@ -98,6 +98,21 @@ export default function PokemonRandomizerPage() {
       </a>
 
             </div>
+
+        {/* SEO Content Expanded — improves text-HTML ratio */}
+        <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+          <h2>Pokémon Randomizer — Nuzlocke and Advanced Filtering</h2>
+            <h3>What Is a Pokémon Randomizer</h3>
+            <p>A Pokémon Randomizer is a tool that randomizes various aspects of the Pokémon games, creating a unique and unpredictable experience each time you play. The concept originated with the Universal Pokémon Randomizer, a Java application that could randomize the wild encounters, starter Pokémon, trainer teams, and even the types and stats of Pokémon in Generation 1 through 5 games. Our web based randomizer takes a different approach by letting you generate random Pokémon with specific filters, without needing to modify any game files. This makes it perfect for Nuzlocke challenges, monotype runs, or any other self imposed ruleset that benefits from randomized encounters.</p>
+            <h3>Advanced Filtering Options</h3>
+            <p>Our randomizer supports a wide range of filters to help you generate exactly the type of Pokémon you want. You can filter by generation to include only Pokémon from a specific generation or a combination of generations. You can filter by type to generate only Pokémon of a specific type, which is useful for monotype challenges or themed runs. You can filter by legendary status to include or exclude legendary and mythical Pokémon, which is important for balanced teams. You can also combine multiple filters to create very specific randomization rules, such as generating only Generation 1 Fire type Pokémon that are not legendary.</p>
+            <h3>Nuzlocke Challenges and the Randomizer</h3>
+            <p>The Nuzlocke challenge is the most popular self imposed ruleset in the Pokémon community. The core rules are that you can only catch the first Pokémon you encounter in each route, and any Pokémon that faints is considered dead and must be released or permanently boxed. Our randomizer is perfect for Nuzlocke players who want to add an extra layer of randomness to their runs. Instead of using the encounters from the game, you can use our randomizer to determine what Pokémon you encounter in each route. This creates a completely unique playthrough every time and can turn even the most familiar game into a fresh experience.</p>
+            <h3>Monotype Challenges and Type Filtering</h3>
+            <p>A monotype challenge is a self imposed ruleset where you restrict your team to only use Pokémon of a single type. This creates a significant challenge because you will have major weaknesses against certain types and limited movepool options. Our randomizer makes monotype challenges easy by letting you filter by type. For example, if you want to do a Fire type monotype run, simply select Fire as the type filter and generate random Fire type Pokémon for your team. You can also combine the type filter with the generation filter to create even more specific challenges, like a Generation 1 only Water type run.</p>
+            <h3>Randomizer for Content Creators</h3>
+            <p>Content creators on YouTube, Twitch, and TikTok often use randomizers to create engaging and unpredictable content. A randomizer run can be much more entertaining to watch than a standard playthrough because the audience never knows what Pokémon will appear next. Our web based randomizer is especially useful for content creators because it does not require any game modifications or emulator setup. You can simply open the randomizer in your browser, generate random Pokémon, and use them in your playthrough. Many creators use our randomizer for challenge runs, draft leagues, and viewer interactive streams where the audience can suggest filters or challenge rules.</p>
+        </section>
           </section>
         </div>
       </main>

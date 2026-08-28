@@ -98,6 +98,23 @@ export default function TypeChartPage() {
       </a>
 
             </div>
+
+        {/* SEO Content Expanded — improves text-HTML ratio */}
+        <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+          <h2>Pokémon Type Chart — Complete Effectiveness Guide</h2>
+            <h3>Understanding the Pokémon Type System</h3>
+            <p>The Pokémon type system is the foundation of battle strategy in the franchise. There are 18 types in total: Normal, Fire, Water, Grass, Electric, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, and Fairy. Each type has strengths and weaknesses against other types, creating a complex rock paper scissors system that determines battle outcomes. For example, Water type moves are super effective against Fire, Ground, and Rock type Pokémon, but not very effective against Grass and Water types. Understanding these matchups is essential for success in both casual playthroughs and competitive battles.</p>
+            <h3>How to Read the Type Chart</h3>
+            <p>Our type chart is displayed as an 18 by 18 matrix where each row represents an attacking type and each column represents a defending type. The cells are color coded to show the effectiveness of each matchup. Green cells indicate super effective 2x damage, red cells indicate not very effective 0.5x damage, black cells indicate no effect 0x damage, and gray cells indicate normal effectiveness 1x damage. Dual type Pokémon have their weaknesses and resistances calculated by multiplying the effectiveness of each type. For example, a Water and Ground type Pokémon like Swampert takes 4x damage from Grass type moves because both Water and Ground are weak to Grass.</p>
+            <h3>Dual Type Pokémon and Combined Effectiveness</h3>
+            <p>Most Pokémon have two types, which creates a more complex effectiveness profile. When a Pokémon has two types, the effectiveness of each move is calculated by multiplying the effectiveness against each type. For example, if a Fire type move is used against a Bug and Grass type Pokémon, the effectiveness is 2x super effective against Bug multiplied by 2x super effective against Grass, which equals 4x damage. Conversely, if a Fire type move is used against a Water and Dragon type Pokémon, the effectiveness is 0.5x not very effective against Water multiplied by 0.5x not very effective against Dragon, which equals 0.25x damage. Understanding these combinations is key to mastering Pokémon battles.</p>
+            <h3>Type Effectiveness in Competitive Play</h3>
+            <p>In competitive Pokémon play, type effectiveness is even more important than in casual play because every move counts and every damage calculation matters. Competitive players memorize the type chart and can quickly calculate the effectiveness of any move against any dual type combination. This allows them to make informed decisions about which moves to use, which Pokémon to switch in, and which threats to prioritize. Many competitive players use tools like our type chart as a reference during team building to ensure that their team has good type coverage and no glaring weaknesses.</p>
+            <h3>Changes to the Type System Over Generations</h3>
+            <p>The Pokémon type system has evolved over the generations. The original 15 types were introduced in Generation 1. In Generation 2, two new types were added: Dark and Steel, to balance the overpowered Psychic type from Generation 1. In Generation 6, the Fairy type was introduced to balance the Dragon type and give Poison and Steel types more offensive utility. The Fairy type was a significant addition that changed the competitive landscape, as it is super effective against Dragon, Dark, and Fighting types, and is immune to Dragon type moves. Our type chart reflects the current 18 type system as of Generation 9.</p>
+            <h3>Same Type Attack Bonus STAB</h3>
+            <p>Same Type Attack Bonus, or STAB, is a mechanic that gives a 1.5x damage bonus to moves that are the same type as the Pokémon using them. For example, if a Charizard Fire and Flying type uses Flamethrower a Fire type move, the damage is multiplied by 1.5 because Charizard is a Fire type. This encourages players to use moves that match their Pokémon typing and makes type coverage an important consideration in team building. When building a team, you should aim to have STAB moves for each of your Pokémon types as well as coverage moves to handle types that your team might struggle against.</p>
+        </section>
           </section>
         </div>
       </main>

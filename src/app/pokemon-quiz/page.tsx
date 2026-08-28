@@ -98,6 +98,21 @@ export default function PokemonQuizPage() {
       </a>
 
             </div>
+
+        {/* SEO Content Expanded — improves text-HTML ratio */}
+        <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+          <h2>Pokémon Quiz — Guess That Pokémon Game Guide</h2>
+            <h3>How the Guess That Pokémon Game Works</h3>
+            <p>Our Guess That Pokémon game is inspired by the classic Who is That Pokémon segment from the Pokémon animated series. A random Pokémon appears as a dark silhouette, and you have to guess its name by typing it into the answer box. You get 3 attempts per Pokémon, and if you are stuck, you can request a hint that reveals the generation, type, and first letter of the Pokémon name. If you guess correctly, your streak increases and you move on to the next Pokémon. The game tracks your total wins and rounds played, so you can compete with friends to see who has the best Pokémon knowledge.</p>
+            <h3>Tips for Identifying Pokémon Silhouettes</h3>
+            <p>Identifying Pokémon from their silhouettes can be challenging, especially for less well known Pokémon from later generations. Here are some tips to help you improve. First, look at the overall shape of the silhouette. Is it bipedal or quadrupedal? Does it have wings, a tail, or distinctive ears? Second, look for unique features like horns, spikes, fins, or special appendages. Third, consider the size and proportions of the silhouette, as some Pokémon are very small while others are very large. Finally, if you are stuck, use the hint feature to narrow down the generation and type, which can help you eliminate possibilities and focus your guess.</p>
+            <h3>All 1,025 Pokémon in the Quiz</h3>
+            <p>Our quiz includes all 1,025 Pokémon from Generation 1 through Generation 9, so you will need to be a true Pokémon expert to get a high streak. Generation 1 Pokémon are generally the most recognizable due to their iconic designs and long history with the franchise. Later generation Pokémon can be more challenging because there are more of them and they are less widely known. If you are just starting out, you might want to focus on learning the Generation 1 Pokémon first and then gradually expand your knowledge to later generations. The hint feature can help you learn about Pokémon you are not familiar with by revealing their generation and type.</p>
+            <h3>Competing with Friends and Leaderboards</h3>
+            <p>The Guess That Pokémon game is more fun when you compete with friends to see who has the best Pokémon knowledge. You can take turns playing and compare your streaks, or you can play simultaneously and see who gets the most correct answers in a set time period. While we do not currently have a global leaderboard, you can share your scores on social media using the share button and challenge your followers to beat your streak. Many Pokémon communities on Discord and Reddit also host regular quiz competitions where you can test your knowledge against other fans.</p>
+            <h3>Educational Value of the Quiz</h3>
+            <p>The Guess That Pokémon game is not just fun, it is also educational. By playing the quiz regularly, you will naturally learn to recognize more Pokémon and remember their names, types, and generations. This can be especially helpful for newer fans who are just getting into the franchise and want to expand their knowledge beyond the most popular Pokémon. The hint feature provides additional context by revealing the generation and type of each Pokémon, which can help you learn the patterns and characteristics of different generations. Whether you are a casual fan or a competitive player, improving your Pokémon knowledge is always rewarding.</p>
+        </section>
           </section>
         </div>
       </main>

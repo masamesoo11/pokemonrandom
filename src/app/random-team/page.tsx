@@ -98,6 +98,23 @@ export default function RandomTeamPage() {
       </a>
 
             </div>
+
+        {/* SEO Content Expanded — improves text-HTML ratio */}
+        <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+          <h2>Random Pokémon Team Builder — Strategy Guide</h2>
+            <h3>Building a Balanced Pokémon Team</h3>
+            <p>A standard Pokémon team consists of 6 Pokémon, and building a balanced team is one of the most rewarding aspects of the franchise. A good team typically covers multiple types for both offense and defense, has Pokémon that fulfill different roles such as physical sweepers, special sweepers, tanks, and support, and includes moves that can handle a wide range of threats. Our random team builder rolls 6 unique Pokémon at once, giving you a ready made team that you can use for casual play, Nuzlocke challenges, or just for fun. While the team is random, you can use the generate button multiple times until you get a combination that appeals to you.</p>
+            <h3>Team Composition and Roles</h3>
+            <p>In competitive Pokémon, teams are usually built around specific roles. A physical sweeper is a fast Pokémon with high Attack that aims to deal massive damage quickly. A special sweeper is similar but uses Special Attack instead. A tank is a bulky Pokémon with high Defense or Special Defense that can absorb hits and wear down the opponent. A support Pokémon uses status moves like Thunder Wave, Toxic, or entry hazards to disrupt the opponent. A pivot is a Pokémon that can switch in safely and help maintain momentum. When using our random team builder, pay attention to the types and stats of each Pokémon to identify which roles they might fill on your team.</p>
+            <h3>Type Coverage and Synergy</h3>
+            <p>Type coverage is one of the most important aspects of team building. Ideally, your team should have moves that can hit every type for at least neutral damage, and preferably super effective damage against common threats. Type synergy refers to how well your Pokémon types complement each other defensively. For example, a Fire and Water type pair covers each other weaknesses well, as Fire resists Grass and Ice while Water resists Fire and Steel. When you generate a random team, look at the types of your 6 Pokémon and consider whether they have good defensive synergy or if there are overlapping weaknesses that could be exploited by opponents.</p>
+            <h3>Filtering Teams by Generation</h3>
+            <p>Our random team builder lets you filter by generation, so you can generate a team using only Pokémon from a specific generation. This is useful if you are playing through a specific game and want to use only Pokémon that are native to that region. For example, if you are playing Pokémon FireRed, you might want to generate a team using only Generation 1 Pokémon. If you are playing Pokémon Scarlet and Violet, you might want to use Generation 9 Pokémon. The generation filter ensures that your random team fits the context of the game you are playing.</p>
+            <h3>Using Random Teams for Nuzlocke Challenges</h3>
+            <p>Random teams are a great way to add variety to Nuzlocke challenges. Instead of using the Pokémon you encounter in the game, you can use our team builder to generate a completely random team of 6 Pokémon at the start of your run. This creates a unique challenge where you have to make do with whatever Pokémon you are given, regardless of their types, stats, or movepool. Some trainers add additional rules, such as only using the generated team for boss battles, or releasing a Pokémon and generating a new one each time they reach a new city.</p>
+            <h3>Competitive Team Building Resources</h3>
+            <p>If you want to take your team building to the next level, there are many resources available online. Smogon University is the most popular competitive Pokémon community and maintains tier lists, strategy guides, and sample teams for every format. Pokémon Showdown is a free online battle simulator that lets you test teams without having to breed and train them in the actual games. Our Pokémon Comparison Tool can also help you evaluate two Pokémon side by side to decide which one fits your team better based on stats, typing, and abilities.</p>
+        </section>
           </section>
         </div>
       </main>
