@@ -12,3 +12,7 @@
 /sitemap.xml
   Cache-Control: public, max-age=3600
   Content-Type: application/xml
+
+/feed.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml

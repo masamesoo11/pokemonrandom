@@ -27,18 +27,12 @@ jobs:
           NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
           NEXT_PUBLIC_SEARCH_CONSOLE: ${{ secrets.NEXT_PUBLIC_SEARCH_CONSOLE }}
 
-      - name: Verify build output
+      - name: Copy Cloudflare Pages config files
         run: |
-          echo "Checking build output..."
-          ls -la out/ 2>/dev/null || echo "out/ not found"
-          ls -la .next/ 2>/dev/null | head -5
-          if [ ! -d "out" ]; then
-            echo "Creating out/ from .next/..."
-            cp -r .next out 2>/dev/null || true
-          fi
+          cp public/_headers out/_headers 2>/dev/null || true
+          cp public/_redirects out/_redirects 2>/dev/null || true
           cp -r public/* out/ 2>/dev/null || true
-          echo "out/ contents:"
-          ls out/ | head -10
+          ls out/_headers out/_redirects 2>/dev/null
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
