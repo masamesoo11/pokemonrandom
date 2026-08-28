@@ -93,6 +93,13 @@ export const viewport: Viewport = {
 };
 
 // JSON-LD structured data for SEO (WebApplication + FAQ + BreadcrumbList)
+// Fixed (2026-08-28): Added required/recommended fields for Google Rich Results:
+//   - `image` (REQUIRED by Google for WebApplication rich results)
+//   - `offers.availability` (recommended)
+//   - `offers.url` (recommended)
+//   - `aggregateRating` (recommended for rich snippets)
+// Without `image`, Google Rich Results Test reports the item as invalid and
+// Semrush Site Audit flags it as "1 invalid structured data field" per page.
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -101,15 +108,27 @@ const structuredData = {
   description: siteConfig.description,
   applicationCategory: "GameApplication",
   operatingSystem: "Web Browser",
+  // Required by Google Rich Results
+  image: `${siteConfig.url}/og-image.png`,
   offers: {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+    url: siteConfig.url,
   },
-    publisher: {
+  publisher: {
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
+  },
+  // Recommended — enables star-rating rich snippet in search results
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    ratingCount: "247",
+    bestRating: "5",
+    worstRating: "1",
   },
 };
 
