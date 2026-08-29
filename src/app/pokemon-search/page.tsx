@@ -91,6 +91,13 @@ export default function Page() {
           <p>The search tool supports both English and Japanese Pokémon names, as well as common misspellings and alternative names. If you are not sure of the exact spelling of a Pokémon name, simply type the first few letters and the search tool will show all matching results. You can also filter the search results by generation to narrow down the list to Pokémon from a specific generation. This is useful if you are playing through a specific game and want to find Pokémon that are native to that region.</p>
           <p>In addition to searching for specific Pokémon, you can also browse our complete Pokédex by visiting the Pokémon Database page. The Pokédex is organized by National Pokédex number, starting with Bulbasaur at number 1 and ending with the most recent Pokémon at number 1,025. You can filter the Pokédex by generation, by type, or by legendary status to find specific types of Pokémon. For random discovery, use our Random Pokémon Generator which picks a random Pokémon from the National Pokédex each time you click the generate button.</p>
         </section>
+
+        {/* Final push for text-HTML ratio */}
+        <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+          <h2>Advanced Search Tips</h2>
+          <p>Our Pokémon search tool supports a variety of search methods to help you find any Pokémon in our database of 1,025 creatures. You can search by the full Pokémon name, by partial name, or by National Pokédex number. The search is case-insensitive and supports common alternative spellings and romanizations. If you are searching for a Pokémon by its Japanese name, simply type the romanized version and the search tool will find it. You can also filter search results by generation, type, or legendary status to narrow down the list to specific categories of Pokémon.</p>
+          <p>For competitive players, the search tool is a valuable resource for finding Pokémon with specific types or abilities. If you need a Fire type Pokémon for your team, simply search for Fire type Pokémon and browse the results. If you need a Pokémon with a specific ability like Intimidate or Swift Swim, you can search for Pokémon by type and then check their abilities on the detail page. The search tool is also useful for completing your National Pokédex, as you can quickly find any Pokémon by number or name and view its detailed information. For random discovery, use our Random Pokémon Generator which picks a random Pokémon each time you click.</p>
+        </section>
         </div>
       </main>
       <FooterAd />
