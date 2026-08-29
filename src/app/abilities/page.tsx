@@ -85,6 +85,9 @@ export default async function AbilitiesIndexPage() {
 
           {/* Header */}
           <h1 className="text-4xl font-bold tracking-tight mb-4">All Pokémon Abilities Explained in Detail</h1>
+            {/* CONTENT_OPT_V2 — keyword optimization */}
+            <p className="text-lg text-muted-foreground mb-6">Browse our complete Pokémon abilities database with all 298+ abilities from every generation. Each Pokémon ability has a detailed description, effect explanation, and a full list of Pokémon that can have it. The Pokémon abilities database is regularly updated to reflect the latest games and is sourced from the official PokéAPI.</p>
+
           <p className="text-lg text-muted-foreground mb-8">
             Browse all {totalAbilities}+ Pokémon abilities from every generation. Each ability has
             its own page with effect description, flavor text, and a complete list of Pokémon

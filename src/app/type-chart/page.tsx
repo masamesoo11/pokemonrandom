@@ -34,6 +34,9 @@ export default function TypeChartPage() {
       <main className="flex-1">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 space-y-8">
           <h1 className="text-4xl font-bold tracking-tight">Pokémon Type Chart — Full Effectiveness Matrix</h1>
+            {/* CONTENT_OPT_V2 — keyword optimization */}
+            <p className="text-lg text-muted-foreground mb-6">The Pokémon type chart shows the complete 18×18 effectiveness matrix for all type matchups. Understanding the Pokémon type chart is essential for building winning teams and mastering battles. Our interactive Pokémon type chart makes it easy to find strengths, weaknesses, and immunities for every type combination.</p>
+
           <p className="text-lg text-muted-foreground leading-relaxed">The complete Pokémon type chart covering all 18 types and their effectiveness against each other. Find out which moves are super effective (2x damage), normal (1x), not very effective (0.5x), or useless (0x). Hover over any cell to see the exact multiplier. Essential for competitive battles, Nuzlocke challenges, and team building.</p>
 
           <TypeChartSection />

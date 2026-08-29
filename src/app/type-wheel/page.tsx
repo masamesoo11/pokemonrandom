@@ -48,6 +48,9 @@ export default function Page() {
 
 
           <h1 className="text-4xl font-bold tracking-tight mb-4">Spin the Wheel for a Random Pokémon Type</h1>
+            {/* CONTENT_OPT_V2 — keyword optimization */}
+            <p className="text-lg text-muted-foreground mb-6">The Pokémon type wheel spinner is a fun and easy-to-use tool that randomly selects one of the 18 Pokémon types. Use our Pokémon type wheel for monotype challenges, type-themed draft leagues, or whenever you need a random type suggestion. The Pokémon type wheel gives every type an equal chance, making it perfect for fair and random type selection.</p>
+
           <p className="text-lg text-muted-foreground mb-8">
             Spin the wheel to get a random Pokémon type! Each of the 18 types has
             an equal chance of being selected. Perfect for challenges, team building

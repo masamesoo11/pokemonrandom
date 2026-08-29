@@ -228,6 +228,18 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* CONTENT_OPT_V2 — keyword optimization */}
+        <section className="mx-auto max-w-3xl px-4 sm:px-6 py-8">
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Welcome to Pokémon Random, the ultimate free collection of Pokémon tools and resources.
+            At Pokémon Random, we offer 12 interactive tools including a random Pokémon generator,
+            team builder, type chart, and complete Pokédex. Pokémon Random is designed for fans of
+            all levels, from casual players to competitive battlers. All Pokémon Random tools are
+            completely free with no signup required. Explore Pokémon Random today and discover why
+            we are the go-to destination for Pokémon fans around the world.
+          </p>
+        </section>
+
 
         {/* Pokémon of the Day (kept — it's a single featured element, not a full tool) */}
         <section className="mx-auto max-w-7xl px-4 sm:px-6 pb-16">

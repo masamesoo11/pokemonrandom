@@ -88,6 +88,9 @@ export default async function MovesIndexPage() {
 
           {/* Header */}
           <h1 className="text-4xl font-bold tracking-tight mb-4">Every Pokémon Move with Stats and Effects</h1>
+            {/* CONTENT_OPT_V2 — keyword optimization */}
+            <p className="text-lg text-muted-foreground mb-6">Welcome to our complete Pokémon moves database, featuring all 920+ Pokémon moves from every generation. Each Pokémon move entry includes detailed information on type, category, power, accuracy, PP, and effects. The Pokémon moves database is the ultimate reference for competitive players and casual fans alike, covering every Pokémon move from Generation 1 through Generation 9.</p>
+
           <p className="text-lg text-muted-foreground mb-8">
             Browse all {totalMoves}+ Pokémon moves from every generation. Each move has its own
             page with power, accuracy, PP, type, effect description, and a complete list of

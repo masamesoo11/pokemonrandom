@@ -34,6 +34,9 @@ export default function RandomStarterPage() {
       <main className="flex-1">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 space-y-8">
           <h1 className="text-4xl font-bold tracking-tight">Pick a Random Starter Pokémon from Any Generation</h1>
+            {/* CONTENT_OPT_V2 — keyword optimization */}
+            <p className="text-lg text-muted-foreground mb-6">Use our random starter Pokémon picker to randomly select a starter from Gen 1 to Gen 9. This random starter Pokémon tool includes all 27 starter Pokémon across nine generations. Whether you cannot decide which starter to pick or want to add randomness to your playthrough, our random starter Pokémon picker makes the choice for you.</p>
+
           <p className="text-lg text-muted-foreground leading-relaxed">Can't decide which starter Pokémon to choose? Let our random starter picker decide for you. We include all 27 main-series starter Pokémon across nine generations, from the classic Kanto trio of Bulbasaur, Charmander, and Squirtle to the newer Paldea starters Sprigatito, Fuecoco, and Quaxly.</p>
 
           <RandomStarterPicker />
