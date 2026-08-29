@@ -3,6 +3,8 @@
 export interface BlogPostSummary {
   slug: string;
   title: string;
+  /** Optional H1 text different from title to avoid SEO over-optimization. */
+  h1?: string;
   description: string;
   keywords: string[];
   canonical: string;

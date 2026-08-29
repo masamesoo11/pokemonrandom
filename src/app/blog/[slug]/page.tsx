@@ -107,7 +107,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="text-sm text-muted-foreground mb-2">
               {publishDate} · by {post.author} · {post.category}
             </div>
-            <h1 className="text-4xl font-bold tracking-tight mb-4">{post.title}</h1>
+            <h1 className="text-4xl font-bold tracking-tight mb-4">{post.h1 || post.title}</h1>
             <p className="text-lg text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: post.intro }} />
           </header>
 
