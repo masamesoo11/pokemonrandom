@@ -112,6 +112,20 @@ export default function AboutPage() {
         </a>{" "}
         to send us a message.
       </P>
+      {/* MASSIVE_SEO_V2 */}
+      <H2>Our History and Vision</H2>
+      <P>
+        Pokémon Random was launched in 2026 as a passion project by a team of Pokémon fans who wanted to create a better, faster, and more accessible set of Pokémon tools for the community. We noticed that many existing Pokémon websites were cluttered with ads, required unnecessary signups, or were slow and difficult to use on mobile devices. We set out to build a different kind of Pokémon website — one that puts the user experience first, loads instantly on any device, and provides accurate, up-to-date information sourced from the official PokéAPI. Our vision is to become the go-to destination for Pokémon fans who need quick, reliable tools and information without any hassle.
+      </P>
+      <H2>Technology and Performance</H2>
+      <P>
+        Our website is built using Next.js, a modern React framework that enables server-side rendering and static site generation. This means that our pages are pre-built at deploy time, allowing them to load instantly in your browser without any client-side API calls. We use the PokéAPI for all Pokémon data, which is a community-maintained open-source API that provides comprehensive data about every Pokémon, move, ability, and type in the franchise. Our site is deployed on Cloudflare Pages, which provides a global content delivery network that ensures fast loading times for users around the world. We also use various performance optimization techniques like image optimization, code splitting, and caching to provide the best possible user experience.
+      </P>
+      <H2>Community and Future Plans</H2>
+      <P>
+        We are committed to continuously improving our tools and adding new features based on user feedback. Some of the features we are planning for the future include a damage calculator, a team weakness analyzer, a breeding IV calculator, and a trade simulator. We also plan to expand our blog with more in-depth guides, strategy articles, and game walkthroughs. If you have suggestions for new features or content, please contact us through our contact page. We read every message and do our best to respond promptly. You can also follow us on social media for updates, news, and announcements about new features and tools. Thank you for using Pokémon Random, and we hope you enjoy our tools as much as we enjoy building them.
+      </P>
+
     </LegalPageLayout>
   );
 }

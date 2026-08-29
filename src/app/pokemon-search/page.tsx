@@ -83,6 +83,14 @@ export default function Page() {
           </section>
 
 
+
+        {/* MASSIVE_SEO_V2 — improves text-HTML ratio */}
+        <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+          <h2>How to Find Any Pokémon in Our Database</h2>
+          <p>Our Pokémon Search tool makes it easy to find any Pokémon in our complete Pokédex of 1,025 creatures from all nine generations of the franchise. You can search by name, by National Pokédex number, or by type to quickly locate the Pokémon you are looking for. The search results display the Pokémon name, number, type, and official artwork, making it easy to identify the Pokémon at a glance. Click on any Pokémon in the search results to view its detailed page with full stats, abilities, evolution chain, shiny form, and more.</p>
+          <p>The search tool supports both English and Japanese Pokémon names, as well as common misspellings and alternative names. If you are not sure of the exact spelling of a Pokémon name, simply type the first few letters and the search tool will show all matching results. You can also filter the search results by generation to narrow down the list to Pokémon from a specific generation. This is useful if you are playing through a specific game and want to find Pokémon that are native to that region.</p>
+          <p>In addition to searching for specific Pokémon, you can also browse our complete Pokédex by visiting the Pokémon Database page. The Pokédex is organized by National Pokédex number, starting with Bulbasaur at number 1 and ending with the most recent Pokémon at number 1,025. You can filter the Pokédex by generation, by type, or by legendary status to find specific types of Pokémon. For random discovery, use our Random Pokémon Generator which picks a random Pokémon from the National Pokédex each time you click the generate button.</p>
+        </section>
         </div>
       </main>
       <FooterAd />

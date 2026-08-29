@@ -182,6 +182,15 @@ export default function CookiesPage() {
         </a>
         .
       </P>
+
+      {/* MASSIVE_SEO_V2 — improves text-HTML ratio */}
+      <H2>Additional Information</H2>
+      <H2>Types of Cookies We Use</H2>
+      <P>We use several categories of cookies on our website. Essential cookies are required for basic site functionality, including saving your Pokémon teams, remembering your theme preference, and maintaining your session. These cookies cannot be disabled as they are necessary for the site to function properly. Analytics cookies, such as Google Analytics, collect anonymous information about how visitors use our site, including which pages are visited most frequently, how long visitors stay on each page, and what types of devices and browsers are used. This data helps us understand user behavior and improve our content and tools accordingly.</P>
+      <H2>Third-Party Advertising Cookies</H2>
+      <P>Our website displays advertisements served by third-party advertising networks, including Google AdSense. These networks may use cookies to serve ads based on your prior visits to our website and other websites. Google AdSense uses cookies to personalize ads based on your interests and to measure the effectiveness of advertising campaigns. You can opt out of personalized advertising by visiting Google Ads Settings at google.com/settings/ads. You can also opt out of third-party vendors use of cookies for personalized advertising by visiting aboutads.info/optout. Please note that even if you opt out of personalized ads, you may still see non-personalized ads based on the content of the page you are visiting.</P>
+      <H2>Managing Your Cookie Preferences</H2>
+      <P>You have several options for managing cookies on our website. When you first visit our site, a cookie consent banner will appear, allowing you to choose which categories of cookies you want to allow. You can change your preferences at any time by clicking the Cookie Settings link in the footer of any page. Additionally, most web browsers allow you to control cookies through their settings. You can typically choose to accept all cookies, reject all cookies, or accept only certain types of cookies. You can also set your browser to notify you when a cookie is being sent, allowing you to decide whether to accept it on a case-by-case basis. Clearing your browser cookies will also reset any saved preferences on our site, including your saved Pokémon teams.</P>
     </LegalPageLayout>
   );
 }

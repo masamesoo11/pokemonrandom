@@ -136,6 +136,15 @@ export default function DmcaPage() {
         <br />
         <Strong>Response time:</Strong> 24-72 hours
       </P>
+
+      {/* MASSIVE_SEO_V2 — improves text-HTML ratio */}
+      <H2>Additional Information</H2>
+      <H2>Fair Use Statement</H2>
+      <P>Pokémon Random is a fan-made, non-commercial website that provides free tools and resources for the Pokémon community. We believe that our use of Pokémon names, data, and imagery constitutes fair use under United States copyright law, as our content is transformative in nature, adds significant value through new functionality such as randomization and team building tools, and does not compete with or substitute for the original works of Nintendo, Game Freak, or The Pokémon Company. We use openly licensed data from the PokéAPI, which is a community-maintained open-source project that provides Pokémon data for educational and informational purposes. We do not host, distribute, or facilitate the distribution of any Pokémon games, ROMs, or other copyrighted media files.</P>
+      <H2>Counter-Notification Process</H2>
+      <P>If you believe that your content was removed from our website in error or misidentification, you may file a counter-notification with us. A valid counter-notification must include your physical or electronic signature, identification of the material that was removed and the location at which it appeared before it was removed, a statement under penalty of perjury that you have a good faith belief that the material was removed or disabled as a result of mistake or misidentification, your name, address, telephone number, and email address, and a statement that you consent to the jurisdiction of the federal district court for the judicial district in which your address is located, or if your address is outside of the United States, for any judicial district in which we may be found. Upon receiving a valid counter-notification, we may restore the removed material within 10 to 14 business days, unless we first receive notice from the copyright owner that they have filed an action seeking a court order to restrain the alleged infringer.</P>
+      <H2>Repeat Infringer Policy</H2>
+      <P>In accordance with the DMCA and other applicable laws, we maintain a policy of terminating, in appropriate circumstances, the accounts of users who are determined to be repeat infringers. We also reserve the right to terminate access to any user who violates our terms of service or copyright policies. If you believe that a user of our website is a repeat infringer, please contact us with supporting evidence and we will investigate the matter promptly. We are committed to maintaining a respectful and law-abiding community, and we take all claims of copyright infringement seriously.</P>
     </LegalPageLayout>
   );
 }

@@ -102,6 +102,14 @@ export default function Page() {
           </section>
 
 
+
+        {/* MASSIVE_SEO_V2 — improves text-HTML ratio */}
+        <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+          <h2>Create Custom Pokémon Tier Lists</h2>
+          <p>Our Pokémon Tier List Builder lets you create custom tier lists by ranking Pokémon from best to worst according to your own criteria. Whether you are ranking Pokémon by their competitive viability, their design, their usefulness in a specific game, or any other criteria, our tier list builder provides an easy to use interface for creating and sharing your rankings. You can drag and drop Pokémon into different tiers, customize the tier names and colors, and share your completed tier list with friends or on social media.</p>
+          <p>To create a tier list, start by selecting the Pokémon you want to rank. You can choose from all 1,025 Pokémon in the National Pokédex, or filter by generation or type to narrow down the selection. Once you have selected your Pokémon, drag and drop them into the tier rows. Each tier can be given a custom name and color, allowing you to create a tier list that matches your specific ranking criteria. Common tier names include S Tier for the best Pokémon, A Tier for great Pokémon, B Tier for good Pokémon, C Tier for average Pokémon, and D Tier for below average Pokémon.</p>
+          <p>Tier lists are a popular format in the Pokémon community for discussing and debating the relative merits of different Pokémon. Competitive players create tier lists to rank Pokémon by their viability in specific formats, while casual fans create tier lists to rank Pokémon by their designs, personalities, or nostalgia factor. Tier list videos and streams are popular content on YouTube and Twitch, where content creators share their rankings and discuss them with their audience. Our tier list builder makes it easy to create your own tier lists and join the conversation.</p>
+        </section>
         </div>
       </main>
       <FooterAd />

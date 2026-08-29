@@ -84,6 +84,14 @@ export default function Page() {
           </section>
 
 
+
+        {/* MASSIVE_SEO_V2 — improves text-HTML ratio */}
+        <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+          <h2>Manage Your Pokémon Teams</h2>
+          <p>Our Saved Teams feature lets you save and manage your Pokémon teams for easy access later. Whether you are building a competitive team, planning a Nuzlocke challenge, or just keeping track of your favorite Pokémon combinations, the saved teams feature provides a convenient way to store and organize your teams. You can create multiple teams, give each one a custom name, and add up to 6 Pokémon to each team. The saved teams are stored locally in your browser, so you do not need to create an account or log in to use this feature.</p>
+          <p>To save a team, first use our Random Team Builder to generate a team of 6 Pokémon, or manually select Pokémon from our Pokédex. Once you have a team you want to save, click the Save Team button and give your team a name. The team will be saved to your browser local storage and will be available on this page whenever you return. You can view all your saved teams on this page, and you can delete teams that you no longer need. Each saved team displays the Pokémon names, types, and official artwork, making it easy to identify your teams at a glance.</p>
+          <p>The saved teams feature is especially useful for competitive players who want to test multiple team compositions before settling on one. You can save several different teams and switch between them as needed, without having to rebuild the team from scratch each time. The feature is also useful for Nuzlocke players who want to keep track of their team throughout a playthrough, or for casual players who want to save their favorite Pokémon combinations for future reference. All saved teams are stored locally in your browser and are not shared with other users or uploaded to any server.</p>
+        </section>
         </div>
       </main>
       <FooterAd />

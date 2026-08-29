@@ -108,6 +108,15 @@ export default function DisclaimerPage() {
         </a>
         .
       </P>
+
+      {/* MASSIVE_SEO_V2 — improves text-HTML ratio */}
+      <H2>Additional Information</H2>
+      <H2>External Links and Third-Party Content</H2>
+      <P>Our website contains links to external websites and third-party content that are not provided or maintained by us. These include links to the PokéAPI, which is the source of all Pokémon data on our site, as well as links to other Pokémon fan sites, resources, and tools. We do not control and are not responsible for the content, accuracy, privacy policies, or practices of these third-party websites. The inclusion of any link does not necessarily imply a recommendation or endorsement of the views expressed within them. Visiting any external links is at your own risk, and we encourage you to review the terms and conditions and privacy policies of any third-party websites you visit.</P>
+      <H2>Limitation of Liability</H2>
+      <P>In no event will we, our team members, or our affiliates be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your use of our website or tools. This includes, but is not limited to, damages for loss of profits, data, or other intangible losses, even if we have been advised of the possibility of such damages. Our website and tools are provided on an as-is and as-available basis, without any warranties of any kind, whether express or implied. We do not warrant that our website will be uninterrupted, error-free, or free of harmful components, or that any defects will be corrected. Your use of our website is solely at your own risk.</P>
+      <H2>Changes to This Disclaimer</H2>
+      <P>We reserve the right to update or modify this Disclaimer at any time without prior notice. Any changes will be effective immediately upon posting the updated Disclaimer on this page. The Last updated date at the top of this page will reflect the most recent revision. We encourage you to review this page periodically to stay informed about any changes. Your continued use of our website after any changes to this Disclaimer constitutes your acceptance of the updated terms. If you do not agree to the updated Disclaimer, you should discontinue using our website.</P>
     </LegalPageLayout>
   );
 }
