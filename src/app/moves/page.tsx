@@ -302,6 +302,12 @@ export default async function MovesIndexPage() {
           <p>Recoil moves like Double-Edge, Flare Blitz, and Brave Bird deal significant damage but also damage the user by 1/3 or 1/4 of the damage dealt. These moves are powerful but can wear down the user over time, making them risky to use without recovery moves or abilities like Rock Head that negate recoil. Crash moves like Jump Kick and High Jump Kick deal massive damage but cause the user to take damage equal to 50 percent of their maximum HP if they miss, making them high-risk high-reward options. Multi-hit moves like Pin Missile, Rock Blast, and Bullet Seed hit 2 to 5 times per use, with Skill Link ensuring exactly 5 hits. These moves are powerful because they can break Focus Sashes and Substitutes while dealing consistent damage.</p>
           <p>Some moves have unique mechanics that set them apart from others. The move Sucker Punch deals damage but fails if the target does not select a damaging move, creating a mind game where the user must predict whether the opponent will attack or use a status move. The move Focus Punch deals massive damage but fails if the user takes damage before executing it, making it difficult to use without Substitute or Protect. The move Pursuit deals damage and if the target switches out, it deals double damage before the switch, making it an excellent move for trapping and removing specific Pokémon. Understanding these unique move mechanics and how to use them effectively is a hallmark of skilled competitive Pokémon players.</p>
         </section>
+
+        {/* CONTENT_OPT_V3 — additional keyword density */}
+        <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+          <h2>Why Use Our Pokémon Moves Database</h2>
+          <p>Our Pokémon moves database is designed to be the ultimate reference for Pokémon trainers and competitive players. The Pokémon moves database includes every move from every generation, with detailed information about each Pokémon move. Whether you are building a competitive team and need to look up Pokémon moves for coverage, or you are a casual player who wants to learn more about Pokémon moves, our database has everything you need. The Pokémon moves database is sourced from the official PokéAPI and is updated regularly. Each Pokémon move entry includes the move type, category, power, accuracy, PP, and a description of its effects, making the Pokémon moves database the most comprehensive resource available.</p>
+        </section>
         </div>
       </main>
       <FooterAd />
