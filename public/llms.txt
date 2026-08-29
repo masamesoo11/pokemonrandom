@@ -1,0 +1,101 @@
+# Pokémon Random
+
+> Pokémon Random is a free, fan-made collection of Pokémon tools and a complete reference database. We offer 12 interactive tools including a random Pokémon generator, team builder, type wheel spinner, guessing game, advanced randomizer with filters, comparison tool, type chart, shiny checker, starter picker, search, tier list builder, and saved teams manager. Our database covers all 1,025 Pokémon from Generation 1 (Kanto) through Generation 9 (Paldea), with dedicated pages for each Pokémon, move, ability, type, and generation. All tools are free to use and require no signup or registration.
+
+## Site Information
+
+- Title: Pokémon Random — Free Generator, Team Builder & Pokédex
+- Description: Free Pokémon tools: random generator, team builder, shiny checker, type chart, quiz, and complete Pokédex with all 1,025 Pokémon. No signup required.
+- URL: https://pokemonrandom.com
+- Author: Pokémon Random Team
+- Language: English
+- Last updated: 2026
+- Data source: Official PokéAPI (https://pokeapi.co)
+- License: Fan-made tool, not affiliated with Nintendo, Game Freak, or The Pokémon Company
+
+## Main Tools
+
+- [Random Pokémon Generator](https://pokemonrandom.com/random-pokemon/): Generate a random Pokémon from all 1,025 in the National Pokédex. Filter by generation, view stats, types, abilities, cries, and shiny forms.
+- [Random Team Builder](https://pokemonrandom.com/random-team/): Build a balanced team of 6 random Pokémon. Perfect for Nuzlocke challenges and casual playthroughs.
+- [Pokémon Quiz](https://pokemonrandom.com/pokemon-quiz/): Guess That Pokémon game — identify Pokémon from silhouettes, earn points, and build streaks.
+- [Type Wheel Spinner](https://pokemonrandom.com/type-wheel/): Spin the wheel to get a random Pokémon type. Great for monotype challenges and type-themed runs.
+- [Pokémon Randomizer](https://pokemonrandom.com/pokemon-randomizer/): Advanced randomizer with filters for generation, type, and legendary status. Ideal for Nuzlocke and monotype runs.
+- [Pokémon Comparison Tool](https://pokemonrandom.com/pokemon-compare/): Compare two Pokémon side by side. See which has better stats, types, and abilities.
+- [Random Starter Pokémon Picker](https://pokemonrandom.com/random-starter/): Randomly pick a starter Pokémon from Gen 1 to Gen 9.
+- [Shiny Pokémon Checker](https://pokemonrandom.com/shiny-pokemon/): Browse all shiny Pokémon forms across all 9 generations.
+- [Pokémon Search](https://pokemonrandom.com/pokemon-search/): Find any Pokémon by name or National Pokédex number.
+- [Pokémon Tier List Builder](https://pokemonrandom.com/tier-lists/): Create custom tier lists by ranking Pokémon from best to worst.
+- [Saved Teams Manager](https://pokemonrandom.com/saved-teams/): Save and manage your Pokémon teams for easy access.
+- [Pokémon of the Day](https://pokemonrandom.com/pokemon-of-the-day/): Discover a new Pokémon every day with detailed stats and information.
+
+## Database Pages
+
+- [Complete Pokédex](https://pokemonrandom.com/pokemon/): All 1,025 Pokémon with detailed pages including base stats, types, abilities, evolution chains, and shiny forms.
+- [Pokémon Moves Database](https://pokemonrandom.com/moves/): All 920+ moves with type, category (Physical/Special/Status), power, accuracy, and effects.
+- [Pokémon Abilities Database](https://pokemonrandom.com/abilities/): All 298+ abilities with descriptions and lists of Pokémon that can have them.
+- [Pokémon Type Chart](https://pokemonrandom.com/type-chart/): Full 18×18 type effectiveness matrix showing strengths, weaknesses, and immunities.
+- [Generation 1 — Kanto](https://pokemonrandom.com/generation/1/): The original 151 Pokémon from Pokémon Red, Blue, and Green (1996).
+- [Generation 4 — Sinnoh](https://pokemonrandom.com/generation/4/): 107 Pokémon from Pokémon Diamond, Pearl, and Platinum.
+
+## Blog and Guides
+
+- [Pokémon Blog](https://pokemonrandom.com/blog/): Guides, tips, and strategy articles covering all aspects of the Pokémon franchise.
+- [Best Pokémon for Nuzlocke Challenges](https://pokemonrandom.com/blog/best-pokemon-for-nuzlocke/): Top 15 Pokémon picks for Nuzlocke runs.
+- [Competitive Team Building Guide](https://pokemonrandom.com/blog/competitive-team-building/): Strategies for building winning competitive teams.
+- [Lucario Complete Guide](https://pokemonrandom.com/blog/lucario-complete-guide/): Stats, moves, and best builds for Lucario.
+- [Mega Pokémon Guide](https://pokemonrandom.com/blog/mega-pokemon-guide/): All Mega Evolutions explained.
+- [Mewtwo Complete Guide](https://pokemonrandom.com/blog/mewtwo-complete-guide/): Complete guide to the Legendary Pokémon Mewtwo.
+- [Shiny Hunting Guide](https://pokemonrandom.com/blog/shiny-hunting-guide/): Methods, rates, and tips for finding shiny Pokémon.
+- [Pokémon Fire Red Walkthrough](https://pokemonrandom.com/blog/pokemon-fire-red-guide/): Complete walkthrough and tips for Pokémon FireRed.
+- [Pokémon Emerald Walkthrough](https://pokemonrandom.com/blog/pokemon-emerald-guide/): Complete walkthrough and guide for Pokémon Emerald.
+- [Pokémon Type Chart Complete Guide](https://pokemonrandom.com/blog/pokemon-type-chart-complete-guide/): Strengths, weaknesses, and battle strategies.
+- [Pokémon GO Tips and Tricks](https://pokemonrandom.com/blog/pokemon-go-tips-tricks/): Ultimate guide for Pokémon GO players.
+- [Pokémon Scarlet and Violet Guide](https://pokemonrandom.com/blog/pokemon-scarlet-violet-guide/): Complete guide for Generation 9 games.
+- [Pokémon Evolution Guide](https://pokemonrandom.com/blog/pokemon-evolution-guide/): All evolution methods and mechanics explained.
+- [Pokémon Legends Arceus Guide](https://pokemonrandom.com/blog/pokemon-legends-arceus-guide/): Hisui region walkthrough.
+- [Pokémon Mystery Dungeon Guide](https://pokemonrandom.com/blog/pokemon-mystery-dungeon-guide/): Complete guide for the Mystery Dungeon series.
+- [Pokémon Black and White Guide](https://pokemonrandom.com/blog/pokemon-black-white-guide/): Complete guide for Generation 5 games.
+- [Pokémon Unite Guide](https://pokemonrandom.com/blog/pokemon-unite-guide/): Strategies, tiers, and best Pokémon for Pokémon UNITE.
+- [Rayquaza Complete Guide](https://pokemonrandom.com/blog/rayquaza-complete-guide/): Guide to the Sky High Pokémon.
+- [Pixelmon Guide](https://pokemonrandom.com/blog/pixelmon-guide/): How to play Pokémon in Minecraft with Pixelmon mod.
+- [Pokémon Fan Games Guide](https://pokemonrandom.com/blog/pokemon-fan-games-guide/): Best fan games and ROM hacks to play.
+- [New Pokémon 2026 Guide](https://pokemonrandom.com/blog/new-pokemon-2026-guide/): Complete list of new Pokémon introduced in 2026.
+- [Universal Pokémon Randomizer Guide](https://pokemonrandom.com/blog/universal-pokemon-randomizer/): How to use the Universal Pokémon Randomizer tool.
+
+## Information Pages
+
+- [About Us](https://pokemonrandom.com/about/): Learn about Pokémon Random and our mission.
+- [Contact Us](https://pokemonrandom.com/contact/): Get in touch with the Pokémon Random team.
+- [Privacy Policy](https://pokemonrandom.com/privacy/): How we handle your data.
+- [Terms of Service](https://pokemonrandom.com/terms/): Terms of use for Pokémon Random.
+- [Cookie Policy](https://pokemonrandom.com/cookies/): How we use cookies.
+- [Disclaimer](https://pokemonrandom.com/disclaimer/): Legal disclaimer.
+- [DMCA / Copyright](https://pokemonrandom.com/dmca/): Copyright policy and takedown procedure.
+
+## Technical Information
+
+- Framework: Next.js (static site generation)
+- Hosting: Cloudflare Pages
+- Data source: PokéAPI (https://pokeapi.co) — community-maintained open-source API
+- No login or signup required for any tool
+- No tracking of personal data beyond standard analytics
+- Mobile-friendly and responsive design
+- All 1,025 Pokémon pages are pre-rendered for instant loading
+
+## Pokémon Data Coverage
+
+- Total Pokémon: 1,025 (Generation 1 through Generation 9)
+- Total moves: 920+
+- Total abilities: 298+
+- Total types: 18 (Normal, Fire, Water, Grass, Electric, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy)
+- Generations covered: 9 (Kanto, Johto, Hoenn, Sinnoh, Unova, Kalos, Alola, Galar, Paldea)
+
+## Legal
+
+Pokémon Random is an independent, fan-made tool and is not affiliated with, endorsed by, or sponsored by Nintendo, Game Freak, or The Pokémon Company. Pokémon and all related names, characters, and imagery are trademarks of Nintendo, Game Freak, and The Pokémon Company. We use the open-source PokéAPI for all data and sprites.
+
+## Optional
+
+- Sitemap: https://pokemonrandom.com/sitemap.xml
+- Robots: https://pokemonrandom.com/robots.txt
+- RSS Feed: https://pokemonrandom.com/feed.xml
