@@ -308,6 +308,12 @@ export default async function MovesIndexPage() {
           <h2>Why Use Our Pokémon Moves Database</h2>
           <p>Our Pokémon moves database is designed to be the ultimate reference for Pokémon trainers and competitive players. The Pokémon moves database includes every move from every generation, with detailed information about each Pokémon move. Whether you are building a competitive team and need to look up Pokémon moves for coverage, or you are a casual player who wants to learn more about Pokémon moves, our database has everything you need. The Pokémon moves database is sourced from the official PokéAPI and is updated regularly. Each Pokémon move entry includes the move type, category, power, accuracy, PP, and a description of its effects, making the Pokémon moves database the most comprehensive resource available.</p>
         </section>
+
+        {/* CONTENT_OPT_V4 */}
+        <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+          <h2>Pokémon Moves Reference for Battle Strategy</h2>
+          <p>This Pokémon moves reference guide is essential for trainers who want to master battle strategy. The Pokémon moves listed in our database include physical moves, special moves, and status moves, each with different effects on the battle. Each Pokémon move has been documented with its exact power, accuracy, PP, type, and secondary effects. The Pokémon moves reference is updated regularly to include new Pokémon moves introduced in each generation. Understanding Pokémon moves is crucial for building effective movesets and predicting opponent strategies. Use the Pokémon moves database to plan your team's move coverage and ensure you have the right Pokémon moves for every situation. The Pokémon moves listed here are sourced from the official PokéAPI and are accurate to the latest games.</p>
+        </section>
         </div>
       </main>
       <FooterAd />

@@ -274,6 +274,12 @@ export default async function AbilitiesIndexPage() {
           <h2>Why the Pokémon Abilities Database Matters</h2>
           <p>Our Pokémon abilities database is the most comprehensive resource for learning about Pokémon abilities online. The Pokémon abilities database covers every ability from every generation, making it easy to find information about any Pokémon ability you are looking for. Whether you are researching Pokémon abilities for competitive team building or just want to learn more about how Pokémon abilities work, our Pokémon abilities database has you covered. Each Pokémon ability entry in the database includes a detailed description, the generation it was introduced, and a complete list of Pokémon that can have that ability. The Pokémon abilities database is updated regularly to reflect the latest games and content.</p>
         </section>
+
+        {/* CONTENT_OPT_V4 */}
+        <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+          <h2>Pokémon Abilities Reference for Trainers</h2>
+          <p>This Pokémon abilities reference is built for trainers who need quick, accurate information about any Pokémon ability. The Pokémon abilities listed in our database include standard abilities, hidden abilities, and signature abilities that are unique to specific Pokémon. Each Pokémon ability has been carefully documented with its exact effect, activation conditions, and interactions with other abilities and moves. The Pokémon abilities database is an essential tool for competitive team building, as understanding Pokémon abilities is crucial for predicting battle outcomes and building effective strategies. Browse the Pokémon abilities list alphabetically or search for a specific Pokémon ability to learn how it works and which Pokémon can have it.</p>
+        </section>
         </div>
       </main>
       <FooterAd />
