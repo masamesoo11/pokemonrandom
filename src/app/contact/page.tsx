@@ -128,6 +128,16 @@ export default function ContactPage() {
       <P>
         In addition to contacting us directly, you can connect with the Pokémon Random community on social media. We are active on Twitter at pokemonrandom, where we share updates, news, and featured Pokémon. You can also join Pokémon communities on Reddit, Discord, and other platforms to discuss the franchise, share your teams, and connect with other fans. If you create content about Pokémon, whether it is videos, streams, blog posts, or fan art, we would love to see it. Tag us on social media or send us a link, and we may feature it on our site or social media channels.
       </P>
+      {/* Final push v2 */}
+      <H2>Response Times and Availability</H2>
+      <P>
+        We strive to respond to all inquiries within 24 to 48 hours, though response times may vary depending on the volume of messages we receive. For urgent matters like security vulnerabilities or legal concerns, we prioritize responses and will get back to you as soon as possible. Our team operates in the UTC timezone, and we typically respond to messages during business hours, Monday through Friday. If you do not receive a response within 72 hours, please feel free to send a follow-up message, as sometimes emails can get lost or filtered into spam folders. When contacting us, please provide as much detail as possible about your inquiry, including relevant URLs, screenshots, and steps to reproduce any issues you are experiencing. This helps us understand your request and provide a faster, more accurate response.
+      </P>
+      <H2>Partnership and Collaboration Inquiries</H2>
+      <P>
+        We are open to partnerships and collaborations with other Pokémon fan sites, content creators, and communities. If you are interested in cross-promotion, content sharing, or other forms of collaboration, please contact us at hello@pokemonrandom.com with a description of your proposal. We are particularly interested in collaborating with content creators who can create guides, videos, or other content about our tools, and with other fan sites that share our commitment to providing free, accessible Pokémon resources. We are also open to feature requests and suggestions for new tools, so if you have an idea for a tool that would benefit the Pokémon community, please let us know. We cannot guarantee that we will implement every suggestion, but we read and consider all feedback from our users.
+      </P>
+
 
     </LegalPageLayout>
   );

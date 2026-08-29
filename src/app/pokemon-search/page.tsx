@@ -98,6 +98,13 @@ export default function Page() {
           <p>Our Pokémon search tool supports a variety of search methods to help you find any Pokémon in our database of 1,025 creatures. You can search by the full Pokémon name, by partial name, or by National Pokédex number. The search is case-insensitive and supports common alternative spellings and romanizations. If you are searching for a Pokémon by its Japanese name, simply type the romanized version and the search tool will find it. You can also filter search results by generation, type, or legendary status to narrow down the list to specific categories of Pokémon.</p>
           <p>For competitive players, the search tool is a valuable resource for finding Pokémon with specific types or abilities. If you need a Fire type Pokémon for your team, simply search for Fire type Pokémon and browse the results. If you need a Pokémon with a specific ability like Intimidate or Swift Swim, you can search for Pokémon by type and then check their abilities on the detail page. The search tool is also useful for completing your National Pokédex, as you can quickly find any Pokémon by number or name and view its detailed information. For random discovery, use our Random Pokémon Generator which picks a random Pokémon each time you click.</p>
         </section>
+
+        
+        {/* Final push v2 */}
+        <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
+          <h2>Pokémon Search Use Cases</h2>
+          <p>Our search tool is designed to serve a wide range of use cases for Pokémon fans. Competitive players use it to find Pokémon with specific types and abilities for their teams. Casual players use it to look up Pokémon they encountered in their playthroughs. Collectors use it to find Pokémon for their living Pokédex. Content creators use it to research Pokémon for their videos and streams. Nuzlocke players use it to look up Pokémon they have caught to learn about their stats and movesets. Whatever your Pokémon needs, our search tool provides quick and easy access to the complete National Pokédex with detailed information about every Pokémon from Generation 1 through Generation 9.</p>
+        </section>
         </div>
       </main>
       <FooterAd />
