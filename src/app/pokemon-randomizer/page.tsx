@@ -31,7 +31,7 @@ export default function PokemonRandomizerPage() {
     <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
       <HeaderBannerAd />
-      <main className="flex-1">
+      <main className="flex-1" id="main-content" tabIndex={-1}>
         <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 space-y-8">
           <h1 className="text-4xl font-bold tracking-tight">Pokémon Randomizer — Advanced Filters</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">An advanced Pokémon randomizer with multi-filter support for generation, type, and legendary status. Designed for Nuzlocke challenges, randomized playthroughs, and content creators who need specific Pokémon criteria. Filter by one or more generations, one or more types, and legendary status to find exactly the Pokémon you need.</p>

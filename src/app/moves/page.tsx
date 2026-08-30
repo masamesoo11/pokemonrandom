@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/components/ad-slot";
 import { fetchMoveList, formatMoveName, extractPokemonIdFromUrl } from "@/lib/move-api";
+import { MovesList } from "./moves-list";
 
 export const dynamic = "force-static";
 
@@ -77,7 +78,7 @@ export default async function MovesIndexPage() {
     <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
       <HeaderBannerAd />
-      <main className="flex-1">
+      <main className="flex-1" id="main-content" tabIndex={-1}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
           {/* Breadcrumb */}
           <nav className="text-sm text-muted-foreground mb-6">
@@ -112,27 +113,8 @@ export default async function MovesIndexPage() {
 
           <InContentAd />
 
-          {/* Moves grouped by letter */}
-          <div className="space-y-8">
-            {letters.map((letter) => (
-              <section key={letter} id={`letter-${letter}`} className="scroll-mt-20">
-                <h2 className="text-2xl font-bold mb-4 border-b border-border pb-2">
-                  {letter} <span className="text-base font-normal text-muted-foreground">({grouped[letter].length} moves)</span>
-                </h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
-                  {grouped[letter].map((m) => (
-                    <Link
-                      key={m.name}
-                      href={`/moves/${m.name}/`}
-                      className="block px-3 py-2 rounded-lg border border-border bg-card hover:border-primary hover:shadow-sm transition-all text-sm"
-                    >
-                      <span className="font-medium">{formatMoveName(m.name)}</span>
-                    </Link>
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
+          {/* Moves grouped by letter — collapsible for performance */}
+          <MovesList grouped={grouped} letters={letters} formatMoveName={formatMoveName} />
 
           {/* SEO content */}
           <section className="mt-12 prose prose-lg dark:prose-invert max-w-none">

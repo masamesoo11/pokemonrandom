@@ -31,7 +31,7 @@ export default function ShinyPokemonPage() {
     <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
       <HeaderBannerAd />
-      <main className="flex-1">
+      <main className="flex-1" id="main-content" tabIndex={-1}>
         <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 space-y-8">
           <h1 className="text-4xl font-bold tracking-tight">Explore Every Shiny Pokémon Form</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">Browse shiny Pokémon forms from all 1,025 Pokémon across nine generations. Compare normal and shiny artwork side by side, filter by generation or type, and discover the rare alternate colorations that have fascinated collectors since Generation 2. Shiny Pokémon are extremely rare in the wild, with a base encounter rate of 1 in 4,096.</p>

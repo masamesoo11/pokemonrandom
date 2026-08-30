@@ -31,7 +31,7 @@ export default function RandomPokemonPage() {
     <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
       <HeaderBannerAd />
-      <main className="flex-1">
+      <main className="flex-1" id="main-content" tabIndex={-1}>
         <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 space-y-8">
           <h1 className="text-4xl font-bold tracking-tight">Generate a Random Pokémon Instantly</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">Generate random Pokémon instantly with our free online tool. Filter by generation, type, or rarity to discover Pokémon you have never used before. Our random Pokémon generator pulls real-time data from the PokéAPI to give you accurate information about every Pokémon, including base stats, abilities, types, and official artwork.</p>

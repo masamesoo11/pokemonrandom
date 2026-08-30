@@ -19,7 +19,7 @@ export function LegalPageLayout({
     <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
       <HeaderBannerAd />
-      <main className="flex-1">
+      <main className="flex-1" id="main-content" tabIndex={-1}>
         <article className="mx-auto max-w-3xl px-4 sm:px-6 py-10 sm:py-16">
           <header className="mb-8 pb-6 border-b border-border">
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">

@@ -31,7 +31,7 @@ export default function RandomPokemonPickerPage() {
     <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
       <HeaderBannerAd />
-      <main className="flex-1">
+      <main className="flex-1" id="main-content" tabIndex={-1}>
         <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 space-y-8">
           <h1 className="text-4xl font-bold tracking-tight">Random Pokémon Picker — Quick Decision Tool</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">A simple, fast, one-click random Pokémon picker. No filters, no setup, no configuration — just click the button and get a random Pokémon from all 1,025 creatures across nine generations. Perfect for quick decisions, casual fun, or when you just want to discover a Pokémon you have never seen before.</p>

@@ -174,7 +174,7 @@ export default async function PokemonDetailPage({ params }: PageProps) {
       <div className="min-h-screen flex flex-col bg-background">
         <SiteHeader />
         <HeaderBannerAd />
-        <main className="flex-1">
+        <main className="flex-1" id="main-content" tabIndex={-1}>
           <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8">
             <nav className="text-sm text-muted-foreground mb-6">
               <Link href="/" className="hover:text-foreground">Home</Link>
@@ -201,7 +201,7 @@ export default async function PokemonDetailPage({ params }: PageProps) {
     <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
       <HeaderBannerAd />
-      <main className="flex-1">
+      <main className="flex-1" id="main-content" tabIndex={-1}>
         <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8">
           <nav className="text-sm text-muted-foreground mb-6">
             <Link href="/" className="hover:text-foreground">Home</Link>
@@ -237,7 +237,7 @@ export default async function PokemonDetailPage({ params }: PageProps) {
               </div>
               <div className="rounded-2xl border border-border p-4">
                 <div className="text-xs font-semibold uppercase tracking-wider text-yellow-500 mb-2">Shiny Form</div>
-                <img src={shinyUrl} alt={`${name} shiny form`} className="w-32 h-32 mx-auto object-contain" loading="lazy" />
+                <img src={shinyUrl} alt={`${name} shiny form`} className="w-32 h-32 mx-auto object-contain" loading="lazy" width={128} height={128} />
               </div>
             </div>
 

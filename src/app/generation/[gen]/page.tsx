@@ -87,7 +87,7 @@ export default async function GenerationPage({ params }: PageProps) {
     <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
       <HeaderBannerAd />
-      <main className="flex-1">
+      <main className="flex-1" id="main-content" tabIndex={-1}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
           <nav className="text-sm text-muted-foreground mb-6">
             <Link href="/" className="hover:text-foreground">Home</Link>

@@ -31,7 +31,7 @@ export default function UniversalPokemonRandomizerPage() {
     <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
       <HeaderBannerAd />
-      <main className="flex-1">
+      <main className="flex-1" id="main-content" tabIndex={-1}>
         <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 space-y-8">
           <h1 className="text-4xl font-bold tracking-tight">Universal Pokémon Randomizer — Complete Guide</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">The Universal Pokémon Randomizer is a popular Java-based tool that lets you randomize Pokémon game ROMs. Change starter Pokémon, shuffle wild encounters, randomize trainer teams, and create your own challenge runs. This page is a complete guide to the tool, including setup, configuration, and popular randomization settings.</p>
