@@ -5,7 +5,7 @@ export function SiteFooter() {
   return (
     <footer className="mt-auto border-t border-border/40 bg-secondary/30">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-7 gap-8">
           <div className="col-span-2">
             <div className="flex items-center gap-2.5 mb-3">
               <div className="relative h-8 w-8 rounded-full overflow-hidden border-2 border-foreground">
@@ -41,10 +41,25 @@ export function SiteFooter() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/random-pokemon/" className="hover:text-foreground transition-colors">Generator</Link></li>
               <li><Link href="/random-team/" className="hover:text-foreground transition-colors">Team Builder</Link></li>
+              <li><Link href="/random-starter/" className="hover:text-foreground transition-colors">Starter Picker</Link></li>
+              <li><Link href="/random-pokemon-picker/" className="hover:text-foreground transition-colors">Quick Picker</Link></li>
               <li><Link href="/pokemon-quiz/" className="hover:text-foreground transition-colors">Quiz</Link></li>
               <li><Link href="/pokemon-randomizer/" className="hover:text-foreground transition-colors">Randomizer</Link></li>
+              <li><Link href="/universal-pokemon-randomizer/" className="hover:text-foreground transition-colors">Universal Randomizer</Link></li>
               <li><Link href="/pokemon-compare/" className="hover:text-foreground transition-colors">Compare</Link></li>
               <li><Link href="/saved-teams/" className="hover:text-foreground transition-colors">Saved Teams</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <div className="font-semibold text-sm mb-3">Explore</div>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link href="/shiny-pokemon/" className="hover:text-foreground transition-colors">Shiny Checker</Link></li>
+              <li><Link href="/type-chart/" className="hover:text-foreground transition-colors">Type Chart</Link></li>
+              <li><Link href="/type-wheel/" className="hover:text-foreground transition-colors">Type Wheel</Link></li>
+              <li><Link href="/pokemon-of-the-day/" className="hover:text-foreground transition-colors">Pokémon of the Day</Link></li>
+              <li><Link href="/pokemon-search/" className="hover:text-foreground transition-colors">Search</Link></li>
+              <li><Link href="/tier-lists/" className="hover:text-foreground transition-colors">Tier Lists</Link></li>
             </ul>
           </div>
 

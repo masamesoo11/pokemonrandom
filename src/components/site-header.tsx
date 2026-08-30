@@ -9,6 +9,7 @@ import Link from "next/link";
 const NAV_LINKS = [
   { href: "/random-pokemon/", label: "Generator" },
   { href: "/random-team/", label: "Team" },
+  { href: "/random-starter/", label: "Starters" },
   { href: "/pokemon-quiz/", label: "Quiz" },
   { href: "/type-chart/", label: "Type Chart" },
   { href: "/shiny-pokemon/", label: "Shiny" },
