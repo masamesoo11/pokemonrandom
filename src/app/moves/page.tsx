@@ -114,7 +114,13 @@ export default async function MovesIndexPage() {
           <InContentAd />
 
           {/* Moves grouped by letter — collapsible for performance */}
-          <MovesList grouped={grouped} letters={letters} formatMoveName={formatMoveName} />
+          <MovesList 
+            grouped={grouped} 
+            letters={letters} 
+            formattedNames={Object.fromEntries(
+              moves.map((m) => [m.name, formatMoveName(m.name)])
+            )}
+          />
 
           {/* SEO content */}
           <section className="mt-12 prose prose-lg dark:prose-invert max-w-none">

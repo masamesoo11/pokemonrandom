@@ -11,10 +11,11 @@ interface MoveItem {
 interface MovesListProps {
   grouped: Record<string, MoveItem[]>;
   letters: string[];
-  formatMoveName: (name: string) => string;
+  // Pre-formatted display names keyed by move name
+  formattedNames: Record<string, string>;
 }
 
-export function MovesList({ grouped, letters, formatMoveName }: MovesListProps) {
+export function MovesList({ grouped, letters, formattedNames }: MovesListProps) {
   // Show first 3 letters expanded by default, rest collapsed
   const [expandedLetters, setExpandedLetters] = useState<Set<string>>(
     new Set(letters.slice(0, 3))
@@ -92,7 +93,7 @@ export function MovesList({ grouped, letters, formatMoveName }: MovesListProps) 
                       href={`/moves/${m.name}/`}
                       className="block px-3 py-2 rounded-lg border border-border bg-card hover:border-primary hover:shadow-sm transition-all text-sm"
                     >
-                      <span className="font-medium">{formatMoveName(m.name)}</span>
+                      <span className="font-medium">{formattedNames[m.name] || m.name}</span>
                     </Link>
                   ))}
                 </div>
