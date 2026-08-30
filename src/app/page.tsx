@@ -167,7 +167,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
       <HeaderBannerAd />
-      <main className="flex-1">
+      <main className="flex-1" id="main-content" tabIndex={-1}>
         {/* Hero Section */}
         <section className="relative overflow-hidden pt-12 pb-16 sm:pt-16 sm:pb-20">
           <div className="absolute inset-0 -z-10">
