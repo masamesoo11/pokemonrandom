@@ -361,6 +361,39 @@ export default async function PokemonDetailPage({ params }: PageProps) {
               <Link href="/shiny-pokemon/" className="block p-3 rounded-lg border border-border hover:border-primary transition-colors"><div className="font-semibold">Shiny Checker</div><div className="text-muted-foreground">Browse shiny</div></Link>
               <Link href="/pokemon-randomizer/" className="block p-3 rounded-lg border border-border hover:border-primary transition-colors"><div className="font-semibold">Randomizer</div><div className="text-muted-foreground">Nuzlocke</div></Link>
             </div>
+
+          {/* RELATED_POKEMON_V1 — internal links to other Pokémon */}
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold mb-4">More Pokémon to Explore</h2>
+            <p className="text-muted-foreground mb-4">Discover other Pokémon from the same generation:</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+              {(() => {
+                const genRanges: Record<number, [number, number]> = {
+                  1: [1, 151], 2: [152, 251], 3: [252, 386], 4: [387, 493],
+                  5: [494, 649], 6: [650, 721], 7: [722, 809], 8: [810, 905], 9: [906, 1025],
+                };
+                const range = genRanges[gen.num] || [1, 151];
+                const related: number[] = [];
+                let attempts = 0;
+                while (related.length < 6 && attempts < 50) {
+                  const candidate = Math.floor(Math.random() * (range[1] - range[0] + 1)) + range[0];
+                  if (candidate !== id && !related.includes(candidate)) {
+                    related.push(candidate);
+                  }
+                  attempts++;
+                }
+                return related.map((pid) => (
+                  <Link key={pid} href={`/pokemon/${pid}/`} className="block p-3 rounded-lg border border-border hover:border-primary transition-colors text-center">
+                    <div className="text-xs text-muted-foreground">#{String(pid).padStart(4, "0")}</div>
+                    <div className="text-sm font-semibold">Pokémon #{pid}</div>
+                  </Link>
+                ));
+              })()}
+            </div>
+            <div className="mt-4">
+              <Link href={`/generation/${gen.num}/`} className="text-primary hover:underline">View all Generation {gen.num} Pokémon →</Link>
+            </div>
+          </section>
           </section>
         </div>
       </main>

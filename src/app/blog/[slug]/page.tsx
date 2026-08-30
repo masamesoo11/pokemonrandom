@@ -158,6 +158,25 @@ export default async function BlogPostPage({ params }: PageProps) {
               </Link>
             </div>
           </section>
+          {/* RELATED_ARTICLES_V1 — internal links to other blog posts */}
+          <section className="mt-12 mb-8">
+            <h2 className="text-2xl font-bold mb-6">Related Articles</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {(() => {
+                const allPosts = getAllPosts();
+                const filtered = allPosts.filter((p) => p.slug !== post.slug).slice(0, 4);
+                return filtered.map((p) => (
+                  <Link key={p.slug} href={`/blog/${p.slug}/`} className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+                    <div className="text-xs text-muted-foreground mb-1">{p.category}</div>
+                    <div className="font-semibold mb-1">{p.title}</div>
+                    <div className="text-sm text-muted-foreground line-clamp-2">{p.excerpt}</div>
+                  </Link>
+                ));
+              })()}
+            </div>
+          </section>
+
+
 
           {/* Back to blog */}
           <div className="mt-8 text-center">

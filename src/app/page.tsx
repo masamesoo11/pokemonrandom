@@ -385,6 +385,45 @@ export default function Home() {
             <FaqSection />
           </div>
         </section>
+        {/* HOMEPAGE_LINKS_V1 — additional internal links */}
+        <section className="mx-auto max-w-5xl px-4 sm:px-6 py-12">
+          <h2 className="text-2xl font-bold mb-6 text-center">Quick Links to Pokémon Tools</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 text-sm">
+            <Link href="/pokemon-of-the-day/" className="block p-3 rounded-lg border border-border hover:border-primary transition-colors text-center">
+              <div className="font-semibold">Pokémon of the Day</div>
+              <div className="text-muted-foreground">Daily featured Pokémon</div>
+            </Link>
+            <Link href="/type-wheel/" className="block p-3 rounded-lg border border-border hover:border-primary transition-colors text-center">
+              <div className="font-semibold">Type Wheel Spinner</div>
+              <div className="text-muted-foreground">Random type generator</div>
+            </Link>
+            <Link href="/pokemon-search/" className="block p-3 rounded-lg border border-border hover:border-primary transition-colors text-center">
+              <div className="font-semibold">Pokémon Search</div>
+              <div className="text-muted-foreground">Find any Pokémon</div>
+            </Link>
+            <Link href="/tier-lists/" className="block p-3 rounded-lg border border-border hover:border-primary transition-colors text-center">
+              <div className="font-semibold">Tier List Builder</div>
+              <div className="text-muted-foreground">Create custom rankings</div>
+            </Link>
+            <Link href="/saved-teams/" className="block p-3 rounded-lg border border-border hover:border-primary transition-colors text-center">
+              <div className="font-semibold">Saved Teams</div>
+              <div className="text-muted-foreground">Manage your teams</div>
+            </Link>
+            <Link href="/pokemon-compare/" className="block p-3 rounded-lg border border-border hover:border-primary transition-colors text-center">
+              <div className="font-semibold">Compare Pokémon</div>
+              <div className="text-muted-foreground">Side by side stats</div>
+            </Link>
+            <Link href="/universal-pokemon-randomizer/" className="block p-3 rounded-lg border border-border hover:border-primary transition-colors text-center">
+              <div className="font-semibold">Universal Randomizer</div>
+              <div className="text-muted-foreground">ROM randomization guide</div>
+            </Link>
+            <Link href="/random-pokemon-picker/" className="block p-3 rounded-lg border border-border hover:border-primary transition-colors text-center">
+              <div className="font-semibold">Quick Picker</div>
+              <div className="text-muted-foreground">One-click random</div>
+            </Link>
+          </div>
+        </section>
+
 
         {/* SEO content */}
         <section className="mx-auto max-w-3xl px-4 sm:px-6 py-16 prose prose-lg dark:prose-invert">
