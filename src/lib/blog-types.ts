@@ -1,5 +1,10 @@
 /** Type definitions for blog posts. */
 
+export interface FAQItem {
+  q: string;
+  a: string;
+}
+
 export interface BlogPostSummary {
   slug: string;
   title: string;
@@ -16,6 +21,8 @@ export interface BlogPostSummary {
   category: string;
   intro: string;
   excerpt: string;
+  /** Optional FAQ items for FAQPage schema (rich snippets). */
+  faq?: FAQItem[];
 }
 
 export interface BlogPost extends BlogPostSummary {

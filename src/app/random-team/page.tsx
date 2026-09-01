@@ -5,19 +5,19 @@ import { SiteFooter } from "@/components/site-footer";
 import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/components/ad-slot";
 
 export const metadata: Metadata = {
-  title: "Random Pok\u00e9mon Team Builder \u2014 Free Team Generator | Pok\u00e9Random",
-  description: "Build a random Pok\u00e9mon team of 6 instantly. Free team generator for casual play, competitive battles, and Nuzlocke challenges. No login required.",
+  title: "Random Pok\u00e9mon Team Builder 2026 \u2014 Build 6 Teams Free",
+  description: "Build a random Pokémon team of 6 instantly. Free team generator for Nuzlocke challenges, competitive battles, and casual play. Filter by generation. No login required.",
   keywords: ["random pokemon team", "pokemon team builder", "pokemon team generator", "random team generator", "pokemon team randomizer"],
   alternates: { canonical: "https://pokemonrandom.com/random-team/" },
   openGraph: {
-    title: "Random Pok\u00e9mon Team Builder \u2014 Free Team Generator | Pok\u00e9Random",
+    title: "Random Pok\u00e9mon Team Builder 2026 \u2014 Build 6 Teams Free",
     description: "Build a random Pok\u00e9mon team of 6 instantly. Free team generator for casual play, competitive battles, and Nuzlocke challenges. No login required.",
     url: "https://pokemonrandom.com/random-team/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Random Pok\u00e9mon Team Builder \u2014 Free Team Generator | Pok\u00e9Random",
+    title: "Random Pok\u00e9mon Team Builder 2026 \u2014 Build 6 Teams Free",
     description: "Build a random Pok\u00e9mon team of 6 instantly. Free team generator for casual play, competitive battles, and Nuzlocke challenges. No login required.",
   },
 };

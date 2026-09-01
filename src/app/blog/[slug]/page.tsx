@@ -76,6 +76,20 @@ const articleSchema = (post: {
   },
 });
 
+
+const faqSchema = (faq: { q: string; a: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+});
+
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
@@ -158,6 +172,22 @@ export default async function BlogPostPage({ params }: PageProps) {
               </Link>
             </div>
           </section>
+
+          {/* FAQ Section */}
+          {post.faq && post.faq.length > 0 && (
+            <section className="mt-12 mb-8">
+              <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+              <div className="space-y-4">
+                {post.faq.map((item, i) => (
+                  <div key={i} className="border border-border rounded-lg p-4">
+                    <h3 className="font-semibold mb-2">{item.q}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{item.a}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* RELATED_ARTICLES_V1 — internal links to other blog posts */}
           <section className="mt-12 mb-8">
             <h2 className="text-2xl font-bold mb-6">Related Articles</h2>
@@ -198,6 +228,13 @@ export default async function BlogPostPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema(post)) }}
       />
+
+      {post.faq && post.faq.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(post.faq)) }}
+        />
+      )}
     </div>
   );
 }

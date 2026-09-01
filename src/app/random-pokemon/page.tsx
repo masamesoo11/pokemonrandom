@@ -5,19 +5,19 @@ import { SiteFooter } from "@/components/site-footer";
 import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/components/ad-slot";
 
 export const metadata: Metadata = {
-  title: "Random Pok\u00e9mon Generator \u2014 Free Online Tool | Pok\u00e9Random",
-  description: "Generate random Pok\u00e9mon instantly. Filter by generation, type, or rarity. Free online random Pok\u00e9mon generator with high-quality artwork. No login required.",
+  title: "Random Pok\u00e9mon Generator 2026 \u2014 Free, Instant, No Signup",
+  description: "Generate random Pokémon instantly from all 1,025 Pokémon. Filter by generation, type, and rarity. Free online random Pokémon generator with stats, abilities, cries, and shiny forms. No signup required.",
   keywords: ["random pokemon generator", "generate random pokemon", "pokemon generator online", "free pokemon generator", "random pokemon picker"],
   alternates: { canonical: "https://pokemonrandom.com/random-pokemon/" },
   openGraph: {
-    title: "Random Pok\u00e9mon Generator \u2014 Free Online Tool | Pok\u00e9Random",
+    title: "Random Pok\u00e9mon Generator 2026 \u2014 Free, Instant, No Signup",
     description: "Generate random Pok\u00e9mon instantly. Filter by generation, type, or rarity. Free online random Pok\u00e9mon generator with high-quality artwork. No login required.",
     url: "https://pokemonrandom.com/random-pokemon/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Random Pok\u00e9mon Generator \u2014 Free Online Tool | Pok\u00e9Random",
+    title: "Random Pok\u00e9mon Generator 2026 \u2014 Free, Instant, No Signup",
     description: "Generate random Pok\u00e9mon instantly. Filter by generation, type, or rarity. Free online random Pok\u00e9mon generator with high-quality artwork. No login required.",
   },
 };
