@@ -7,19 +7,19 @@ import { PokemonTypeWheel } from "@/components/pokemon-type-wheel";
 
 
 export const metadata: Metadata = {
-  title: "Pok\u00e9mon Type Wheel Spinner \u2014 Random Type Generator | Pok\u00e9Random",
-  description: "Spin the wheel to get a random Pok\u00e9mon type! Free interactive type wheel with all 18 Pok\u00e9mon types. Perfect for challenges and team building themes.",
+  title: "Pok\u00e9mon Type Wheel Spinner 2026 \u2014 Random Type Generator",
+  description: "Spin the wheel for a random Pokemon type. Great for monotype challenges, draft leagues, and type-themed runs. Free online tool, no signup required.",
   keywords: ["pokemon type wheel", "type wheel spinner", "random type generator", "pokemon type spinner", "type roulette"],
   alternates: { canonical: "https://pokemonrandom.com/type-wheel/" },
   openGraph: {
-    title: "Pok\u00e9mon Type Wheel Spinner \u2014 Random Type Generator | Pok\u00e9Random",
+    title: "Pok\u00e9mon Type Wheel Spinner 2026 \u2014 Random Type Generator",
     description: "Spin the wheel to get a random Pok\u00e9mon type! Free interactive type wheel with all 18 Pok\u00e9mon types. Perfect for challenges and team building themes.",
     url: "https://pokemonrandom.com/type-wheel/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pok\u00e9mon Type Wheel Spinner \u2014 Random Type Generator | Pok\u00e9Random",
+    title: "Pok\u00e9mon Type Wheel Spinner 2026 \u2014 Random Type Generator",
     description: "Spin the wheel to get a random Pok\u00e9mon type! Free interactive type wheel with all 18 Pok\u00e9mon types. Perfect for challenges and team building themes.",
   },
 };

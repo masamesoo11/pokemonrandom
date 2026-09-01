@@ -7,19 +7,19 @@ import { PokemonOfDay } from "@/components/pokemon-of-day";
 
 
 export const metadata: Metadata = {
-  title: "Pok\u00e9mon of the Day \u2014 Daily Featured Pok\u00e9mon | Pok\u00e9Random",
-  description: "Discover a new Pok\u00e9mon every day! Our Pok\u00e9mon of the Day features a different creature from all 1,025 Pok\u00e9mon. Come back daily to explore the Pok\u00e9dex.",
+  title: "Pok\u00e9mon of the Day 2026 \u2014 Discover New Pok\u00e9mon Daily",
+  description: "Discover a new Pokemon every day with detailed stats, types, and abilities. All 1,025 Pokemon featured over time. Free daily Pokemon tool, no signup required.",
   keywords: ["pokemon of the day", "daily pokemon", "featured pokemon", "pokemon daily", "todays pokemon"],
   alternates: { canonical: "https://pokemonrandom.com/pokemon-of-the-day/" },
   openGraph: {
-    title: "Pok\u00e9mon of the Day \u2014 Daily Featured Pok\u00e9mon | Pok\u00e9Random",
+    title: "Pok\u00e9mon of the Day 2026 \u2014 Discover New Pok\u00e9mon Daily",
     description: "Discover a new Pok\u00e9mon every day! Our Pok\u00e9mon of the Day features a different creature from all 1,025 Pok\u00e9mon. Come back daily to explore the Pok\u00e9dex.",
     url: "https://pokemonrandom.com/pokemon-of-the-day/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pok\u00e9mon of the Day \u2014 Daily Featured Pok\u00e9mon | Pok\u00e9Random",
+    title: "Pok\u00e9mon of the Day 2026 \u2014 Discover New Pok\u00e9mon Daily",
     description: "Discover a new Pok\u00e9mon every day! Our Pok\u00e9mon of the Day features a different creature from all 1,025 Pok\u00e9mon. Come back daily to explore the Pok\u00e9dex.",
   },
 };

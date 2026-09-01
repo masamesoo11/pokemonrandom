@@ -5,19 +5,19 @@ import { SiteFooter } from "@/components/site-footer";
 import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/components/ad-slot";
 
 export const metadata: Metadata = {
-  title: "Universal Pok\u00e9mon Randomizer \u2014 ROM Randomization Guide | Pok\u00e9Random",
-  description: "Complete guide to the Universal Pok\u00e9mon Randomizer. Learn how to randomize Pok\u00e9mon ROMs, change starter Pok\u00e9mon, shuffle encounters, and create challenge runs.",
+  title: "Universal Pok\u00e9mon Randomizer 2026 \u2014 ROM Guide & Tutorial",
+  description: "Complete guide to the Universal Pokemon Randomizer tool. How to install, configure, and use the randomizer for Nuzlocke challenges and ROM hacks. Free tutorial.",
   keywords: ["universal pokemon randomizer", "pokemon rom randomizer", "randomize pokemon games", "pokemon randomizer tutorial", "universal randomizer"],
   alternates: { canonical: "https://pokemonrandom.com/universal-pokemon-randomizer/" },
   openGraph: {
-    title: "Universal Pok\u00e9mon Randomizer \u2014 ROM Randomization Guide | Pok\u00e9Random",
+    title: "Universal Pok\u00e9mon Randomizer 2026 \u2014 ROM Guide & Tutorial",
     description: "Complete guide to the Universal Pok\u00e9mon Randomizer. Learn how to randomize Pok\u00e9mon ROMs, change starter Pok\u00e9mon, shuffle encounters, and create challenge runs.",
     url: "https://pokemonrandom.com/universal-pokemon-randomizer/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Universal Pok\u00e9mon Randomizer \u2014 ROM Randomization Guide | Pok\u00e9Random",
+    title: "Universal Pok\u00e9mon Randomizer 2026 \u2014 ROM Guide & Tutorial",
     description: "Complete guide to the Universal Pok\u00e9mon Randomizer. Learn how to randomize Pok\u00e9mon ROMs, change starter Pok\u00e9mon, shuffle encounters, and create challenge runs.",
   },
 };

@@ -5,19 +5,19 @@ import { SiteFooter } from "@/components/site-footer";
 import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/components/ad-slot";
 
 export const metadata: Metadata = {
-  title: "Pok\u00e9mon Type Chart \u2014 Full 18\u00d718 Effectiveness Matrix | Pok\u00e9Random",
-  description: "Complete Pok\u00e9mon type chart with all 18 types and their effectiveness. Find out which moves are super effective, weak, or useless against any type.",
+  title: "Pok\u00e9mon Type Chart 2026 \u2014 Full 18\u00d718 Matrix",
+  description: "Complete Pokemon type chart with all 18 types and their effectiveness. Find strengths, weaknesses, and immunities. Free interactive type chart for competitive and casual players.",
   keywords: ["pokemon type chart", "type effectiveness", "pokemon weakness chart", "type matchups", "pokemon type matrix", "super effective chart"],
   alternates: { canonical: "https://pokemonrandom.com/type-chart/" },
   openGraph: {
-    title: "Pok\u00e9mon Type Chart \u2014 Full 18\u00d718 Effectiveness Matrix | Pok\u00e9Random",
+    title: "Pok\u00e9mon Type Chart 2026 \u2014 Full 18\u00d718 Matrix",
     description: "Complete Pok\u00e9mon type chart with all 18 types and their effectiveness. Find out which moves are super effective, weak, or useless against any type.",
     url: "https://pokemonrandom.com/type-chart/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pok\u00e9mon Type Chart \u2014 Full 18\u00d718 Effectiveness Matrix | Pok\u00e9Random",
+    title: "Pok\u00e9mon Type Chart 2026 \u2014 Full 18\u00d718 Matrix",
     description: "Complete Pok\u00e9mon type chart with all 18 types and their effectiveness. Find out which moves are super effective, weak, or useless against any type.",
   },
 };

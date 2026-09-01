@@ -7,19 +7,19 @@ import { TierListBuilder } from "@/components/tier-list-builder";
 
 
 export const metadata: Metadata = {
-  title: "Pok\u00e9mon Tier List Builder \u2014 Create Custom Tier Lists | Pok\u00e9Random",
-  description: "Create your own Pok\u00e9mon tier list with our free drag-and-drop builder. Rank Pok\u00e9mon from S to F tier. Export as image. Build tier lists for any generation or topic.",
+  title: "Pok\u00e9mon Tier List Builder 2026 \u2014 Create Custom Rankings",
+  description: "Create custom Pokemon tier lists by ranking from S to F tier. All 1,025 Pokemon available. Free online tier list maker for competitive and casual rankings. No signup required.",
   keywords: ["pokemon tier list", "tier list builder", "pokemon ranking", "create tier list", "pokemon tier maker"],
   alternates: { canonical: "https://pokemonrandom.com/tier-lists/" },
   openGraph: {
-    title: "Pok\u00e9mon Tier List Builder \u2014 Create Custom Tier Lists | Pok\u00e9Random",
+    title: "Pok\u00e9mon Tier List Builder 2026 \u2014 Create Custom Rankings",
     description: "Create your own Pok\u00e9mon tier list with our free drag-and-drop builder. Rank Pok\u00e9mon from S to F tier. Export as image. Build tier lists for any generation or topic.",
     url: "https://pokemonrandom.com/tier-lists/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pok\u00e9mon Tier List Builder \u2014 Create Custom Tier Lists | Pok\u00e9Random",
+    title: "Pok\u00e9mon Tier List Builder 2026 \u2014 Create Custom Rankings",
     description: "Create your own Pok\u00e9mon tier list with our free drag-and-drop builder. Rank Pok\u00e9mon from S to F tier. Export as image. Build tier lists for any generation or topic.",
   },
 };

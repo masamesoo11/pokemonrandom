@@ -5,19 +5,19 @@ import { SiteFooter } from "@/components/site-footer";
 import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/components/ad-slot";
 
 export const metadata: Metadata = {
-  title: "Shiny Pok\u00e9mon Checker \u2014 Browse All Shiny Forms | Pok\u00e9Random",
-  description: "Browse shiny Pok\u00e9mon forms from all 9 generations. Compare normal vs shiny side by side. Free shiny Pok\u00e9mon gallery with high-quality artwork.",
+  title: "Shiny Pok\u00e9mon Checker 2026 \u2014 All 1,025 Shiny Forms",
+  description: "Browse all shiny Pokemon forms from Gen 1 to Gen 9. Compare normal vs shiny side by side. Free shiny Pokemon gallery with official artwork. Plan your shiny hunting targets.",
   keywords: ["shiny pokemon", "shiny checker", "shiny pokemon gallery", "shiny forms", "shiny sprites", "shiny hunting"],
   alternates: { canonical: "https://pokemonrandom.com/shiny-pokemon/" },
   openGraph: {
-    title: "Shiny Pok\u00e9mon Checker \u2014 Browse All Shiny Forms | Pok\u00e9Random",
+    title: "Shiny Pok\u00e9mon Checker 2026 \u2014 All 1,025 Shiny Forms",
     description: "Browse shiny Pok\u00e9mon forms from all 9 generations. Compare normal vs shiny side by side. Free shiny Pok\u00e9mon gallery with high-quality artwork.",
     url: "https://pokemonrandom.com/shiny-pokemon/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shiny Pok\u00e9mon Checker \u2014 Browse All Shiny Forms | Pok\u00e9Random",
+    title: "Shiny Pok\u00e9mon Checker 2026 \u2014 All 1,025 Shiny Forms",
     description: "Browse shiny Pok\u00e9mon forms from all 9 generations. Compare normal vs shiny side by side. Free shiny Pok\u00e9mon gallery with high-quality artwork.",
   },
 };

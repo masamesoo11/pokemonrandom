@@ -5,19 +5,19 @@ import { SiteFooter } from "@/components/site-footer";
 import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/components/ad-slot";
 
 export const metadata: Metadata = {
-  title: "Pok\u00e9mon Quiz \u2014 Guess That Pok\u00e9mon Game | Pok\u00e9Random",
-  description: "Test your Pok\u00e9mon knowledge with our free guessing game. Identify Pok\u00e9mon from silhouettes, earn points, and build streaks. Play the Pok\u00e9mon quiz online.",
+  title: "Pok\u00e9mon Quiz 2026 \u2014 Guess That Pok\u00e9mon Free Game",
+  description: "Test your Pokemon knowledge with our free guessing game. Identify Pokemon from silhouettes, earn points, and build streaks. All 1,025 Pokemon from Gen 1 to Gen 9. No signup required.",
   keywords: ["pokemon quiz", "guess that pokemon", "pokemon trivia", "pokemon guessing game", "pokemon quiz online", "guess the pokemon"],
   alternates: { canonical: "https://pokemonrandom.com/pokemon-quiz/" },
   openGraph: {
-    title: "Pok\u00e9mon Quiz \u2014 Guess That Pok\u00e9mon Game | Pok\u00e9Random",
+    title: "Pok\u00e9mon Quiz 2026 \u2014 Guess That Pok\u00e9mon Free Game",
     description: "Test your Pok\u00e9mon knowledge with our free guessing game. Identify Pok\u00e9mon from silhouettes, earn points, and build streaks. Play the Pok\u00e9mon quiz online.",
     url: "https://pokemonrandom.com/pokemon-quiz/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pok\u00e9mon Quiz \u2014 Guess That Pok\u00e9mon Game | Pok\u00e9Random",
+    title: "Pok\u00e9mon Quiz 2026 \u2014 Guess That Pok\u00e9mon Free Game",
     description: "Test your Pok\u00e9mon knowledge with our free guessing game. Identify Pok\u00e9mon from silhouettes, earn points, and build streaks. Play the Pok\u00e9mon quiz online.",
   },
 };

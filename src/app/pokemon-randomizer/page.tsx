@@ -5,19 +5,19 @@ import { SiteFooter } from "@/components/site-footer";
 import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/components/ad-slot";
 
 export const metadata: Metadata = {
-  title: "Pok\u00e9mon Randomizer \u2014 Nuzlocke & Advanced Filters | Pok\u00e9Random",
-  description: "Advanced Pok\u00e9mon randomizer with filters for generation, type, and legendary status. Perfect for Nuzlocke challenges and randomized playthroughs. Free online tool.",
+  title: "Pok\u00e9mon Randomizer 2026 \u2014 Nuzlocke & Advanced Filters",
+  description: "Advanced Pokemon randomizer with filters for generation, type, and legendary status. Perfect for Nuzlocke challenges, monotype runs, and draft leagues. Free online tool, no signup.",
   keywords: ["pokemon randomizer", "nuzlocke randomizer", "pokemon randomizer tool", "random pokemon by type", "random pokemon by generation"],
   alternates: { canonical: "https://pokemonrandom.com/pokemon-randomizer/" },
   openGraph: {
-    title: "Pok\u00e9mon Randomizer \u2014 Nuzlocke & Advanced Filters | Pok\u00e9Random",
+    title: "Pok\u00e9mon Randomizer 2026 \u2014 Nuzlocke & Advanced Filters",
     description: "Advanced Pok\u00e9mon randomizer with filters for generation, type, and legendary status. Perfect for Nuzlocke challenges and randomized playthroughs. Free online tool.",
     url: "https://pokemonrandom.com/pokemon-randomizer/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pok\u00e9mon Randomizer \u2014 Nuzlocke & Advanced Filters | Pok\u00e9Random",
+    title: "Pok\u00e9mon Randomizer 2026 \u2014 Nuzlocke & Advanced Filters",
     description: "Advanced Pok\u00e9mon randomizer with filters for generation, type, and legendary status. Perfect for Nuzlocke challenges and randomized playthroughs. Free online tool.",
   },
 };

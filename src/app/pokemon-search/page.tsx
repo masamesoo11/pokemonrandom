@@ -7,19 +7,19 @@ import { PokemonSearch } from "@/components/pokemon-search";
 
 
 export const metadata: Metadata = {
-  title: "Pok\u00e9mon Search \u2014 Find Any Pok\u00e9mon by Name or Number | Pok\u00e9Random",
-  description: "Search all 1,025 Pok\u00e9mon by name or Pok\u00e9dex number. Live results with sprites and links to full entries. Free Pok\u00e9mon search engine.",
+  title: "Pok\u00e9mon Search 2026 \u2014 Find Any Pok\u00e9mon Free",
+  description: "Search any Pokemon by name or National Pokedex number. All 1,025 Pokemon from Gen 1 to Gen 9. Free online search tool with detailed stats and information. No signup required.",
   keywords: ["pokemon search", "find pokemon", "pokemon name search", "pokemon database search", "search pokemon by name"],
   alternates: { canonical: "https://pokemonrandom.com/pokemon-search/" },
   openGraph: {
-    title: "Pok\u00e9mon Search \u2014 Find Any Pok\u00e9mon by Name or Number | Pok\u00e9Random",
+    title: "Pok\u00e9mon Search 2026 \u2014 Find Any Pok\u00e9mon Free",
     description: "Search all 1,025 Pok\u00e9mon by name or Pok\u00e9dex number. Live results with sprites and links to full entries. Free Pok\u00e9mon search engine.",
     url: "https://pokemonrandom.com/pokemon-search/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pok\u00e9mon Search \u2014 Find Any Pok\u00e9mon by Name or Number | Pok\u00e9Random",
+    title: "Pok\u00e9mon Search 2026 \u2014 Find Any Pok\u00e9mon Free",
     description: "Search all 1,025 Pok\u00e9mon by name or Pok\u00e9dex number. Live results with sprites and links to full entries. Free Pok\u00e9mon search engine.",
   },
 };

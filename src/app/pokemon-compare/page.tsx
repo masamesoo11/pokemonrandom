@@ -7,19 +7,19 @@ import { PokemonComparison } from "@/components/pokemon-comparison";
 
 
 export const metadata: Metadata = {
-  title: "Pok\u00e9mon Comparison Tool \u2014 Compare Two Pok\u00e9mon Side by Side | Pok\u00e9Random",
-  description: "Compare any two Pok\u00e9mon side by side. View base stats, types, abilities, and weaknesses in one view. Free Pok\u00e9mon comparison tool for competitive team building.",
+  title: "Pok\u00e9mon Comparison Tool 2026 \u2014 Compare Stats Side by Side",
+  description: "Compare two Pokemon side by side. See base stats, types, abilities, and evolution differences. Free online comparison tool for competitive team building. No signup required.",
   keywords: ["pokemon comparison", "compare pokemon", "pokemon stats comparison", "pokemon vs pokemon", "which pokemon is better"],
   alternates: { canonical: "https://pokemonrandom.com/pokemon-compare/" },
   openGraph: {
-    title: "Pok\u00e9mon Comparison Tool \u2014 Compare Two Pok\u00e9mon Side by Side | Pok\u00e9Random",
+    title: "Pok\u00e9mon Comparison Tool 2026 \u2014 Compare Stats Side by Side",
     description: "Compare any two Pok\u00e9mon side by side. View base stats, types, abilities, and weaknesses in one view. Free Pok\u00e9mon comparison tool for competitive team building.",
     url: "https://pokemonrandom.com/pokemon-compare/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pok\u00e9mon Comparison Tool \u2014 Compare Two Pok\u00e9mon Side by Side | Pok\u00e9Random",
+    title: "Pok\u00e9mon Comparison Tool 2026 \u2014 Compare Stats Side by Side",
     description: "Compare any two Pok\u00e9mon side by side. View base stats, types, abilities, and weaknesses in one view. Free Pok\u00e9mon comparison tool for competitive team building.",
   },
 };

@@ -5,19 +5,19 @@ import { SiteFooter } from "@/components/site-footer";
 import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/components/ad-slot";
 
 export const metadata: Metadata = {
-  title: "Random Starter Pok\u00e9mon Picker \u2014 Gen 1 to Gen 9 | Pok\u00e9Random",
-  description: "Can't decide which starter to pick? Use our free random starter Pok\u00e9mon picker to choose from Bulbasaur, Charmander, Squirtle, and all starters across 9 generations.",
+  title: "Random Starter Pok\u00e9mon Picker 2026 \u2014 Gen 1 to Gen 9",
+  description: "Randomly pick a starter Pokemon from Gen 1 to Gen 9. All 27 starter Pokemon in one free tool. Perfect for Nuzlocke challenges and casual play. No signup required.",
   keywords: ["random starter pokemon", "pokemon starter picker", "starter pokemon generator", "pick a starter", "random starter picker"],
   alternates: { canonical: "https://pokemonrandom.com/random-starter/" },
   openGraph: {
-    title: "Random Starter Pok\u00e9mon Picker \u2014 Gen 1 to Gen 9 | Pok\u00e9Random",
+    title: "Random Starter Pok\u00e9mon Picker 2026 \u2014 Gen 1 to Gen 9",
     description: "Can't decide which starter to pick? Use our free random starter Pok\u00e9mon picker to choose from Bulbasaur, Charmander, Squirtle, and all starters across 9 generations.",
     url: "https://pokemonrandom.com/random-starter/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Random Starter Pok\u00e9mon Picker \u2014 Gen 1 to Gen 9 | Pok\u00e9Random",
+    title: "Random Starter Pok\u00e9mon Picker 2026 \u2014 Gen 1 to Gen 9",
     description: "Can't decide which starter to pick? Use our free random starter Pok\u00e9mon picker to choose from Bulbasaur, Charmander, Squirtle, and all starters across 9 generations.",
   },
 };
