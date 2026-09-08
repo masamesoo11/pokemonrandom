@@ -94,10 +94,43 @@ export default async function AbilityDetailPage({ params }: PageProps) {
             <span className="text-foreground">{displayName}</span>
           </nav>
 
+          {/* H1 for SEO (AbilityDetailView fetches client-side, so we add H1 in SSR) */}
+          <h1 className="text-4xl font-bold tracking-tight mb-4">{displayName} Ability Guide</h1>
+          <p className="text-lg text-muted-foreground mb-6">
+            Complete guide to the Pokémon ability {displayName}. View its effect description, flavor
+            text, and the full list of Pokémon that can have {displayName} as a standard or hidden
+            ability. Free Pokémon ability database with detailed competitive analysis.
+          </p>
+
           <InContentAd />
 
           {/* Client-side fetched ability detail */}
           <AbilityDetailView slug={slug} />
+
+          {/* SEO Content for ability detail */}
+          <section className="mt-12 prose prose-lg dark:prose-invert max-w-none">
+            <h2>About the {displayName} Ability</h2>
+            <p>
+              {displayName} is a Pokémon ability that can be possessed by various Pokémon across
+              different generations. Abilities are passive effects that influence battles by
+              providing various bonuses, immunities, or triggered effects. The ability {displayName}
+              may be a standard ability or a hidden ability, depending on the Pokémon species.
+              Hidden abilities are typically rarer and often more powerful than standard abilities.
+            </p>
+            <p>
+              Understanding how {displayName} works is essential for competitive team building.
+              Some abilities activate automatically when the Pokémon enters battle, while others
+              are triggered by specific conditions such as being hit by certain move types or
+              weather effects. Check which Pokémon can have {displayName} in the list above, and
+              use our <Link href="/pokemon-compare/">Pokémon Comparison Tool</Link> to compare
+              Pokémon with this ability.
+            </p>
+            <p>
+              Browse our complete <Link href="/abilities/">abilities database</Link> with all 298+
+              abilities from every generation, or explore our <Link href="/random-team/">team
+              builder</Link> to create teams that synergize with the {displayName} ability.
+            </p>
+          </section>
         </div>
       </main>
       <FooterAd />

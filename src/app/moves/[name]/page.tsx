@@ -95,10 +95,46 @@ export default async function MoveDetailPage({ params }: PageProps) {
             <span className="text-foreground">{displayName}</span>
           </nav>
 
+          {/* H1 for SEO (MoveDetailView fetches client-side, so we add H1 in SSR) */}
+          <h1 className="text-4xl font-bold tracking-tight mb-4">{displayName} Move Guide</h1>
+          <p className="text-lg text-muted-foreground mb-6">
+            Complete guide to the Pokémon move {displayName}. View its power, accuracy, PP, type,
+            effect description, and the full list of Pokémon that can learn {displayName} through
+            leveling up, TMs, breeding, and move tutors. Free Pokémon move database with detailed
+            stats and competitive analysis.
+          </p>
+
           <InContentAd />
 
           {/* Client-side fetched move detail */}
           <MoveDetailView slug={slug} />
+
+          {/* SEO Content for move detail */}
+          <section className="mt-12 prose prose-lg dark:prose-invert max-w-none">
+            <h2>About {displayName}</h2>
+            <p>
+              {displayName} is a Pokémon move available in the main series games. Each Pokémon move
+              has specific attributes including type, category (Physical, Special, or Status), base
+              power, accuracy, and PP (Power Points). The move {displayName} can be learned by
+              various Pokémon through different methods such as leveling up, Technical Machines
+              (TMs), breeding, or move tutors. Understanding the stats and effects of {displayName}
+              is essential for building effective competitive teams and completing your Pokédex.
+            </p>
+            <p>
+              To use {displayName} effectively in battle, consider its type matchup against the
+              opponent. Moves that are super effective against the opponent type deal 2x damage,
+              while not very effective moves deal 0.5x damage. Same Type Attack Bonus (STAB) gives
+              a 1.5x damage boost when a Pokémon of the same type uses {displayName}. Check our{" "}
+              <Link href="/type-chart/">Type Chart</Link> for the full effectiveness matrix and use
+              our <Link href="/pokemon-compare/">Pokémon Comparison Tool</Link> to find the best
+              Pokémon for this move.
+            </p>
+            <p>
+              Browse our complete <Link href="/moves/">moves database</Link> with all 920+ moves
+              from every generation, or use our <Link href="/random-pokemon/">random Pokémon
+              generator</Link> to discover new Pokémon that can learn {displayName}.
+            </p>
+          </section>
         </div>
       </main>
       <FooterAd />
