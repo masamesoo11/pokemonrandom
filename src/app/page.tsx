@@ -29,12 +29,11 @@ import {
 import { getAllPosts } from "@/lib/blog-content-loader";
 
 export const metadata: Metadata = {
-  title: "Pokémon Random — Free Generator, Team Builder & Pokédex",
-  description:
-    "Free Pokémon tools: random generator, team builder, shiny checker, type chart, quiz, and complete Pokédex with all 1,025 Pokémon. No signup required.",
+  title: "Random Pokémon Generator — Free, No Signup | PokéRandom",
+  description: ""Generate random Pokémon instantly from all 1,025 Pokémon. Free online generator with team builder, type chart, shiny checker, and quiz. No signup required.",
   alternates: { canonical: "https://pokemonrandom.com/" },
   openGraph: {
-    title: "Pokémon Random — Free Generator, Team Builder & Pokédex",
+    title: "Random Pokémon Generator — Free, No Signup | PokéRandom",
     description:
       "Free Pokémon tools: random generator, team builder, shiny checker, type chart, quiz, and complete Pokédex with all 1,025 Pokémon. No signup required.",
     url: "https://pokemonrandom.com/",
@@ -45,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pokémon Random — Free Generator, Team Builder & Pokédex",
+    title: "Random Pokémon Generator — Free, No Signup | PokéRandom",
     description:
       "Free Pokémon tools: random generator, team builder, shiny checker, type chart, quiz, and complete Pokédex with all 1,025 Pokémon.",
   },
@@ -397,6 +396,10 @@ export default function Home() {
               <div className="font-semibold">Type Wheel Spinner</div>
               <div className="text-muted-foreground">Random type generator</div>
             </Link>
+            <Link href="/shiny-odds-calculator/" className="block p-3 rounded-lg border border-border hover:border-primary transition-colors text-center">
+              <div className="font-semibold">Shiny Calculator</div>
+              <div className="text-muted-foreground">Odds & probability</div>
+            </Link>
             <Link href="/pokemon-search/" className="block p-3 rounded-lg border border-border hover:border-primary transition-colors text-center">
               <div className="font-semibold">Pokémon Search</div>
               <div className="text-muted-foreground">Find any Pokémon</div>
@@ -655,6 +658,51 @@ export default function Home() {
       <FooterAd />
       <SiteFooter />
       <MobileAnchorAd />
+
+      {/* Homepage FAQ Schema for rich snippets */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How does the random Pokémon generator work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our random Pokémon generator picks a random Pokémon from all 1,025 in the National Pokédex using a random ID between 1 and 1025. Each click generates a new Pokémon with full stats, types, abilities, cries, and shiny forms."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is the random Pokémon generator free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, our random Pokémon generator is 100% free with no signup, no ads in your way, and no limits. You can generate unlimited Pokémon, build teams, and use all our tools without any registration."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I generate a full Pokémon team?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, our Random Team Builder rolls 6 unique Pokémon at once. You can filter by generation and remove individual team members to roll replacements."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are all 1025 Pokémon included?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, every Pokémon from Generation 1 (Kanto) through Generation 9 (Paldea) is included in our generator, covering all 1,025 Pokémon in the National Pokédex."
+                }
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }

@@ -28,6 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/pokemon-of-the-day/", priority: 0.8, freq: "daily" as const },
     { path: "/pokemon-compare/", priority: 0.8, freq: "weekly" as const },
     { path: "/type-wheel/", priority: 0.8, freq: "weekly" as const },
+    { path: "/shiny-odds-calculator/", priority: 0.9, freq: "weekly" as const },
     { path: "/pokemon-search/", priority: 0.8, freq: "weekly" as const },
     { path: "/saved-teams/", priority: 0.6, freq: "weekly" as const },
     { path: "/tier-lists/", priority: 0.7, freq: "weekly" as const },

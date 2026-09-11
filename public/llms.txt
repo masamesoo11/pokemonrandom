@@ -26,6 +26,7 @@
 - [Pokémon Search](https://pokemonrandom.com/pokemon-search/): Find any Pokémon by name or National Pokédex number.
 - [Pokémon Tier List Builder](https://pokemonrandom.com/tier-lists/): Create custom tier lists by ranking Pokémon from best to worst.
 - [Saved Teams Manager](https://pokemonrandom.com/saved-teams/): Save and manage your Pokémon teams for easy access.
+- [Shiny Odds Calculator](https://pokemonrandom.com/shiny-odds-calculator/): Calculate shiny Pokémon encounter odds with Masuda Method, Shiny Charm, and chain methods.
 - [Pokémon of the Day](https://pokemonrandom.com/pokemon-of-the-day/): Discover a new Pokémon every day with detailed stats and information.
 
 ## Database Pages

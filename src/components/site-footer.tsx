@@ -54,6 +54,7 @@ export function SiteFooter() {
           <div>
             <div className="font-semibold text-sm mb-3">Explore</div>
             <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link href="/shiny-odds-calculator/" className="hover:text-foreground transition-colors">Shiny Odds Calculator</Link></li>
               <li><Link href="/shiny-pokemon/" className="hover:text-foreground transition-colors">Shiny Checker</Link></li>
               <li><Link href="/type-chart/" className="hover:text-foreground transition-colors">Type Chart</Link></li>
               <li><Link href="/type-wheel/" className="hover:text-foreground transition-colors">Type Wheel</Link></li>
