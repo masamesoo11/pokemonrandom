@@ -30,7 +30,7 @@ import { getAllPosts } from "@/lib/blog-content-loader";
 
 export const metadata: Metadata = {
   title: "Random Pokémon Generator — Free, No Signup | PokéRandom",
-  description: ""Generate random Pokémon instantly from all 1,025 Pokémon. Free online generator with team builder, type chart, shiny checker, and quiz. No signup required.",
+  description: "Generate random Pokémon instantly from all 1,025 Pokémon. Free online generator with team builder, type chart, shiny checker, and quiz. No signup required.",
   alternates: { canonical: "https://pokemonrandom.com/" },
   openGraph: {
     title: "Random Pokémon Generator — Free, No Signup | PokéRandom",
