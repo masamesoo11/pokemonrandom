@@ -17,3 +17,65 @@
 /feed.xml
   Cache-Control: public, max-age=3600
   Content-Type: application/xml
+
+# === Long caching for images ===
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.gif
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+# === Long caching for fonts ===
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.ttf
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.otf
+  Cache-Control: public, max-age=31536000, immutable
+
+# === Long caching for JS/CSS with hash in filename ===
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# === HTML pages — short cache with revalidation ===
+/*.html
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# === JSON manifest ===
+/manifest.json
+  Cache-Control: public, max-age=86400
+
+# === llms.txt ===
+/llms.txt
+  Cache-Control: public, max-age=86400
+
+# === Google verification file ===
+/google7bdac16b5ecbdd40.html
+  Cache-Control: public, max-age=86400
+
+# === IndexNow key ===
+/d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9.txt
+  Cache-Control: public, max-age=86400
