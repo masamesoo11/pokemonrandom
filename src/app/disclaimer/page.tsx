@@ -8,6 +8,14 @@ export const metadata: Metadata = {
     "Legal disclaimer for Pokemon Random. We are a fan-made project, not affiliated with Nintendo or The Pokemon Company.",
   alternates: { canonical: "https://pokemonrandom.com/disclaimer/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Disclaimer - Pokemon Random",
     description: "Legal disclaimer for Pokemon Random.",
   },

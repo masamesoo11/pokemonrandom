@@ -29,6 +29,14 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     alternates: { canonical },
     openGraph: {
+      images: [
+        {
+          url: "https://pokemonrandom.com/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: "PokéRandom — Pokémon Tools & Database",
+        },
+      ],
       title,
       description,
       url: canonical,

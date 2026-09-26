@@ -12,6 +12,14 @@ export const metadata: Metadata = {
   keywords: ["pokemon search", "find pokemon", "pokemon name search", "pokemon database search", "search pokemon by name"],
   alternates: { canonical: "https://pokemonrandom.com/pokemon-search/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Pok\u00e9mon Search 2026 \u2014 Find Any Pok\u00e9mon Free",
     description: "Search all 1,025 Pok\u00e9mon by name or Pok\u00e9dex number. Live results with sprites and links to full entries. Free Pok\u00e9mon search engine.",
     url: "https://pokemonrandom.com/pokemon-search/",

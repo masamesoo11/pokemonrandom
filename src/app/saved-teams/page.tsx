@@ -12,6 +12,14 @@ export const metadata: Metadata = {
   keywords: ["saved teams", "pokemon team manager", "save pokemon team", "team export import", "pokemon team storage"],
   alternates: { canonical: "https://pokemonrandom.com/saved-teams/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Saved Pok\u00e9mon Teams 2026 \u2014 Manage Your Teams Free",
     description: "Save, manage, export, and import your Pok\u00e9mon teams. Build teams with our Random Team Builder and store them for later. Free team management tool.",
     url: "https://pokemonrandom.com/saved-teams/",

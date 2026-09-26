@@ -12,6 +12,14 @@ export const metadata: Metadata = {
   keywords: ["pokemon of the day", "daily pokemon", "featured pokemon", "pokemon daily", "todays pokemon"],
   alternates: { canonical: "https://pokemonrandom.com/pokemon-of-the-day/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Pok\u00e9mon of the Day 2026 \u2014 Discover New Pok\u00e9mon Daily",
     description: "Discover a new Pok\u00e9mon every day! Our Pok\u00e9mon of the Day features a different creature from all 1,025 Pok\u00e9mon. Come back daily to explore the Pok\u00e9dex.",
     url: "https://pokemonrandom.com/pokemon-of-the-day/",

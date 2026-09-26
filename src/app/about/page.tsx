@@ -8,6 +8,14 @@ export const metadata: Metadata = {
     "Learn about Pokemon Random — a free fan-made collection of Pokemon tools including random generator, team builder, type wheel, and more.",
   alternates: { canonical: "https://pokemonrandom.com/about/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "About Us - Pokemon Random",
     description:
       "Learn about Pokemon Random — a free fan-made collection of Pokemon tools.",

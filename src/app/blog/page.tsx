@@ -19,6 +19,14 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://pokemonrandom.com/blog/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Pokémon Blog — Guides, Tips & Strategy | PokéRandom",
     description:
       "In-depth Pokémon guides, Nuzlocke strategy, shiny hunting tips, and complete Pokédex entries.",

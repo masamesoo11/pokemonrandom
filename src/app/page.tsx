@@ -34,6 +34,14 @@ export const metadata: Metadata = {
   description: "Generate random Pokémon instantly from all 1,025 Pokémon. Free online generator with team builder, type chart, shiny checker, and quiz. No signup required.",
   alternates: { canonical: "https://pokemonrandom.com/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Random Pokémon Generator — Free, No Signup | PokéRandom",
     description:
       "Free Pokémon tools: random generator, team builder, shiny checker, type chart, quiz, and complete Pokédex with all 1,025 Pokémon. No signup required.",

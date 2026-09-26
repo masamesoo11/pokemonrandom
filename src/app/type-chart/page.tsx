@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   keywords: ["pokemon type chart", "type effectiveness", "pokemon weakness chart", "type matchups", "pokemon type matrix", "super effective chart"],
   alternates: { canonical: "https://pokemonrandom.com/type-chart/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Pok\u00e9mon Type Chart \u2014 Strengths & Weaknesses Free",
     description: "Complete Pok\u00e9mon type chart with all 18 types and their effectiveness. Find out which moves are super effective, weak, or useless against any type.",
     url: "https://pokemonrandom.com/type-chart/",

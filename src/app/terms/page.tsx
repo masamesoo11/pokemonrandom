@@ -7,6 +7,14 @@ export const metadata: Metadata = {
     "Terms of Service for Pokemon Random. The rules and conditions for using our free Pokemon tools.",
   alternates: { canonical: "https://pokemonrandom.com/terms/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Terms of Service - Pokemon Random",
     description: "Terms of Service for Pokemon Random.",
   },

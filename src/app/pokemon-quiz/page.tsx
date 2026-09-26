@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   keywords: ["pokemon quiz", "guess that pokemon", "pokemon trivia", "pokemon guessing game", "pokemon quiz online", "guess the pokemon"],
   alternates: { canonical: "https://pokemonrandom.com/pokemon-quiz/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Pok\u00e9mon Quiz 2026 \u2014 Guess That Pok\u00e9mon Free Game",
     description: "Test your Pok\u00e9mon knowledge with our free guessing game. Identify Pok\u00e9mon from silhouettes, earn points, and build streaks. Play the Pok\u00e9mon quiz online.",
     url: "https://pokemonrandom.com/pokemon-quiz/",

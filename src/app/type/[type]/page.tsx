@@ -36,7 +36,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `${type} type weaknesses`,
     ],
     alternates: { canonical },
-    openGraph: { title, description, url: canonical, type: "website" },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      type: "website",
+      images: [
+        {
+          url: "https://pokemonrandom.com/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: "PokéRandom — Pokémon Tools & Database",
+        },
+      ],
+    },
   };
 }
 

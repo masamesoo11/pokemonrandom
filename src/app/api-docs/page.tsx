@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   keywords: ["pokemon api", "pokeapi documentation", "pokemon api docs", "pokemon data api", "pokeapi integration"],
   alternates: { canonical: "https://pokemonrandom.com/api-docs/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "API Documentation \u2014 Pok\u00e9API Integration Guide | Pok\u00e9Random",
     description: "Complete API documentation for Pok\u00e9Random. Learn how we use Pok\u00e9API to fetch Pok\u00e9mon data, with code examples for developers building their own Pok\u00e9mon applications.",
     url: "https://pokemonrandom.com/api-docs/",

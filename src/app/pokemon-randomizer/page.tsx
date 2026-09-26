@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   keywords: ["pokemon randomizer", "nuzlocke randomizer", "pokemon randomizer tool", "random pokemon by type", "random pokemon by generation"],
   alternates: { canonical: "https://pokemonrandom.com/pokemon-randomizer/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Pok\u00e9mon Randomizer \u2014 Free Nuzlocke & Type Filters",
     description: "Advanced Pok\u00e9mon randomizer with filters for generation, type, and legendary status. Perfect for Nuzlocke challenges and randomized playthroughs. Free online tool.",
     url: "https://pokemonrandom.com/pokemon-randomizer/",

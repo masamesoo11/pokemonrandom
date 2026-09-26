@@ -12,6 +12,14 @@ export const metadata: Metadata = {
   keywords: ["pokemon type wheel", "type wheel spinner", "random type generator", "pokemon type spinner", "type roulette"],
   alternates: { canonical: "https://pokemonrandom.com/type-wheel/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Pok\u00e9mon Type Wheel Spinner 2026 \u2014 Random Type Generator",
     description: "Spin the wheel to get a random Pok\u00e9mon type! Free interactive type wheel with all 18 Pok\u00e9mon types. Perfect for challenges and team building themes.",
     url: "https://pokemonrandom.com/type-wheel/",

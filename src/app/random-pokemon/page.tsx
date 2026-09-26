@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   keywords: ["random pokemon generator", "generate random pokemon", "pokemon generator online", "free pokemon generator", "random pokemon picker"],
   alternates: { canonical: "https://pokemonrandom.com/random-pokemon/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Random Pok\u00e9mon Generator 2026 \u2014 Free, Instant, No Signup",
     description: "Generate random Pok\u00e9mon instantly. Filter by generation, type, or rarity. Free online random Pok\u00e9mon generator with high-quality artwork. No login required.",
     url: "https://pokemonrandom.com/random-pokemon/",

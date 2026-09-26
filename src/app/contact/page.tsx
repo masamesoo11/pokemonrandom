@@ -8,6 +8,14 @@ export const metadata: Metadata = {
     "Get in touch with the Pokemon Random team. Send feedback, report bugs, request features, or ask questions about our Pokemon tools.",
   alternates: { canonical: "https://pokemonrandom.com/contact/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Contact Us - Pokemon Random",
     description: "Get in touch with the Pokemon Random team.",
   },

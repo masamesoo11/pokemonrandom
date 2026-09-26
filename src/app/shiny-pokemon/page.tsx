@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   keywords: ["shiny pokemon", "shiny checker", "shiny pokemon gallery", "shiny forms", "shiny sprites", "shiny hunting"],
   alternates: { canonical: "https://pokemonrandom.com/shiny-pokemon/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Shiny Pok\u00e9mon Checker \u2014 Browse All Shiny Forms Free",
     description: "Browse shiny Pok\u00e9mon forms from all 9 generations. Compare normal vs shiny side by side. Free shiny Pok\u00e9mon gallery with high-quality artwork.",
     url: "https://pokemonrandom.com/shiny-pokemon/",

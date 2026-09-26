@@ -27,6 +27,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     keywords: post.keywords,
     alternates: { canonical },
     openGraph: {
+      images: [
+        {
+          url: "https://pokemonrandom.com/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: "PokéRandom — Pokémon Tools & Database",
+        },
+      ],
       title: post.ogTitle || post.title,
       description: post.ogDescription || post.description,
       url: canonical,

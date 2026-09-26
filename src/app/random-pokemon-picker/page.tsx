@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   keywords: ["random pokemon picker", "pick a random pokemon", "pokemon picker", "random pokemon selector", "quick pokemon picker"],
   alternates: { canonical: "https://pokemonrandom.com/random-pokemon-picker/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Random Pok\u00e9mon Picker \u2014 Quick One-Click Decision | Pok\u00e9Random",
     description: "Quick one-click random Pok\u00e9mon picker. No filters, no setup \u2014 just click and get a random Pok\u00e9mon. Perfect for quick decisions and casual fun.",
     url: "https://pokemonrandom.com/random-pokemon-picker/",

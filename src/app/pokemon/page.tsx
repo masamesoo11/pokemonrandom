@@ -18,6 +18,14 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://pokemonrandom.com/pokemon/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Pokémon Database — Complete Pokédex (1,025 Pokémon) | PokéRandom",
     description:
       "Browse all 1,025 Pokémon from Generation 1 to Generation 9. Complete Pokédex with stats, types, abilities, evolution chains, and shiny forms.",

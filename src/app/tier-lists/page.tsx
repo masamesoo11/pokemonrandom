@@ -12,6 +12,14 @@ export const metadata: Metadata = {
   keywords: ["pokemon tier list", "tier list builder", "pokemon ranking", "create tier list", "pokemon tier maker"],
   alternates: { canonical: "https://pokemonrandom.com/tier-lists/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Pok\u00e9mon Tier List Builder 2026 \u2014 Create Custom Rankings",
     description: "Create your own Pok\u00e9mon tier list with our free drag-and-drop builder. Rank Pok\u00e9mon from S to F tier. Export as image. Build tier lists for any generation or topic.",
     url: "https://pokemonrandom.com/tier-lists/",

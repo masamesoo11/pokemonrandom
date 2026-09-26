@@ -12,6 +12,14 @@ export const metadata: Metadata = {
   keywords: ["pokemon comparison", "compare pokemon", "pokemon stats comparison", "pokemon vs pokemon", "which pokemon is better"],
   alternates: { canonical: "https://pokemonrandom.com/pokemon-compare/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Pok\u00e9mon Comparison Tool 2026 \u2014 Compare Stats Side by Side",
     description: "Compare any two Pok\u00e9mon side by side. View base stats, types, abilities, and weaknesses in one view. Free Pok\u00e9mon comparison tool for competitive team building.",
     url: "https://pokemonrandom.com/pokemon-compare/",

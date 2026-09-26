@@ -8,6 +8,14 @@ export const metadata: Metadata = {
     "Privacy Policy for Pokemon Random. Learn what data we collect, how we use cookies, and how Google AdSense and Analytics affect your privacy.",
   alternates: { canonical: "https://pokemonrandom.com/privacy/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Privacy Policy - Pokemon Random",
     description: "Privacy Policy for Pokemon Random.",
   },

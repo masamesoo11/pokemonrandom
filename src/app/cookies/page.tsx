@@ -8,6 +8,14 @@ export const metadata: Metadata = {
     "Cookie Policy for Pokemon Random. Learn which cookies we and our third-party partners (Google, AdSense) use and how to control them.",
   alternates: { canonical: "https://pokemonrandom.com/cookies/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Cookie Policy - Pokemon Random",
     description: "Cookie Policy for Pokemon Random.",
   },

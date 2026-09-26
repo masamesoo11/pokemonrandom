@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   keywords: ["random pokemon team", "pokemon team builder", "pokemon team generator", "random team generator", "pokemon team randomizer"],
   alternates: { canonical: "https://pokemonrandom.com/random-team/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Random Pok\u00e9mon Team Builder \u2014 Free 6 Pok\u00e9mon Generator",
     description: "Build a random Pok\u00e9mon team of 6 instantly. Free team generator for casual play, competitive battles, and Nuzlocke challenges. No login required.",
     url: "https://pokemonrandom.com/random-team/",

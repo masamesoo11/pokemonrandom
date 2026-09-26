@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   keywords: ["universal pokemon randomizer", "pokemon rom randomizer", "randomize pokemon games", "pokemon randomizer tutorial", "universal randomizer"],
   alternates: { canonical: "https://pokemonrandom.com/universal-pokemon-randomizer/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Universal Pok\u00e9mon Randomizer 2026 \u2014 ROM Guide & Tutorial",
     description: "Complete guide to the Universal Pok\u00e9mon Randomizer. Learn how to randomize Pok\u00e9mon ROMs, change starter Pok\u00e9mon, shuffle encounters, and create challenge runs.",
     url: "https://pokemonrandom.com/universal-pokemon-randomizer/",

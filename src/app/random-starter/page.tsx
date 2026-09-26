@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   keywords: ["random starter pokemon", "pokemon starter picker", "starter pokemon generator", "pick a starter", "random starter picker"],
   alternates: { canonical: "https://pokemonrandom.com/random-starter/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Random Starter Pok\u00e9mon Picker 2026 \u2014 Gen 1 to Gen 9",
     description: "Can't decide which starter to pick? Use our free random starter Pok\u00e9mon picker to choose from Bulbasaur, Charmander, Squirtle, and all starters across 9 generations.",
     url: "https://pokemonrandom.com/random-starter/",

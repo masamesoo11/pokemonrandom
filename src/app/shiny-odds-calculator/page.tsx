@@ -19,6 +19,14 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://pokemonrandom.com/shiny-odds-calculator/" },
   openGraph: {
+    images: [
+      {
+        url: "https://pokemonrandom.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PokéRandom — Pokémon Tools & Database",
+      },
+    ],
     title: "Shiny Odds Calculator 2026 — Pokémon Shiny Probability",
     description: "Calculate shiny Pokémon encounter odds. Base odds, Masuda Method, Shiny Charm, chain fishing rates for every generation.",
     url: "https://pokemonrandom.com/shiny-odds-calculator/",
