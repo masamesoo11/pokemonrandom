@@ -11,14 +11,9 @@
           "downloadThroughputKbps": 10240,
           "uploadThroughputKbps": 10240
         },
-        "extraHeaders": [
-          {
-            "pattern": ".*",
-            "headers": {
-              "User-Agent": "Mozilla/5.0 (compatible; Lighthouse CI)"
-            }
-          }
-        ]
+        "extraHeaders": {
+          "User-Agent": "Mozilla/5.0 (compatible; Lighthouse CI)"
+        }
       },
       "staticDistDir": null
     },
