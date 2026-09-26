@@ -85,7 +85,6 @@ jobs:
       # ===== 5. Run lint check =====
       - name: 🔍 Lint check
         run: bun run lint
-        continue-on-error: true # don't fail deployment for lint warnings
 
       # ===== 6. Build with @cloudflare/next-on-pages =====
       - name: 🔨 Build for Cloudflare Pages

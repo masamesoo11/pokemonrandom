@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { GuessPokemonGame } from "@/components/guess-pokemon-game";
 import { SiteHeader } from "@/components/site-header";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 
 const breadcrumbSchema = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pokemonrandom.com/"}, {"@type": "ListItem", "position": 2, "name": "Pok\u00e9mon Quiz \u2014 Guess That Pok\u00e9mon", "item": "https://pokemonrandom.com/pokemon-quiz/"}]};
 const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many Pok\u00e9mon are in the quiz?", "acceptedAnswer": {"@type": "Answer", "text": "All 1,025 Pok\u00e9mon from Generation 1 through Generation 9 are included. Each round selects a random Pok\u00e9mon from the full Pok\u00e9dex."}}, {"@type": "Question", "name": "Is the Pok\u00e9mon quiz free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, completely free. No login, no signup, no payment. Play as many rounds as you want."}}, {"@type": "Question", "name": "Can I get hints if I am stuck?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, after each incorrect guess you receive a hint. The first hint reveals the Pok\u00e9mon's type, the second reveals its generation, and the third reveals a letter from its name."}}, {"@type": "Question", "name": "Does the quiz work on mobile?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the quiz is fully responsive and works great on phones, tablets, and desktops. The interface adapts to your screen size."}}, {"@type": "Question", "name": "Is my score saved?", "acceptedAnswer": {"@type": "Answer", "text": "Your current session score and streak are saved in your browser. If you close the tab or refresh, your score resets \u2014 but you can play indefinitely in a single session."}}]};
-const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Pokémon Quiz — Guess That Pokémon", "url": "https://pokemonrandom.com/pokemon-quiz/", "description": "Test your Pokémon knowledge with our free guessing game. Identify Pokémon from silhouettes, earn points, and build streaks. Play the Pokémon quiz online.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/pokemon-quiz/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "247", "bestRating": "5", "worstRating": "1"}};
+const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Pokémon Quiz — Guess That Pokémon", "url": "https://pokemonrandom.com/pokemon-quiz/", "description": "Test your Pokémon knowledge with our free guessing game. Identify Pokémon from silhouettes, earn points, and build streaks. Play the Pokémon quiz online.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/pokemon-quiz/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png"};
 
 export default function PokemonQuizPage() {
   return (
@@ -80,22 +81,22 @@ export default function PokemonQuizPage() {
           <section className="mt-12">
             <h2 className="text-2xl font-bold mb-6">Related Pokémon Tools</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <a href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+                    <Link href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Pokémon Generator</div>
         <div className="text-sm text-muted-foreground">Generate a single Pokémon</div>
-      </a>
-      <a href="/random-team/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/random-team/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Team Builder</div>
         <div className="text-sm text-muted-foreground">Build a team of 6 Pokémon</div>
-      </a>
-      <a href="/type-chart/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/type-chart/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Pokémon Type Chart</div>
         <div className="text-sm text-muted-foreground">Learn type matchups</div>
-      </a>
-      <a href="/shiny-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/shiny-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Shiny Pokémon Checker</div>
         <div className="text-sm text-muted-foreground">Browse shiny forms</div>
-      </a>
+      </Link>
 
             </div>
 

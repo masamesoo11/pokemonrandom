@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { LegalPageLayout, H2, P, Strong, UL, LI } from "@/components/legal-page-layout";
 
@@ -5,7 +6,7 @@ export const metadata: Metadata = {
   title: "About Us - Pokemon Random",
   description:
     "Learn about Pokemon Random — a free fan-made collection of Pokemon tools including random generator, team builder, type wheel, and more.",
-  alternates: { canonical: "https://pokemonrandom.com/about" },
+  alternates: { canonical: "https://pokemonrandom.com/about/" },
   openGraph: {
     title: "About Us - Pokemon Random",
     description:
@@ -97,9 +98,9 @@ export default function AboutPage() {
       <P>
         This site is built by fans, for fans. If you represent any of the trademark
         holders and have concerns, please see our{" "}
-        <a href="/dmca" className="text-primary font-semibold hover:underline">
+        <Link href="/dmca/" className="text-primary font-semibold hover:underline">
           DMCA page
-        </a>{" "}
+        </Link>{" "}
         or contact us directly.
       </P>
 
@@ -107,9 +108,9 @@ export default function AboutPage() {
       <P>
         Have feedback, found a bug, or want to suggest a new feature? We&apos;d love to
         hear from you. Visit our{" "}
-        <a href="/contact" className="text-primary font-semibold hover:underline">
+        <Link href="/contact/" className="text-primary font-semibold hover:underline">
           contact page
-        </a>{" "}
+        </Link>{" "}
         to send us a message.
       </P>
       {/* MASSIVE_SEO_V2 */}

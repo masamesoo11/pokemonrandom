@@ -10,7 +10,7 @@ export interface FavoritePokemon {
   id: number;
   name: string;
   sprite: string;
-  types: string[];
+  types?: string[];
   addedAt: number;
 }
 

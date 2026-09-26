@@ -27,8 +27,8 @@ export function SiteFooter() {
             <div className="font-semibold text-sm mb-3">Database</div>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/pokemon/" className="hover:text-foreground transition-colors">Pokédex (1,025)</Link></li>
-              <li><Link href="/moves/" className="hover:text-foreground transition-colors">Moves (920+)</Link></li>
-              <li><Link href="/abilities/" className="hover:text-foreground transition-colors">Abilities (298+)</Link></li>
+              <li><Link href="/moves/" className="hover:text-foreground transition-colors">Moves (938+)</Link></li>
+              <li><Link href="/abilities/" className="hover:text-foreground transition-colors">Abilities (374+)</Link></li>
               <li><Link href="/generation/1/" className="hover:text-foreground transition-colors">Generations</Link></li>
               <li><Link href="/type/fire/" className="hover:text-foreground transition-colors">Types</Link></li>
               <li><Link href="/pokemon-search/" className="hover:text-foreground transition-colors">Search</Link></li>

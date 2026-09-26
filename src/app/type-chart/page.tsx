@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { TypeChartSection } from "@/components/type-chart-section";
 import { SiteHeader } from "@/components/site-header";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 
 const breadcrumbSchema = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pokemonrandom.com/"}, {"@type": "ListItem", "position": 2, "name": "Pok\u00e9mon Type Chart \u2014 Full Effectiveness Matrix", "item": "https://pokemonrandom.com/type-chart/"}]};
 const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many types are in Pok\u00e9mon?", "acceptedAnswer": {"@type": "Answer", "text": "There are 18 Pok\u00e9mon types: Normal, Fire, Water, Grass, Electric, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, and Fairy."}}, {"@type": "Question", "name": "What does super effective mean?", "acceptedAnswer": {"@type": "Answer", "text": "A super effective move deals 2x damage to the target. If the target is dual-typed and both types are weak to the move, it deals 4x damage."}}, {"@type": "Question", "name": "What is the strongest type defensively?", "acceptedAnswer": {"@type": "Answer", "text": "Steel is widely considered the strongest defensive type, with 10 resistances and 1 immunity. Fairy and Fire are also excellent defensive types."}}, {"@type": "Question", "name": "What is the strongest type offensively?", "acceptedAnswer": {"@type": "Answer", "text": "Offensive strength depends on the meta, but Fairy, Ground, and Fire are consistently strong due to hitting many types for super effective damage."}}, {"@type": "Question", "name": "How does dual typing work?", "acceptedAnswer": {"@type": "Answer", "text": "When a Pok\u00e9mon has two types, the effectiveness of each move is the product of the effectiveness against each type. For example, a Fire move against a Grass/Ice Pok\u00e9mon deals 4x damage (2x \u00d7 2x)."}}]};
-const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Pokémon Type Chart — Full Effectiveness Matrix", "url": "https://pokemonrandom.com/type-chart/", "description": "Complete Pokémon type chart with all 18 types and their effectiveness. Find out which moves are super effective, weak, or useless against any type.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/type-chart/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "247", "bestRating": "5", "worstRating": "1"}};
+const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Pokémon Type Chart — Full Effectiveness Matrix", "url": "https://pokemonrandom.com/type-chart/", "description": "Complete Pokémon type chart with all 18 types and their effectiveness. Find out which moves are super effective, weak, or useless against any type.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/type-chart/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png"};
 
 export default function TypeChartPage() {
   return (
@@ -83,22 +84,22 @@ export default function TypeChartPage() {
           <section className="mt-12">
             <h2 className="text-2xl font-bold mb-6">Related Pokémon Tools</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <a href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+                    <Link href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Pokémon Generator</div>
         <div className="text-sm text-muted-foreground">Generate a Pokémon to test matchups</div>
-      </a>
-      <a href="/random-team/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/random-team/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Team Builder</div>
         <div className="text-sm text-muted-foreground">Build a type-balanced team</div>
-      </a>
-      <a href="/pokemon-quiz/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/pokemon-quiz/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Pokémon Quiz</div>
         <div className="text-sm text-muted-foreground">Test your Pokémon knowledge</div>
-      </a>
-      <a href="/universal-pokemon-randomizer/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/universal-pokemon-randomizer/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Universal Pokémon Randomizer</div>
         <div className="text-sm text-muted-foreground">Randomize Pokémon games</div>
-      </a>
+      </Link>
 
             </div>
 

@@ -123,6 +123,10 @@ export default function Page() {
       <FooterAd />
       <SiteFooter />
       <MobileAnchorAd />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
     </div>
   );
 }

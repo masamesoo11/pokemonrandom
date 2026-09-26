@@ -46,7 +46,6 @@ jobs:
       # ===== 5. TypeScript check =====
       - name: 🔍 TypeScript check
         run: bunx tsc --noEmit
-        continue-on-error: true # typescript config has ignoreBuildErrors
 
       # ===== 6. ESLint =====
       - name: 🔍 ESLint
@@ -58,7 +57,6 @@ jobs:
         env:
           NEXT_PUBLIC_SITE_URL: https://pokemonrandom.com
           ADMIN_PASSWORD: test-only-password
-        continue-on-error: true # don't fail PR for build issues
 
       # ===== 8. Summary =====
       - name: ✅ Quality Summary

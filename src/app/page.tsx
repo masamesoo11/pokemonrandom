@@ -143,8 +143,8 @@ const TOOLS = [
 
 const DATABASE_LINKS = [
   { href: "/pokemon/", label: "Pokédex", count: "1,025 Pokémon", icon: "📜" },
-  { href: "/moves/", label: "Moves", count: "920+ moves", icon: "⚔️" },
-  { href: "/abilities/", label: "Abilities", count: "298+ abilities", icon: "✨" },
+  { href: "/moves/", label: "Moves", count: "938+ moves", icon: "⚔️" },
+  { href: "/abilities/", label: "Abilities", count: "374+ abilities", icon: "✨" },
   { href: "/generation/1/", label: "Generations", count: "9 regions", icon: "🗺️" },
   { href: "/type/fire/", label: "Types", count: "18 types", icon: "🎯" },
   { href: "/pokemon-of-the-day/", label: "Pokémon of the Day", count: "Daily featured", icon: "📅" },
@@ -152,8 +152,8 @@ const DATABASE_LINKS = [
 
 const STATS = [
   { value: "1,025", label: "Pokémon" },
-  { value: "920+", label: "Moves" },
-  { value: "298+", label: "Abilities" },
+  { value: "938+", label: "Moves" },
+  { value: "374+", label: "Abilities" },
   { value: "9", label: "Generations" },
   { value: "18", label: "Types" },
   { value: "100%", label: "Free" },
@@ -450,8 +450,8 @@ export default function Home() {
             creatures, our <Link href="/random-team/">team builder</Link> to draft balanced teams,
             and our <Link href="/pokemon/">complete Pokédex</Link> to look up stats, types,
             abilities, and evolution chains. For move strategies, browse our{" "}
-            <Link href="/moves/">moves database</Link> with 920+ moves. For ability research,
-            explore our <Link href="/abilities/">abilities database</Link> with 298+ abilities.
+            <Link href="/moves/">moves database</Link> with 938+ moves. For ability research,
+            explore our <Link href="/abilities/">abilities database</Link> with 374+ abilities.
           </p>
 
           <h3>Why Use Pokémon Random?</h3>
@@ -570,7 +570,7 @@ export default function Home() {
           <h3>Pokémon Moves and Battle Mechanics</h3>
           <p>
             Pokémon moves are the attacks and abilities that Pokémon can use in battle. There are
-            over 920 moves in the franchise as of Generation 9, each with a type, power, accuracy,
+            over 938 moves in the franchise as of Generation 9, each with a type, power, accuracy,
             PP (Power Points), and sometimes secondary effects like status conditions, stat
             changes, or weather effects. Moves are categorized into Physical, Special, and Status
             moves. Physical moves use the Attack stat of the user and the Defense stat of the
@@ -590,7 +590,7 @@ export default function Home() {
             core mechanic of the franchise. Every Pokémon has at least one ability, and many have
             multiple possible abilities with one being their standard ability and others being
             hidden abilities that are rarer and often more powerful. As of Generation 9, there are
-            over 298 unique abilities in the game. Some abilities are universally useful, like
+            over 374 unique abilities in the game. Some abilities are universally useful, like
             Intimidate which lowers the opponent Attack stat when the Pokémon enters battle, or
             Levitate which grants immunity to Ground type moves. Other abilities are highly
             situational but can be devastating in the right team composition, like Weather
@@ -598,7 +598,7 @@ export default function Home() {
             upon entry, or Ability based strategies like Protean which changes the Pokémon type to
             match the move it uses. To dive deeper into abilities and find the perfect one for your
             Pokémon, browse our <Link href="/abilities/">abilities database</Link> with detailed
-            descriptions of all 298+ abilities.
+            descriptions of all 374+ abilities.
           </p>
 
           <h3>Pokémon Generations and Regions Explained</h3>

@@ -114,7 +114,7 @@ export function PokemonTypeWheel() {
     let cancelled = false;
     (async () => {
       try {
-        const map = (await import("@/lib/type-pokemon-map.json")) as Record<
+        const map = (await import("@/lib/type-pokemon-map.json")).default as Record<
           string,
           number[]
         >;

@@ -17,3 +17,4 @@ dist/
 bun.lock
 upload/
 skills/
+tsconfig.tsbuildinfo

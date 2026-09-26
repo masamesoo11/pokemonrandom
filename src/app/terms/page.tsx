@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Terms of Service - Pokemon Random",
   description:
     "Terms of Service for Pokemon Random. The rules and conditions for using our free Pokemon tools.",
-  alternates: { canonical: "https://pokemonrandom.com/terms" },
+  alternates: { canonical: "https://pokemonrandom.com/terms/" },
   openGraph: {
     title: "Terms of Service - Pokemon Random",
     description: "Terms of Service for Pokemon Random.",

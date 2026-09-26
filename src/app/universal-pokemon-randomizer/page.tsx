@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { UniversalPokemonRandomizer } from "@/components/universal-pokemon-randomizer";
 import { SiteHeader } from "@/components/site-header";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 
 const breadcrumbSchema = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pokemonrandom.com/"}, {"@type": "ListItem", "position": 2, "name": "Universal Pok\u00e9mon Randomizer \u2014 Complete Guide", "item": "https://pokemonrandom.com/universal-pokemon-randomizer/"}]};
 const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the Universal Pok\u00e9mon Randomizer free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the tool is completely free and open-source. You can download it from the official GitHub repository."}}, {"@type": "Question", "name": "Which Pok\u00e9mon games are supported?", "acceptedAnswer": {"@type": "Answer", "text": "The Universal Pok\u00e9mon Randomizer supports all main-series Pok\u00e9mon games from Red/Blue/Yellow through Black 2/White 2. Generation 6 and later are not supported by this tool."}}, {"@type": "Question", "name": "Do I need to download ROMs?", "acceptedAnswer": {"@type": "Answer", "text": "No, you should not download ROMs. To use the randomizer legally, you must dump your own ROM from a game cartridge you own. Downloading ROMs is illegal."}}, {"@type": "Question", "name": "Is randomizing Pok\u00e9mon games legal?", "acceptedAnswer": {"@type": "Answer", "text": "Randomizing a ROM you legally own is generally considered fair use in many jurisdictions. However, distributing randomized ROMs is illegal. Always keep randomized ROMs for personal use only."}}, {"@type": "Question", "name": "Can I randomize Pok\u00e9mon Scarlet and Violet?", "acceptedAnswer": {"@type": "Answer", "text": "No, the Universal Pok\u00e9mon Randomizer does not support Generation 9 games. The Nintendo Switch Pok\u00e9mon games use a different architecture that has not yet been reverse-engineered for randomization."}}]};
-const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Universal Pokémon Randomizer — Complete Guide", "url": "https://pokemonrandom.com/universal-pokemon-randomizer/", "description": "Complete guide to the Universal Pokémon Randomizer. Learn how to randomize Pokémon ROMs, change starter Pokémon, shuffle encounters, and create challenge runs.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/universal-pokemon-randomizer/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "247", "bestRating": "5", "worstRating": "1"}};
+const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Universal Pokémon Randomizer — Complete Guide", "url": "https://pokemonrandom.com/universal-pokemon-randomizer/", "description": "Complete guide to the Universal Pokémon Randomizer. Learn how to randomize Pokémon ROMs, change starter Pokémon, shuffle encounters, and create challenge runs.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/universal-pokemon-randomizer/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png"};
 
 export default function UniversalPokemonRandomizerPage() {
   return (
@@ -80,22 +81,22 @@ export default function UniversalPokemonRandomizerPage() {
           <section className="mt-12">
             <h2 className="text-2xl font-bold mb-6">Related Pokémon Tools</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <a href="/pokemon-randomizer/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+                    <Link href="/pokemon-randomizer/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Pokémon Randomizer</div>
         <div className="text-sm text-muted-foreground">Our web-based randomizer tool</div>
-      </a>
-      <a href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Pokémon Generator</div>
         <div className="text-sm text-muted-foreground">Generate a single Pokémon</div>
-      </a>
-      <a href="/random-team/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/random-team/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Team Builder</div>
         <div className="text-sm text-muted-foreground">Build a random team</div>
-      </a>
-      <a href="/type-chart/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/type-chart/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Pokémon Type Chart</div>
         <div className="text-sm text-muted-foreground">Check type matchups</div>
-      </a>
+      </Link>
 
             </div>
           </section>

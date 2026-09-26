@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { LegalPageLayout, H2, P, Strong, UL, LI } from "@/components/legal-page-layout";
 
@@ -5,7 +6,7 @@ export const metadata: Metadata = {
   title: "Disclaimer - Pokemon Random",
   description:
     "Legal disclaimer for Pokemon Random. We are a fan-made project, not affiliated with Nintendo or The Pokemon Company.",
-  alternates: { canonical: "https://pokemonrandom.com/disclaimer" },
+  alternates: { canonical: "https://pokemonrandom.com/disclaimer/" },
   openGraph: {
     title: "Disclaimer - Pokemon Random",
     description: "Legal disclaimer for Pokemon Random.",
@@ -103,9 +104,9 @@ export default function DisclaimerPage() {
       <H2>Contact</H2>
       <P>
         For questions about this Disclaimer, please{" "}
-        <a href="/contact" className="text-primary font-semibold hover:underline">
+        <Link href="/contact/" className="text-primary font-semibold hover:underline">
           contact us
-        </a>
+        </Link>
         .
       </P>
 

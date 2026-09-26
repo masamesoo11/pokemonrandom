@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { RandomPokemonGenerator } from "@/components/random-pokemon-generator";
 import { SiteHeader } from "@/components/site-header";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 
 const breadcrumbSchema = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pokemonrandom.com/"}, {"@type": "ListItem", "position": 2, "name": "Random Pok\u00e9mon Generator", "item": "https://pokemonrandom.com/random-pokemon/"}]};
 const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many Pok\u00e9mon can I generate?", "acceptedAnswer": {"@type": "Answer", "text": "Our tool includes all 1,025 Pok\u00e9mon from Generation 1 through Generation 9. You can generate any of them at random, or filter by generation, type, or rarity to narrow down your results."}}, {"@type": "Question", "name": "Is this random Pok\u00e9mon generator free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, completely free. No login, no signup, no payment required. You can generate as many Pok\u00e9mon as you want, as often as you want."}}, {"@type": "Question", "name": "Can I generate shiny Pok\u00e9mon?", "acceptedAnswer": {"@type": "Answer", "text": "Yes! Each generated Pok\u00e9mon has a toggle to switch between its normal and shiny form. Shiny Pok\u00e9mon are rare alternate colorations that are highly sought after by collectors."}}, {"@type": "Question", "name": "Does the generator work on mobile?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, our tool is fully responsive and works perfectly on smartphones, tablets, and desktops. The interface adapts to your screen size for the best experience."}}, {"@type": "Question", "name": "Where does the Pok\u00e9mon data come from?", "acceptedAnswer": {"@type": "Answer", "text": "We use the official Pok\u00e9API, a community-maintained REST API that provides accurate data about every Pok\u00e9mon, including stats, abilities, types, and official artwork."}}]};
-const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Random Pokémon Generator", "url": "https://pokemonrandom.com/random-pokemon/", "description": "Generate random Pokémon instantly. Filter by generation, type, or rarity. Free online random Pokémon generator with high-quality artwork. No login required.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/random-pokemon/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "247", "bestRating": "5", "worstRating": "1"}};
+const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Random Pokémon Generator", "url": "https://pokemonrandom.com/random-pokemon/", "description": "Generate random Pokémon instantly. Filter by generation, type, or rarity. Free online random Pokémon generator with high-quality artwork. No login required.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/random-pokemon/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png"};
 
 export default function RandomPokemonPage() {
   return (
@@ -80,22 +81,22 @@ export default function RandomPokemonPage() {
           <section className="mt-12">
             <h2 className="text-2xl font-bold mb-6">Related Pokémon Tools</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <a href="/random-team/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+                    <Link href="/random-team/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Team Builder</div>
         <div className="text-sm text-muted-foreground">Generate a balanced team of 6 random Pokémon</div>
-      </a>
-      <a href="/pokemon-randomizer/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/pokemon-randomizer/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Pokémon Randomizer</div>
         <div className="text-sm text-muted-foreground">Advanced filters for Nuzlocke challenges</div>
-      </a>
-      <a href="/shiny-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/shiny-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Shiny Pokémon Checker</div>
         <div className="text-sm text-muted-foreground">Browse all shiny Pokémon forms</div>
-      </a>
-      <a href="/type-chart/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/type-chart/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Pokémon Type Chart</div>
         <div className="text-sm text-muted-foreground">Full 18x18 type effectiveness matrix</div>
-      </a>
+      </Link>
 
             </div>
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { ShinyPokemonBrowser } from "@/components/shiny-pokemon-browser";
 import { SiteHeader } from "@/components/site-header";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 
 const breadcrumbSchema = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pokemonrandom.com/"}, {"@type": "ListItem", "position": 2, "name": "Shiny Pok\u00e9mon Checker \u2014 Browse All Shiny Forms", "item": "https://pokemonrandom.com/shiny-pokemon/"}]};
 const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the chance of finding a shiny Pok\u00e9mon?", "acceptedAnswer": {"@type": "Answer", "text": "The base encounter rate for shiny Pok\u00e9mon is 1 in 4,096 (or 0.0244%). Various methods can increase this rate, such as the Masuda Method (1 in 683) or Shiny Charm (1 in 1,365)."}}, {"@type": "Question", "name": "Do shiny Pok\u00e9mon have better stats?", "acceptedAnswer": {"@type": "Answer", "text": "No, shiny Pok\u00e9mon have identical stats, abilities, and movepools to their normal counterparts. They are purely cosmetic variants."}}, {"@type": "Question", "name": "Can I see shiny forms for all 1,025 Pok\u00e9mon?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, our checker includes shiny artwork for every Pok\u00e9mon that has a shiny form. Some Pok\u00e9mon like Gimmighoul's chest form do not have distinct shiny variants."}}, {"@type": "Question", "name": "How do I get the Shiny Charm?", "acceptedAnswer": {"@type": "Answer", "text": "In most games, you get the Shiny Charm by completing the regional Pok\u00e9dex (catching all non-event Pok\u00e9mon). It triples your shiny encounter rate."}}, {"@type": "Question", "name": "What is the rarest shiny Pok\u00e9mon?", "acceptedAnswer": {"@type": "Answer", "text": "Shiny Meltan and Shiny Celebi are among the rarest shiny Pok\u00e9mon because they were only available through limited-time events. legitimate Shiny Arceus is also extremely rare."}}]};
-const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Shiny Pokémon Checker — Browse All Shiny Forms", "url": "https://pokemonrandom.com/shiny-pokemon/", "description": "Browse shiny Pokémon forms from all 9 generations. Compare normal vs shiny side by side. Free shiny Pokémon gallery with high-quality artwork.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/shiny-pokemon/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "247", "bestRating": "5", "worstRating": "1"}};
+const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Shiny Pokémon Checker — Browse All Shiny Forms", "url": "https://pokemonrandom.com/shiny-pokemon/", "description": "Browse shiny Pokémon forms from all 9 generations. Compare normal vs shiny side by side. Free shiny Pokémon gallery with high-quality artwork.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/shiny-pokemon/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png"};
 
 export default function ShinyPokemonPage() {
   return (
@@ -80,22 +81,22 @@ export default function ShinyPokemonPage() {
           <section className="mt-12">
             <h2 className="text-2xl font-bold mb-6">Related Pokémon Tools</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <a href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+                    <Link href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Pokémon Generator</div>
         <div className="text-sm text-muted-foreground">Generate a random Pokémon</div>
-      </a>
-      <a href="/random-starter/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/random-starter/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Starter Picker</div>
         <div className="text-sm text-muted-foreground">Pick a random starter</div>
-      </a>
-      <a href="/type-chart/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/type-chart/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Pokémon Type Chart</div>
         <div className="text-sm text-muted-foreground">Check type matchups</div>
-      </a>
-      <a href="/pokemon-quiz/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/pokemon-quiz/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Pokémon Quiz</div>
         <div className="text-sm text-muted-foreground">Test your knowledge</div>
-      </a>
+      </Link>
 
             </div>
 

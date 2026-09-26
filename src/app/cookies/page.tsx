@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { LegalPageLayout, H2, P, Strong, UL, LI } from "@/components/legal-page-layout";
 
@@ -5,7 +6,7 @@ export const metadata: Metadata = {
   title: "Cookie Policy - Pokemon Random",
   description:
     "Cookie Policy for Pokemon Random. Learn which cookies we and our third-party partners (Google, AdSense) use and how to control them.",
-  alternates: { canonical: "https://pokemonrandom.com/cookies" },
+  alternates: { canonical: "https://pokemonrandom.com/cookies/" },
   openGraph: {
     title: "Cookie Policy - Pokemon Random",
     description: "Cookie Policy for Pokemon Random.",
@@ -170,9 +171,9 @@ export default function CookiesPage() {
       <H2>7. More Information</H2>
       <P>
         For more about our privacy practices, see our{" "}
-        <a href="/privacy" className="text-primary font-semibold hover:underline">
+        <Link href="/privacy/" className="text-primary font-semibold hover:underline">
           Privacy Policy
-        </a>
+        </Link>
         . For questions about cookies, contact us at{" "}
         <a
           href="mailto:privacy@pokemonrandom.com"

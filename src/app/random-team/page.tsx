@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PokemonTeamBuilder } from "@/components/pokemon-team-builder";
 import { SiteHeader } from "@/components/site-header";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 
 const breadcrumbSchema = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pokemonrandom.com/"}, {"@type": "ListItem", "position": 2, "name": "Random Pok\u00e9mon Team Builder", "item": "https://pokemonrandom.com/random-team/"}]};
 const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many Pok\u00e9mon are in a generated team?", "acceptedAnswer": {"@type": "Answer", "text": "Each team consists of 6 unique Pok\u00e9mon, the standard team size for both casual and competitive play."}}, {"@type": "Question", "name": "Can I filter the team by generation?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you can choose to generate a team from a specific generation (1-9) or mix all generations together for maximum variety."}}, {"@type": "Question", "name": "Can I regenerate individual team members?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you can regenerate the entire team or replace specific members one at a time without affecting the others."}}, {"@type": "Question", "name": "Is the team builder suitable for Nuzlocke challenges?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. Many Nuzlocke players use our team builder to simulate randomized encounters. Use the generation filter to match your game version."}}, {"@type": "Question", "name": "Does the team builder include legendary Pok\u00e9mon?", "acceptedAnswer": {"@type": "Answer", "text": "By default, yes. However, you can use the advanced Pok\u00e9mon Randomizer tool to exclude legendaries if you prefer a more balanced team."}}]};
-const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Random Pokémon Team Builder", "url": "https://pokemonrandom.com/random-team/", "description": "Build a random Pokémon team of 6 instantly. Free team generator for casual play, competitive battles, and Nuzlocke challenges. No login required.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/random-team/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "247", "bestRating": "5", "worstRating": "1"}};
+const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Random Pokémon Team Builder", "url": "https://pokemonrandom.com/random-team/", "description": "Build a random Pokémon team of 6 instantly. Free team generator for casual play, competitive battles, and Nuzlocke challenges. No login required.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/random-team/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png"};
 
 export default function RandomTeamPage() {
   return (
@@ -80,22 +81,22 @@ export default function RandomTeamPage() {
           <section className="mt-12">
             <h2 className="text-2xl font-bold mb-6">Related Pokémon Tools</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <a href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+                    <Link href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Pokémon Generator</div>
         <div className="text-sm text-muted-foreground">Generate a single random Pokémon</div>
-      </a>
-      <a href="/pokemon-randomizer/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/pokemon-randomizer/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Pokémon Randomizer</div>
         <div className="text-sm text-muted-foreground">Multi-filter randomizer for Nuzlocke</div>
-      </a>
-      <a href="/type-chart/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/type-chart/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Pokémon Type Chart</div>
         <div className="text-sm text-muted-foreground">Check type effectiveness for your team</div>
-      </a>
-      <a href="/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Pokémon Comparison</div>
         <div className="text-sm text-muted-foreground">Compare two Pokémon side by side</div>
-      </a>
+      </Link>
 
             </div>
 

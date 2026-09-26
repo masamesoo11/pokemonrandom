@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PokemonRandomizer } from "@/components/pokemon-randomizer";
 import { SiteHeader } from "@/components/site-header";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 
 const breadcrumbSchema = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pokemonrandom.com/"}, {"@type": "ListItem", "position": 2, "name": "Pok\u00e9mon Randomizer \u2014 Advanced Filters", "item": "https://pokemonrandom.com/pokemon-randomizer/"}]};
 const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a Pok\u00e9mon randomizer?", "acceptedAnswer": {"@type": "Answer", "text": "A Pok\u00e9mon randomizer is a tool that selects Pok\u00e9mon randomly based on user-defined filters. It is commonly used for Nuzlocke challenges, team building, and content creation."}}, {"@type": "Question", "name": "How do I use the randomizer for Nuzlocke?", "acceptedAnswer": {"@type": "Answer", "text": "Set the generation filter to match your game version, optionally exclude legendaries, then generate one Pok\u00e9mon per route you enter in the game. The first generated Pok\u00e9mon is the only one you can catch on that route."}}, {"@type": "Question", "name": "Can I filter by multiple types?", "acceptedAnswer": {"@type": "Answer", "text": "Currently, you can filter by one type at a time. If you want a Pok\u00e9mon that is both Fire and Flying, generate Fire-types until one with a Flying secondary type appears."}}, {"@type": "Question", "name": "Does the randomizer include Mythical Pok\u00e9mon?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, Mythical Pok\u00e9mon like Mew, Celebi, and Jirachi are included in the legendary pool. Use the legendary filter to exclude them if needed."}}, {"@type": "Question", "name": "Is the randomizer free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, completely free. No login, no signup, no payment. Generate as many Pok\u00e9mon as you need."}}]};
-const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Pokémon Randomizer — Advanced Filters", "url": "https://pokemonrandom.com/pokemon-randomizer/", "description": "Advanced Pokémon randomizer with filters for generation, type, and legendary status. Perfect for Nuzlocke challenges and randomized playthroughs. Free online tool.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/pokemon-randomizer/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "247", "bestRating": "5", "worstRating": "1"}};
+const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Pokémon Randomizer — Advanced Filters", "url": "https://pokemonrandom.com/pokemon-randomizer/", "description": "Advanced Pokémon randomizer with filters for generation, type, and legendary status. Perfect for Nuzlocke challenges and randomized playthroughs. Free online tool.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/pokemon-randomizer/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png"};
 
 export default function PokemonRandomizerPage() {
   return (
@@ -80,22 +81,22 @@ export default function PokemonRandomizerPage() {
           <section className="mt-12">
             <h2 className="text-2xl font-bold mb-6">Related Pokémon Tools</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <a href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+                    <Link href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Pokémon Generator</div>
         <div className="text-sm text-muted-foreground">Simple single-Pokémon generator</div>
-      </a>
-      <a href="/random-team/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/random-team/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Team Builder</div>
         <div className="text-sm text-muted-foreground">Generate a full team</div>
-      </a>
-      <a href="/universal-pokemon-randomizer/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/universal-pokemon-randomizer/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Universal Pokémon Randomizer</div>
         <div className="text-sm text-muted-foreground">Randomize Pokémon ROMs</div>
-      </a>
-      <a href="/type-chart/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/type-chart/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Pokémon Type Chart</div>
         <div className="text-sm text-muted-foreground">Check type effectiveness</div>
-      </a>
+      </Link>
 
             </div>
 

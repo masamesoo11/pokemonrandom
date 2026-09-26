@@ -122,14 +122,6 @@ const structuredData = {
     name: siteConfig.name,
     url: siteConfig.url,
   },
-  // Recommended — enables star-rating rich snippet in search results
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.8",
-    ratingCount: "247",
-    bestRating: "5",
-    worstRating: "1",
-  },
 };
 
 export default function RootLayout({

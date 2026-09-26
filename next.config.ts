@@ -4,7 +4,6 @@ import path from "path";
 const nextConfig: NextConfig = {
   output: "export",
   images: { unoptimized: true },
-  typescript: { ignoreBuildErrors: true },
   reactStrictMode: true,
   trailingSlash: true,
   turbopack: { root: path.resolve(__dirname) },

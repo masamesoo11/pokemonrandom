@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { LegalPageLayout, H2, P, Strong, UL, LI } from "@/components/legal-page-layout";
 
@@ -5,7 +6,7 @@ export const metadata: Metadata = {
   title: "Contact Us - Pokemon Random",
   description:
     "Get in touch with the Pokemon Random team. Send feedback, report bugs, request features, or ask questions about our Pokemon tools.",
-  alternates: { canonical: "https://pokemonrandom.com/contact" },
+  alternates: { canonical: "https://pokemonrandom.com/contact/" },
   openGraph: {
     title: "Contact Us - Pokemon Random",
     description: "Get in touch with the Pokemon Random team.",
@@ -91,9 +92,9 @@ export default function ContactPage() {
       <H2>Before Contacting Us</H2>
       <P>
         For common questions, please check our{" "}
-        <a href="/#faq" className="text-primary font-semibold hover:underline">
+        <Link href="/#faq" className="text-primary font-semibold hover:underline">
           FAQ section
-        </a>{" "}
+        </Link>{" "}
         first — your answer may already be there.
       </P>
 

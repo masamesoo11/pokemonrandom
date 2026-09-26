@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { RandomStarterPicker } from "@/components/random-starter-picker";
 import { SiteHeader } from "@/components/site-header";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 
 const breadcrumbSchema = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pokemonrandom.com/"}, {"@type": "ListItem", "position": 2, "name": "Random Starter Pok\u00e9mon Picker", "item": "https://pokemonrandom.com/random-starter/"}]};
 const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many starter Pok\u00e9mon are there?", "acceptedAnswer": {"@type": "Answer", "text": "There are 27 main-series starter Pok\u00e9mon: 3 per generation, across 9 generations. Each generation offers one Grass, one Fire, and one Water type."}}, {"@type": "Question", "name": "Can I pick a starter from a specific generation?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you can filter by generation to limit the picker to starters from Kanto, Johto, Hoenn, Sinnoh, Unova, Kalos, Alola, Galar, or Paldea."}}, {"@type": "Question", "name": "What are the Generation 9 starters?", "acceptedAnswer": {"@type": "Answer", "text": "The Paldea starters are Sprigatito (Grass), Fuecoco (Fire), and Quaxly (Water). Their final evolutions are Meowscarada (Grass/Dark), Skeledirge (Fire/Ghost), and Quaquaval (Water/Fighting)."}}, {"@type": "Question", "name": "Which starter is the best?", "acceptedAnswer": {"@type": "Answer", "text": "There is no objective best starter \u2014 it depends on the game version and your playstyle. Charizard, Blaziken, and Greninja are popular competitive choices, while Swampert and Torterra are excellent for casual playthroughs."}}, {"@type": "Question", "name": "Can I see the shiny forms of starters?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, our picker includes shiny toggles for each starter. Shiny starters are extremely rare in the games (1 in 4,096 chance), so this is a great way to see what they look like."}}]};
-const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Random Starter Pokémon Picker", "url": "https://pokemonrandom.com/random-starter/", "description": "Can't decide which starter to pick? Use our free random starter Pokémon picker to choose from Bulbasaur, Charmander, Squirtle, and all starters across 9 generations.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/random-starter/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "247", "bestRating": "5", "worstRating": "1"}};
+const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Random Starter Pokémon Picker", "url": "https://pokemonrandom.com/random-starter/", "description": "Can't decide which starter to pick? Use our free random starter Pokémon picker to choose from Bulbasaur, Charmander, Squirtle, and all starters across 9 generations.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/random-starter/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png"};
 
 export default function RandomStarterPage() {
   return (
@@ -83,22 +84,22 @@ export default function RandomStarterPage() {
           <section className="mt-12">
             <h2 className="text-2xl font-bold mb-6">Related Pokémon Tools</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <a href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+                    <Link href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Pokémon Generator</div>
         <div className="text-sm text-muted-foreground">Generate any random Pokémon</div>
-      </a>
-      <a href="/random-team/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/random-team/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Team Builder</div>
         <div className="text-sm text-muted-foreground">Build a full team of 6</div>
-      </a>
-      <a href="/shiny-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/shiny-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Shiny Pokémon Checker</div>
         <div className="text-sm text-muted-foreground">Browse shiny forms</div>
-      </a>
-      <a href="/type-chart/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/type-chart/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Pokémon Type Chart</div>
         <div className="text-sm text-muted-foreground">Check type effectiveness</div>
-      </a>
+      </Link>
 
             </div>
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { RandomPokemonPicker } from "@/components/random-pokemon-picker";
 import { SiteHeader } from "@/components/site-header";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 
 const breadcrumbSchema = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://pokemonrandom.com/"}, {"@type": "ListItem", "position": 2, "name": "Random Pok\u00e9mon Picker \u2014 Quick Decision Tool", "item": "https://pokemonrandom.com/random-pokemon-picker/"}]};
 const faqSchema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the picker truly random?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, we use JavaScript's Math.random() function, which provides a uniform distribution across all 1,025 Pok\u00e9mon IDs. Every Pok\u00e9mon has an equal 1 in 1,025 chance of being selected."}}, {"@type": "Question", "name": "Can I get the same Pok\u00e9mon twice in a row?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, since each pick is independent, it is possible (though unlikely) to get the same Pok\u00e9mon twice in a row. The probability is 1 in 1,025 (about 0.1%)."}}, {"@type": "Question", "name": "Does the picker include legendary Pok\u00e9mon?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, all legendary and mythical Pok\u00e9mon are included in the picker pool. If you want to exclude them, use our advanced Pok\u00e9mon Randomizer instead."}}, {"@type": "Question", "name": "How fast is the picker?", "acceptedAnswer": {"@type": "Answer", "text": "Very fast. After the initial page load, each pick is nearly instant because we cache the Pok\u00e9mon data. You can generate dozens of Pok\u00e9mon per minute without any delays."}}, {"@type": "Question", "name": "Can I use the picker on mobile?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the picker is fully responsive and works perfectly on phones, tablets, and desktops. The button is large enough to tap easily on touchscreens."}}]};
-const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Random Pokémon Picker — Quick Decision Tool", "url": "https://pokemonrandom.com/random-pokemon-picker/", "description": "Quick one-click random Pokémon picker. No filters, no setup — just click and get a random Pokémon. Perfect for quick decisions and casual fun.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/random-pokemon-picker/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "247", "bestRating": "5", "worstRating": "1"}};
+const webAppSchema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Random Pokémon Picker — Quick Decision Tool", "url": "https://pokemonrandom.com/random-pokemon-picker/", "description": "Quick one-click random Pokémon picker. No filters, no setup — just click and get a random Pokémon. Perfect for quick decisions and casual fun.", "applicationCategory": "GameApplication", "operatingSystem": "Web Browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://pokemonrandom.com/random-pokemon-picker/"}, "publisher": {"@type": "Organization", "name": "Pokemon Random", "url": "https://pokemonrandom.com"}, "image": "https://pokemonrandom.com/og-image.png"};
 
 export default function RandomPokemonPickerPage() {
   return (
@@ -80,22 +81,22 @@ export default function RandomPokemonPickerPage() {
           <section className="mt-12">
             <h2 className="text-2xl font-bold mb-6">Related Pokémon Tools</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <a href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+                    <Link href="/random-pokemon/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Pokémon Generator</div>
         <div className="text-sm text-muted-foreground">Generate with filters</div>
-      </a>
-      <a href="/pokemon-randomizer/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/pokemon-randomizer/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Pokémon Randomizer</div>
         <div className="text-sm text-muted-foreground">Advanced multi-filter randomizer</div>
-      </a>
-      <a href="/random-team/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/random-team/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Team Builder</div>
         <div className="text-sm text-muted-foreground">Generate a full team</div>
-      </a>
-      <a href="/random-starter/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
+      </Link>
+      <Link href="/random-starter/" className="block p-4 rounded-lg border border-border hover:border-primary transition-colors">
         <div className="font-semibold">Random Starter Picker</div>
         <div className="text-sm text-muted-foreground">Pick a random starter</div>
-      </a>
+      </Link>
 
             </div>
           </section>

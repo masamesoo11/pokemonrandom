@@ -111,6 +111,7 @@ export function PokemonDetailView({ id }: { id: number }) {
   const baseStatTotal = pokemon.stats.reduce((sum, s) => sum + s.base_stat, 0);
   const maxStat = 255;
   const primaryType = pokemon.types[0]?.type.name ?? "normal";
+  const currentPokemonName = pokemon.name;
 
   // Build evolution list (flattened)
   type EvoNode = { species: { name: string; url: string }; isCurrent: boolean };
@@ -119,11 +120,11 @@ export function PokemonDetailView({ id }: { id: number }) {
     if (!node) return;
     evolutionList.push({
       species: node.species,
-      isCurrent: node.species.name === pokemon.name,
+      isCurrent: node.species.name === currentPokemonName,
     });
     if ("evolves_to" in node && Array.isArray(node.evolves_to)) {
       for (const evo of node.evolves_to) {
-        traverseEvolutions(evo as EvolutionChain["chain"]);
+        traverseEvolutions(evo as unknown as EvolutionChain["chain"]);
       }
     }
   }

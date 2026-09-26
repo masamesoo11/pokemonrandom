@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "DMCA / Copyright - Pokemon Random",
   description:
     "DMCA policy and copyright notice for Pokemon Random. How to report copyright infringement related to Pokemon or other content on our site.",
-  alternates: { canonical: "https://pokemonrandom.com/dmca" },
+  alternates: { canonical: "https://pokemonrandom.com/dmca/" },
   openGraph: {
     title: "DMCA / Copyright - Pokemon Random",
     description: "DMCA policy for Pokemon Random.",
