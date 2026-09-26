@@ -10,9 +10,9 @@ export const dynamic = "force-static";
 
 export async function generateMetadata(): Promise<Metadata> {
   const canonical = "https://pokemonrandom.com/moves/";
-  const title = "Pokémon Moves Database — All 920+ Moves Listed | PokéRandom";
+  const title = "Pokémon Moves Database — All 920+ Moves | PokéRandom";
   const description =
-    "Complete Pokémon move database with all 920+ moves. Browse by type, power, accuracy, or name. Each move has stats, effects, and Pokémon that can learn it. Free online Pokémon move reference.";
+    "Complete Pokémon move database: all 920+ moves with power, accuracy, PP, effects, and which Pokémon can learn them. Free online reference.";
 
   return {
     title,

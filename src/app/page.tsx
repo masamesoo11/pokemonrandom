@@ -27,6 +27,7 @@ import {
   MobileAnchorAd,
 } from "@/components/ad-slot";
 import { getAllPosts } from "@/lib/blog-content-loader";
+import { faqSchema } from "@/lib/faq-data";
 
 export const metadata: Metadata = {
   title: "Random Pokémon Generator — Free, No Signup | PokéRandom",
@@ -382,6 +383,12 @@ export default function Home() {
         <section className="bg-secondary/30 py-16">
           <div className="mx-auto max-w-3xl px-4 sm:px-6">
             <FaqSection />
+            {/* FAQPage structured data — only here, where the FAQ content is
+                actually visible to users (Google guideline compliance). */}
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
           </div>
         </section>
         {/* HOMEPAGE_LINKS_V1 — additional internal links */}

@@ -160,7 +160,7 @@ export function AbilityDetailView({ slug }: { slug: string }) {
                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
                         alt={p.pokemon.name}
                         className="w-12 h-12 object-contain"
-                        loading="lazy"
+                        width={96} height={96} loading="lazy"
                       />
                       <span className="text-[10px] text-muted-foreground mt-0.5 capitalize">
                         {p.pokemon.name.replace(/-/g, " ")}
@@ -196,7 +196,7 @@ export function AbilityDetailView({ slug }: { slug: string }) {
                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
                         alt={p.pokemon.name}
                         className="w-12 h-12 object-contain"
-                        loading="lazy"
+                        width={96} height={96} loading="lazy"
                       />
                       <span className="text-[10px] text-muted-foreground mt-0.5 capitalize">
                         {p.pokemon.name.replace(/-/g, " ")}

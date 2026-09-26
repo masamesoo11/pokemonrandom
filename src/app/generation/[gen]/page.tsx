@@ -155,7 +155,7 @@ export default async function GenerationPage({ params }: PageProps) {
                     src={getSpriteUrl(id)}
                     alt={`Pokémon #${id}`}
                     className="w-16 h-16 object-contain"
-                    loading="lazy"
+                    width={96} height={96} loading="lazy"
                   />
                   <span className="text-xs text-muted-foreground mt-1">#{String(id).padStart(4, "0")}</span>
                 </Link>

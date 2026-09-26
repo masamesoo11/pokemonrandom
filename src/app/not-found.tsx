@@ -1,15 +1,26 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Home, Search, RotateCcw, Gamepad2, Dices, Disc } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-export default function NotFound() {
-  // Pick a random Pokemon emoji for variety
-  const pokemonEmojis = ["🐾", "⚡", "🔥", "💧", "🌿", "✨", "⭐", "🎲"];
-  const randomEmoji = pokemonEmojis[Math.floor(Math.random() * pokemonEmojis.length)];
+// Server component with explicit metadata:
+// - Proper 404 title (was inheriting the homepage title before)
+// - Explicit noindex that OVERRIDES the root layout's "index, follow",
+//   removing the previous conflicting duplicate robots metas on /404 and /_not-found.
+export const metadata: Metadata = {
+  title: "Page Not Found (404) | Pokemon Random",
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
+  },
+};
 
+export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
@@ -33,7 +44,7 @@ export default function NotFound() {
           </div>
 
           {/* Emoji */}
-          <div className="text-6xl mb-4 animate-bounce-in">{randomEmoji}</div>
+          <div className="text-6xl mb-4 animate-bounce-in">🎲</div>
 
           {/* Title and description */}
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">
@@ -44,10 +55,8 @@ export default function NotFound() {
             may have been moved, deleted, or never existed.
           </p>
           <p className="text-sm text-muted-foreground mb-8">
-            <span className="font-mono px-2 py-0.5 rounded bg-secondary">
-              {typeof window !== "undefined" ? window.location.pathname : "/missing-page"}
-            </span>{" "}
-            was not found.
+            Try one of the tools below, or use the navigation to get back on
+            track.
           </p>
 
           {/* Action buttons */}
@@ -85,7 +94,7 @@ export default function NotFound() {
 
           {/* Fun tip */}
           <p className="mt-8 text-xs text-muted-foreground">
-            💡 <strong>Tip:</strong> Use the navigation bar at the top to explore all
+            <strong>Tip:</strong> Use the navigation bar at the top to explore all
             our tools, or visit our{" "}
             <Link href="/contact" className="text-primary font-semibold hover:underline">
               contact page

@@ -7,7 +7,7 @@ import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/compone
 
 export const metadata: Metadata = {
   title: "Pok\u00e9mon Randomizer \u2014 Free Nuzlocke & Type Filters",
-  description: "Advanced Pokemon randomizer with filters for generation, type, and legendary status. Perfect for Nuzlocke challenges, monotype runs, and draft leagues. Free online tool, no signup.",
+  description: "Advanced Pokemon randomizer with filters for generation, type, and legendary status. Free for Nuzlocke, monotype runs, and draft leagues.",
   keywords: ["pokemon randomizer", "nuzlocke randomizer", "pokemon randomizer tool", "random pokemon by type", "random pokemon by generation"],
   alternates: { canonical: "https://pokemonrandom.com/pokemon-randomizer/" },
   openGraph: {

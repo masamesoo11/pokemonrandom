@@ -6,7 +6,7 @@ import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/compone
 
 export const metadata: Metadata = {
   title: "Shiny Odds Calculator 2026 — Pokémon Shiny Probability",
-  description: "Calculate shiny Pokémon encounter odds with our free shiny odds calculator. Base odds, Masuda Method, Shiny Charm, and chain fishing rates for every generation. Free, no signup.",
+  description: "Calculate shiny Pokémon odds: base rates, Masuda Method, Shiny Charm, and chain fishing for every generation. Free, no signup.",
   keywords: [
     "shiny odds calculator",
     "shiny calculator",

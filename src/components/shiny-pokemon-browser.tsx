@@ -202,7 +202,7 @@ export function ShinyPokemonBrowser() {
                     src={normalUrl}
                     alt={`${formatPokemonName(pokemon.name)} normal form`}
                     className="w-full h-full object-contain drop-shadow-lg"
-                    loading="eager"
+                    width={475} height={475} loading="eager"
                   />
                 )}
               </div>
@@ -217,7 +217,7 @@ export function ShinyPokemonBrowser() {
                     src={shinyUrl}
                     alt={`${formatPokemonName(pokemon.name)} shiny form`}
                     className="w-full h-full object-contain drop-shadow-lg"
-                    loading="eager"
+                    width={475} height={475} loading="eager"
                   />
                 )}
               </div>

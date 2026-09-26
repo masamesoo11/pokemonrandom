@@ -6,9 +6,8 @@ import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/compone
 import { GENERATIONS, POKEMON_TYPES, getTypeColor } from "@/lib/pokemon-api";
 
 export const metadata: Metadata = {
-  title: "Pokémon Database — Complete Pokédex (1,025 Pokémon) | PokéRandom",
-  description:
-    "Browse all 1,025 Pokémon from Generation 1 to Generation 9. Complete Pokédex with stats, types, abilities, evolution chains, and shiny forms. Free online Pokémon database.",
+  title: "Complete Pokédex — All 1,025 Pokémon | PokéRandom",
+  description: "Browse all 1,025 Pokémon from Gen 1-9. Complete Pokédex with stats, types, abilities, evolutions, and shiny forms. Free online database.",
   keywords: [
     "pokemon database",
     "pokemon pokedex",
@@ -90,7 +89,7 @@ export default function PokemonIndexPage() {
                             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${sampleId}.png`}
                             alt={`Pokémon #${sampleId}`}
                             className="w-10 h-10 object-contain"
-                            loading="lazy"
+                            width={96} height={96} loading="lazy"
                           />
                         );
                       })}
@@ -137,7 +136,7 @@ export default function PokemonIndexPage() {
                       src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
                       alt={`Pokémon #${id}`}
                       className="w-16 h-16 object-contain"
-                      loading="lazy"
+                      width={96} height={96} loading="lazy"
                     />
                     <span className="text-xs text-muted-foreground mt-1">#{String(id).padStart(4, "0")}</span>
                   </Link>

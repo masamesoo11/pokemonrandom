@@ -7,7 +7,7 @@ import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/compone
 
 export const metadata: Metadata = {
   title: "Shiny Pok\u00e9mon Checker \u2014 Browse All Shiny Forms Free",
-  description: "Browse all shiny Pokemon forms from Gen 1 to Gen 9. Compare normal vs shiny side by side. Free shiny Pokemon gallery with official artwork. Plan your shiny hunting targets.",
+  description: "Browse all shiny Pokemon forms from Gen 1 to Gen 9. Compare normal vs shiny side by side with official artwork. Free online gallery.",
   keywords: ["shiny pokemon", "shiny checker", "shiny pokemon gallery", "shiny forms", "shiny sprites", "shiny hunting"],
   alternates: { canonical: "https://pokemonrandom.com/shiny-pokemon/" },
   openGraph: {

@@ -102,7 +102,7 @@ export function PokemonOfDay() {
                 src={sprite}
                 alt={formatPokemonName(pokemon.name)}
                 className="w-48 h-48 md:w-64 md:h-64 object-contain drop-shadow-2xl animate-float"
-              />
+              width={475} height={475} fetchPriority="high" />
             ) : (
               <p className="text-sm text-muted-foreground">Failed to load.</p>
             )}

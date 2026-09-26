@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/components/ad-slot";
 
 export const metadata: Metadata = {
-  title: "Random Pok\u00e9mon Picker \u2014 Quick One-Click Decision | Pok\u00e9Random",
+  title: "Random Pokémon Picker — One-Click Decision | PokéRandom",
   description: "Quick one-click random Pok\u00e9mon picker. No filters, no setup \u2014 just click and get a random Pok\u00e9mon. Perfect for quick decisions and casual fun.",
   keywords: ["random pokemon picker", "pick a random pokemon", "pokemon picker", "random pokemon selector", "quick pokemon picker"],
   alternates: { canonical: "https://pokemonrandom.com/random-pokemon-picker/" },

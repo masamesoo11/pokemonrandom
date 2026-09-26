@@ -29,8 +29,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const displayName = formatMoveName(slug);
   const lowerName = displayName.toLowerCase();
   const canonical = `https://pokemonrandom.com/moves/${slug}/`;
-  const title = `${displayName} Move — Power, Accuracy & Pokémon | PokéRandom`;
-  const description = `${displayName} is a Pokémon move. View its power, accuracy, PP, type, effect, and all Pokémon that can learn it. Complete move database with stats and competitive analysis.`;
+  // Tiered title template: keeps titles <= 60 chars even for the longest
+  // official move names (Z-Moves like "Soul-Stealing 7-Star Strike").
+  const title =
+    displayName.length <= 13
+      ? `${displayName} Move — Power, Accuracy & Pokémon | PokéRandom`
+      : displayName.length <= 22
+        ? `${displayName} Move — Power & Accuracy | PokéRandom`
+        : `${displayName} Move | PokéRandom`;
+  const description = `${displayName} is a Pokémon move. View its power, accuracy, PP, type, effect, and all Pokémon that can learn it.`;
 
   return {
     title,
@@ -150,7 +157,7 @@ export default async function MoveDetailPage({ params }: PageProps) {
                       src={getSpriteUrl(p.id)}
                       alt={`${p.name.replace(/-/g, " ")} Pokémon`}
                       className="w-14 h-14 object-contain"
-                      loading="lazy"
+                      width={96} height={96} loading="lazy"
                     />
                     <span className="text-[11px] text-muted-foreground mt-1 text-center capitalize">#{String(p.id).padStart(4, "0")}</span>
                   </Link>

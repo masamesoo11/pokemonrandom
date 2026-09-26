@@ -259,7 +259,7 @@ export function RandomPokemonGenerator() {
                   src={artworkUrl}
                   alt={formatPokemonName(pokemon.name)}
                   className="w-48 h-48 sm:w-64 sm:h-64 object-contain drop-shadow-2xl animate-bounce-in"
-                  loading="eager"
+                  width={475} height={475} loading="eager"
                 />
                 {/* Floating sparkles for shiny */}
                 {showShiny && (

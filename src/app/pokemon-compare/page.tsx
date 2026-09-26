@@ -8,7 +8,7 @@ import { PokemonComparison } from "@/components/pokemon-comparison";
 
 export const metadata: Metadata = {
   title: "Pok\u00e9mon Comparison Tool 2026 \u2014 Compare Stats Side by Side",
-  description: "Compare two Pokemon side by side. See base stats, types, abilities, and evolution differences. Free online comparison tool for competitive team building. No signup required.",
+  description: "Compare two Pokemon side by side: base stats, types, abilities, and evolutions. Free online tool for competitive team building.",
   keywords: ["pokemon comparison", "compare pokemon", "pokemon stats comparison", "pokemon vs pokemon", "which pokemon is better"],
   alternates: { canonical: "https://pokemonrandom.com/pokemon-compare/" },
   openGraph: {

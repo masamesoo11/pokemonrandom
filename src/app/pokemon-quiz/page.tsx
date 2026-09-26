@@ -7,7 +7,7 @@ import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/compone
 
 export const metadata: Metadata = {
   title: "Pok\u00e9mon Quiz 2026 \u2014 Guess That Pok\u00e9mon Free Game",
-  description: "Test your Pokemon knowledge with our free guessing game. Identify Pokemon from silhouettes, earn points, and build streaks. All 1,025 Pokemon from Gen 1 to Gen 9. No signup required.",
+  description: "Test your Pokemon knowledge: identify Pokemon from silhouettes and build streaks. All 1,025 from Gen 1-9. Free, no signup.",
   keywords: ["pokemon quiz", "guess that pokemon", "pokemon trivia", "pokemon guessing game", "pokemon quiz online", "guess the pokemon"],
   alternates: { canonical: "https://pokemonrandom.com/pokemon-quiz/" },
   openGraph: {

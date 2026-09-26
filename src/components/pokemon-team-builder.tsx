@@ -212,7 +212,7 @@ function TeamMember({
           src={spriteUrl}
           alt={formatPokemonName(pokemon.name)}
           className="w-full h-full object-contain drop-shadow-lg group-hover:scale-110 transition-transform"
-          loading="lazy"
+          width={475} height={475} loading="lazy"
         />
       </div>
 

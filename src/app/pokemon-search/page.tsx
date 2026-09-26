@@ -8,7 +8,7 @@ import { PokemonSearch } from "@/components/pokemon-search";
 
 export const metadata: Metadata = {
   title: "Pok\u00e9mon Search 2026 \u2014 Find Any Pok\u00e9mon Free",
-  description: "Search any Pokemon by name or National Pokedex number. All 1,025 Pokemon from Gen 1 to Gen 9. Free online search tool with detailed stats and information. No signup required.",
+  description: "Search any Pokemon by name or Pokedex number. All 1,025 Pokemon from Gen 1-9 with stats and info. Free online Pokemon search tool.",
   keywords: ["pokemon search", "find pokemon", "pokemon name search", "pokemon database search", "search pokemon by name"],
   alternates: { canonical: "https://pokemonrandom.com/pokemon-search/" },
   openGraph: {

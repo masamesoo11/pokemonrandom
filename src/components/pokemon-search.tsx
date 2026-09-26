@@ -137,7 +137,7 @@ export function PokemonSearch() {
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`}
                 alt={p.name}
                 className="w-12 h-12 object-contain"
-                loading="lazy"
+                width={96} height={96} loading="lazy"
               />
               <div>
                 <div className="font-semibold">{p.name}</div>

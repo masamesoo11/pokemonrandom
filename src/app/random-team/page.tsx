@@ -7,7 +7,7 @@ import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/compone
 
 export const metadata: Metadata = {
   title: "Random Pok\u00e9mon Team Builder \u2014 Free 6 Pok\u00e9mon Generator",
-  description: "Build a random Pokémon team of 6 instantly. Free team generator for Nuzlocke challenges, competitive battles, and casual play. Filter by generation. No login required.",
+  description: "Build a random Pokémon team of 6 instantly. Filter by generation. Free team generator for Nuzlocke and competitive play. No login.",
   keywords: ["random pokemon team", "pokemon team builder", "pokemon team generator", "random team generator", "pokemon team randomizer"],
   alternates: { canonical: "https://pokemonrandom.com/random-team/" },
   openGraph: {

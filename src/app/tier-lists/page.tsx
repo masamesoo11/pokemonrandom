@@ -8,7 +8,7 @@ import { TierListBuilder } from "@/components/tier-list-builder";
 
 export const metadata: Metadata = {
   title: "Pok\u00e9mon Tier List Builder 2026 \u2014 Create Custom Rankings",
-  description: "Create custom Pokemon tier lists by ranking from S to F tier. All 1,025 Pokemon available. Free online tier list maker for competitive and casual rankings. No signup required.",
+  description: "Create custom Pokemon tier lists from S to F tier. All 1,025 Pokemon available. Free online tier list maker. No signup required.",
   keywords: ["pokemon tier list", "tier list builder", "pokemon ranking", "create tier list", "pokemon tier maker"],
   alternates: { canonical: "https://pokemonrandom.com/tier-lists/" },
   openGraph: {

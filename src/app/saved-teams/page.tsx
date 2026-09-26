@@ -8,7 +8,7 @@ import { SavedTeamsManager } from "@/components/saved-teams-manager";
 
 export const metadata: Metadata = {
   title: "Saved Pok\u00e9mon Teams 2026 \u2014 Manage Your Teams Free",
-  description: "Save and manage your Pokemon teams for easy access. Store multiple teams with custom names. Free online team manager, no signup or login required. Teams saved locally.",
+  description: "Save and manage Pokemon teams with custom names. Free online team manager, no signup. Teams are stored locally on your device.",
   keywords: ["saved teams", "pokemon team manager", "save pokemon team", "team export import", "pokemon team storage"],
   alternates: { canonical: "https://pokemonrandom.com/saved-teams/" },
   openGraph: {

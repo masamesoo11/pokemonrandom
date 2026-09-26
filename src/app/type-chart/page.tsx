@@ -7,7 +7,7 @@ import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/compone
 
 export const metadata: Metadata = {
   title: "Pok\u00e9mon Type Chart \u2014 Strengths & Weaknesses Free",
-  description: "Complete Pokemon type chart with all 18 types and their effectiveness. Find strengths, weaknesses, and immunities. Free interactive type chart for competitive and casual players.",
+  description: "Complete Pokemon type chart with all 18 types. Find strengths, weaknesses, and immunities fast. Free interactive chart for every trainer.",
   keywords: ["pokemon type chart", "type effectiveness", "pokemon weakness chart", "type matchups", "pokemon type matrix", "super effective chart"],
   alternates: { canonical: "https://pokemonrandom.com/type-chart/" },
   openGraph: {

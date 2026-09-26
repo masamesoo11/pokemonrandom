@@ -1,1 +1,4 @@
-/*    /index.html    200
+# Intentionally no SPA-style rewrite (`/* /index.html 200`).
+# This is a fully static export: every published URL is a real file, and
+# Cloudflare Pages serves 404.html (with proper 404 status) for unknown paths.
+# A catch-all rewrite to index.html would turn 404s into soft-404s (bad for SEO).

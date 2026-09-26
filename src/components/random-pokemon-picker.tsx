@@ -150,7 +150,7 @@ export function RandomPokemonPicker() {
                   src={artworkUrl}
                   alt={pokemon ? formatPokemonName(pokemon.name) : "Pokémon"}
                   className="w-full h-full object-contain drop-shadow-2xl"
-                  loading="eager"
+                  width={475} height={475} loading="eager"
                 />
                 <button
                   onClick={() => setShowShiny(!showShiny)}

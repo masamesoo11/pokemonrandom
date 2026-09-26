@@ -9,9 +9,9 @@ export const dynamic = "force-static";
 
 export async function generateMetadata(): Promise<Metadata> {
   const canonical = "https://pokemonrandom.com/abilities/";
-  const title = "Pokémon Abilities Database — All 298+ Abilities Listed | PokéRandom";
+  const title = "All Pokémon Abilities — Complete List | PokéRandom";
   const description =
-    "Complete Pokémon ability database with all 298+ abilities. Browse by name or generation. Each ability has its effect, flavor text, and Pokémon that can have it. Free online Pokémon ability reference.";
+    "Complete Pokémon ability database: all 298 abilities with effects, flavor text, and every Pokémon that can have them. Free online reference.";
 
   return {
     title,

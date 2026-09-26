@@ -79,3 +79,11 @@
 # === IndexNow key ===
 /d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9.txt
   Cache-Control: public, max-age=86400
+
+# === Private/internal pages — keep out of search indexes ===
+# (belt-and-suspenders on top of their in-page noindex metas)
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+
+/_not-found/*
+  X-Robots-Tag: noindex, nofollow

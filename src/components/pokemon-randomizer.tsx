@@ -282,7 +282,7 @@ function RandomizerResult({
             src={spriteUrl}
             alt={formatPokemonName(pokemon.name)}
             className="w-44 h-44 sm:w-56 sm:h-56 object-contain drop-shadow-2xl animate-bounce-in"
-          />
+          width={475} height={475} />
         )}
 
         {legendary && (

@@ -211,7 +211,7 @@ export function UniversalPokemonRandomizer() {
                   src={artworkUrl}
                   alt={formatPokemonName(pokemon.name)}
                   className="w-full h-full object-contain drop-shadow-xl"
-                />
+                width={475} height={475} />
               )}
             </div>
             <div className="space-y-3">

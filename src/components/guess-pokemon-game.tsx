@@ -160,6 +160,8 @@ export function GuessPokemonGame() {
                 <img
                   src={spriteUrl}
                   alt={revealed ? formatPokemonName(pokemon.name) : "Mystery Pokemon"}
+                  width={475}
+                  height={475}
                   className={cn(
                     "w-44 h-44 sm:w-56 sm:h-56 object-contain transition-all duration-500 drop-shadow-2xl",
                     !revealed &&

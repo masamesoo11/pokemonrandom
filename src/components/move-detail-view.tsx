@@ -260,7 +260,7 @@ export function MoveDetailView({ slug }: { slug: string }) {
                       src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
                       alt={p.name}
                       className="w-16 h-16 object-contain"
-                      loading="lazy"
+                      width={96} height={96} loading="lazy"
                     />
                     <span className="text-xs text-muted-foreground mt-1 capitalize">
                       {p.name.replace(/-/g, " ")}

@@ -28,8 +28,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const displayName = formatAbilityName(slug);
   const lowerName = displayName.toLowerCase();
   const canonical = `https://pokemonrandom.com/abilities/${slug}/`;
-  const title = `${displayName} Ability — Effect, Pokémon & Strategy | PokéRandom`;
-  const description = `${displayName} is a Pokémon ability. View its effect, flavor text, and all Pokémon that can have ${displayName} as a regular or hidden ability. Complete ability database.`;
+  // Tiered title template: keeps titles <= 60 chars even for the longest
+  // official ability names (e.g. "Wandering Spirit", "Supersweet Syrup").
+  const title =
+    displayName.length <= 18
+      ? `${displayName} Ability — Effect & Pokémon | PokéRandom`
+      : `${displayName} Ability | PokéRandom`;
+  const description = `${displayName} is a Pokémon ability. View its effect, flavor text, and all Pokémon that can have ${displayName} as a regular or hidden ability.`;
 
   return {
     title,
@@ -150,7 +155,7 @@ export default async function AbilityDetailPage({ params }: PageProps) {
                       src={getSpriteUrl(p.id)}
                       alt={`${p.name.replace(/-/g, " ")} Pokémon`}
                       className="w-14 h-14 object-contain"
-                      loading="lazy"
+                      width={96} height={96} loading="lazy"
                     />
                     <span className="text-[11px] text-muted-foreground mt-1 text-center capitalize">#{String(p.id).padStart(4, "0")}</span>
                   </Link>

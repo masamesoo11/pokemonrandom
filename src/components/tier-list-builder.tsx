@@ -135,7 +135,7 @@ export function TierListBuilder() {
                       src={getSpriteUrl(slot.id)}
                       alt={`#${slot.id}`}
                       className="w-12 h-12 object-contain"
-                      loading="lazy"
+                      width={96} height={96} loading="lazy"
                     />
                   </div>
                 ))
@@ -167,7 +167,7 @@ export function TierListBuilder() {
                   src={getSpriteUrl(slot.id)}
                   alt={`#${slot.id}`}
                   className="w-12 h-12 object-contain"
-                  loading="lazy"
+                  width={96} height={96} loading="lazy"
                 />
               </div>
             ))}

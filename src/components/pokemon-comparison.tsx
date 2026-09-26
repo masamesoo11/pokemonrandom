@@ -185,7 +185,7 @@ function ComparisonSlot({
             src={sprite}
             alt={formatPokemonName(pokemon.name)}
             className="w-32 h-32 object-contain drop-shadow-2xl animate-bounce-in"
-          />
+          width={475} height={475} />
         ) : (
           <div className="text-white/80 text-sm">Empty slot</div>
         )}

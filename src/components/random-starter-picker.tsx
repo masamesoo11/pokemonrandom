@@ -220,6 +220,8 @@ export function RandomStarterPicker() {
                     src={artworkUrl}
                     alt={pokemon ? formatPokemonName(pokemon.name) : "Pokémon"}
                     className="w-full h-full object-contain drop-shadow-2xl"
+                    width={475}
+                    height={475}
                     loading="eager"
                   />
                   <button
@@ -337,7 +339,7 @@ export function RandomStarterPicker() {
                   src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
                   alt={g.names[idx]}
                   className="w-full h-full object-contain p-1"
-                  loading="lazy"
+                  width={96} height={96} loading="lazy"
                 />
               </button>
             ))

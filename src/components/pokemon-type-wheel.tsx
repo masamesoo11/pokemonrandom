@@ -310,7 +310,7 @@ export function PokemonTypeWheel() {
                           src={p.sprite}
                           alt={p.name}
                           className="w-full h-full object-contain"
-                          loading="lazy"
+                          width={475} height={475} loading="lazy"
                         />
                         <p className="text-[10px] font-semibold text-center mt-1 truncate">
                           {p.name}

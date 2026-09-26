@@ -151,7 +151,7 @@ export function SavedTeamsManager() {
                       src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
                       alt={`Pokémon #${id}`}
                       className="w-12 h-12 object-contain"
-                      loading="lazy"
+                      width={96} height={96} loading="lazy"
                     />
                     <span className="text-xs text-muted-foreground mt-1">#{String(id).padStart(4, "0")}</span>
                   </Link>

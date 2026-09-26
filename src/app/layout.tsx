@@ -5,7 +5,6 @@ import { Toaster } from "sonner";
 import { GoogleAnalytics, AdSenseLoader } from "@/components/analytics-scripts";
 import { CookieConsentBanner } from "@/components/cookie-consent-banner";
 import { siteConfig } from "@/lib/site-config";
-import { faqSchema } from "@/lib/faq-data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -132,21 +131,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="dark">
       <head>
-        {/* Structured data for SEO - WebApplication */}
+        {/* Performance: preconnect to the sprite/artwork CDN (raw.githubusercontent.com)
+            hosts every Pokemon image — this is the largest off-origin resource. */}
+        <link rel="preconnect" href="https://raw.githubusercontent.com" />
+        <link rel="dns-prefetch" href="https://raw.githubusercontent.com" />
+        {/* Structured data for SEO - WebApplication (site-wide) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        {/* Structured data for SEO - FAQ */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-            <meta property="og:image" content="https://pokemonrandom.com/og-image.png" />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta name="twitter:image" content="https://pokemonrandom.com/og-image.png" />
-    </head>
+        {/* FAQPage JSON-LD lives ONLY on the homepage (src/app/page.tsx) where the
+            FAQ content is actually visible — Google guideline: structured data
+            must describe content present on the page it appears on. */}
+      </head>
       <body
         className={`${geistSans.variable} antialiased bg-background text-foreground`}
       >

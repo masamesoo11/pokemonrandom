@@ -249,7 +249,7 @@ export default async function PokemonDetailPage({ params }: PageProps) {
               </div>
               <div className="rounded-2xl border border-border p-4">
                 <div className="text-xs font-semibold uppercase tracking-wider text-yellow-500 mb-2">Shiny Form</div>
-                <img src={shinyUrl} alt={`${name} shiny form`} className="w-32 h-32 mx-auto object-contain" loading="lazy" width={128} height={128} />
+                <img src={shinyUrl} alt={`${name} shiny form`} className="w-32 h-32 mx-auto object-contain" width={475} height={475} loading="lazy" />
               </div>
             </div>
 
@@ -369,7 +369,7 @@ export default async function PokemonDetailPage({ params }: PageProps) {
                       src={getSpriteUrl(pid)}
                       alt={`Pokémon #${pid}`}
                       className="w-12 h-12 object-contain"
-                      loading="lazy"
+                      width={96} height={96} loading="lazy"
                     />
                     <span className="text-[11px] text-muted-foreground mt-1">#{String(pid).padStart(4, "0")}</span>
                   </Link>

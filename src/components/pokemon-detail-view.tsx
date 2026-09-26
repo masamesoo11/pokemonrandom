@@ -209,7 +209,7 @@ export function PokemonDetailView({ id }: { id: number }) {
               src={shinyUrl}
               alt={`${name} shiny form`}
               className="w-32 h-32 mx-auto object-contain"
-              loading="lazy"
+              width={475} height={475} loading="lazy"
             />
           </div>
         </div>
@@ -341,7 +341,7 @@ export function PokemonDetailView({ id }: { id: number }) {
                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${evoId}.png`}
                         alt={evoName}
                         className="w-20 h-20 object-contain"
-                        loading="lazy"
+                        width={96} height={96} loading="lazy"
                       />
                       <span className="text-sm font-semibold mt-1">{evoName}</span>
                       <span className="text-xs text-muted-foreground">#{String(evoId).padStart(4, "0")}</span>
@@ -372,7 +372,7 @@ export function PokemonDetailView({ id }: { id: number }) {
                     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${nid}.png`}
                     alt={`Pokémon #${nid}`}
                     className="w-16 h-16 object-contain"
-                    loading="lazy"
+                    width={96} height={96} loading="lazy"
                   />
                   <span className="text-xs text-muted-foreground mt-1">#{String(nid).padStart(4, "0")}</span>
                 </Link>

@@ -7,7 +7,7 @@ import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/compone
 
 export const metadata: Metadata = {
   title: "Random Pok\u00e9mon Generator 2026 \u2014 Free, Instant, No Signup",
-  description: "Generate random Pokémon instantly from all 1,025 Pokémon. Filter by generation, type, and rarity. Free online random Pokémon generator with stats, abilities, cries, and shiny forms. No signup required.",
+  description: "Generate random Pokémon instantly from all 1,025. Filter by generation, type, and rarity. Free generator with stats, cries, and shiny forms.",
   keywords: ["random pokemon generator", "generate random pokemon", "pokemon generator online", "free pokemon generator", "random pokemon picker"],
   alternates: { canonical: "https://pokemonrandom.com/random-pokemon/" },
   openGraph: {
