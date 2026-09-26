@@ -39,6 +39,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/pokemon-search/", priority: 0.8, freq: "weekly" as const },
     { path: "/saved-teams/", priority: 0.6, freq: "weekly" as const },
     { path: "/tier-lists/", priority: 0.7, freq: "weekly" as const },
+    { path: "/widgets/", priority: 0.8, freq: "weekly" as const },
     { path: "/api-docs/", priority: 0.5, freq: "monthly" as const },
   ].map((p) => ({ ...p, section: "tools" }));
 

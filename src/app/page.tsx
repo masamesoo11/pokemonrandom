@@ -14,6 +14,7 @@ import {
   Database,
   Swords,
   Target,
+  Share2,
   ChevronRight,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
@@ -147,6 +148,13 @@ const TOOLS = [
     title: "Saved Teams",
     description: "Save, export, and import your Pokémon teams. Manage your team collection in one place.",
     color: "from-emerald-500 to-green-500",
+  },
+  {
+    href: "/widgets/",
+    icon: Share2,
+    title: "Free Pokémon Widgets",
+    description: "Embed our random Pokémon generator or type chart on your own website, blog, or forum.",
+    color: "from-cyan-500 to-blue-500",
   },
 ];
 

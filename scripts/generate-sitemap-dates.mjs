@@ -43,6 +43,8 @@ const SECTIONS = {
     "src/app/pokemon-search",
     "src/app/saved-teams",
     "src/app/tier-lists",
+    "src/app/widgets",
+    "src/app/embed",
     "src/app/api-docs",
     "src/components",
   ],
