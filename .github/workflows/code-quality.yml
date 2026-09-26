@@ -39,14 +39,17 @@ jobs:
 
       # ===== 5. TypeScript check =====
       - name: 🔍 TypeScript check
+        id: tsc
         run: npx tsc --noEmit
 
       # ===== 6. ESLint =====
       - name: 🔍 ESLint
+        id: lint
         run: npm run lint
 
       # ===== 7. Build check (Vercel-style build) =====
       - name: 🔨 Build check
+        id: build
         run: npm run build
         env:
           NEXT_PUBLIC_SITE_URL: https://pokemonrandom.com
@@ -60,6 +63,6 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| Check | Status |" >> $GITHUB_STEP_SUMMARY
           echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
-          echo "| TypeScript | ${{ job.steps.tsc.outcome == 'success' && '✅' || '⚠️' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| ESLint | ${{ job.steps.lint.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Build | ${{ job.steps.build.outcome == 'success' && '✅' || '⚠️' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| TypeScript | ${{ steps.tsc.outcome == 'success' && '✅' || '⚠️' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| ESLint | ${{ steps.lint.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Build | ${{ steps.build.outcome == 'success' && '✅' || '⚠️' }} |" >> $GITHUB_STEP_SUMMARY

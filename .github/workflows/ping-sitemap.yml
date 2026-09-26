@@ -121,12 +121,19 @@ jobs:
 
       # ===== 5. Optional: Use Search Console API (if secrets available) =====
       - name: 📨 Submit via Search Console API
-        if: ${{ secrets.GOOGLE_CLIENT_EMAIL != '' && secrets.GOOGLE_PRIVATE_KEY != '' }}
         env:
           GOOGLE_CLIENT_EMAIL: ${{ secrets.GOOGLE_CLIENT_EMAIL }}
           GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_PRIVATE_KEY }}
           SITE_URL: ${{ secrets.SEARCH_CONSOLE_PROPERTY || steps.site.outputs.url }}
         run: |
+          # Skip if Search Console API secrets are not configured
+          # (secrets context is not allowed in step-level `if:` — this is why
+          #  GitHub rejected the whole workflow file and created ghost runs)
+          if [ -z "$GOOGLE_CLIENT_EMAIL" ] || [ -z "$GOOGLE_PRIVATE_KEY" ]; then
+            echo "⏸️ Search Console API secrets not configured — skipping"
+            exit 0
+          fi
+
           # Get OAuth 2.0 access token using service account
           NOW=$(date +%s)
           EXP=$((NOW + 3600))
