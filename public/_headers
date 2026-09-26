@@ -88,19 +88,13 @@
 /_not-found/*
   X-Robots-Tag: noindex, nofollow
 
-# === Embeddable widgets (iframes on third-party sites) ===
-# Must be framable by ANY https site: the global rule above sets
-# X-Frame-Options: SAMEORIGIN + CSP frame-ancestors 'none', which would
-# block all embeds. These per-path rules override both for /embed/* only.
-# ALLOWALL is an intentionally invalid XFO value — browsers ignore it,
-# which effectively lifts the restriction (CSP frame-ancestors https:
-# then stays in control, blocking insecure embedding).
-/embed/*
-  X-Frame-Options: ALLOWALL
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://www.google-analytics.com data: https://raw.githubusercontent.com https://pokeapi.co; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com https://pokeapi.co https://cloudflareinsights.com https://poke-admin-api.sodanefs.workers.dev; frame-ancestors https:; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
-  X-Robots-Tag: noindex, follow
-
-# === Embeddable widget script — public, long-cache ===
+# === Embeddable widget script — public, 24h cache ===
+# NOTE: we deliberately do NOT ship iframe embeds. The global rules above
+# (X-Frame-Options: SAMEORIGIN + CSP frame-ancestors 'none') protect all
+# pages from clickjacking, and Cloudflare Pages _headers appends (does not
+# replace) headers, so per-path overrides cannot lift framing safely.
+# The JavaScript widget (/widget.js) needs no framing and is also the
+# better link-building asset: its credit link lives in the HOST page's DOM.
 /widget.js
   Cache-Control: public, max-age=86400
   Content-Type: application/javascript; charset=utf-8

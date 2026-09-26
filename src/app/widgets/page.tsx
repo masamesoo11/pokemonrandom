@@ -103,7 +103,7 @@ const faqItems = [
   },
   {
     q: "Can I use the widgets on WordPress, Blogger, or a forum?",
-    a: "Yes. The JavaScript widget works on any platform that allows HTML, including WordPress, Blogger, Ghost, Squarespace, and most forums. If your platform blocks scripts, use the iframe version instead — it works almost everywhere HTML is allowed.",
+    a: "Yes. The widget works on any platform that allows custom HTML, including WordPress (Custom HTML block), Blogger (HTML/JavaScript gadget), Ghost, Squarespace, Wix, and most forums. If your platform strips <script> tags, it unfortunately can't run the widget — it needs JavaScript to fetch live Pokémon data.",
   },
   {
     q: "Do the widgets work on mobile?",
@@ -136,18 +136,6 @@ const RANDOM_JS_CODE = `<!-- PokémonRandom — Random Pokémon Generator widget
 const TYPES_JS_CODE = `<!-- PokémonRandom — Type Effectiveness widget -->
 <script async src="https://pokemonrandom.com/widget.js"></script>
 <div class="pokemonrandom-widget" data-widget="types"></div>`;
-
-const RANDOM_IFRAME_CODE = `<!-- PokémonRandom — Random Pokémon Generator (iframe) -->
-<iframe src="https://pokemonrandom.com/embed/random-pokemon/"
-        width="100%" height="480" loading="lazy"
-        style="border:0;max-width:560px;border-radius:16px;overflow:hidden"
-        title="Random Pokémon Generator"></iframe>`;
-
-const TYPES_IFRAME_CODE = `<!-- PokémonRandom — Type Chart (iframe) -->
-<iframe src="https://pokemonrandom.com/embed/type-chart/"
-        width="100%" height="640" loading="lazy"
-        style="border:0;border-radius:16px;overflow:hidden"
-        title="Pokémon Type Chart"></iframe>`;
 
 export default function WidgetsPage() {
   return (
@@ -256,29 +244,32 @@ export default function WidgetsPage() {
           </div>
         </section>
 
-        {/* iframe alternatives */}
-        <section id="iframe-embeds" className="py-8 scroll-mt-20">
+        {/* Where it works + customization */}
+        <section id="compatibility" className="py-8 scroll-mt-20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6">
             <h2 className="text-2xl font-bold mb-3">
-              iframe Versions (No JavaScript Allowed?)
+              Where the Widgets Work
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Some platforms and forum builders block custom scripts but allow iframes.
-              For those, use the plain iframe embeds below. They serve the same tools
-              in a self-contained frame: a full random generator and the complete
-              18×18{" "}
-              <Link href="/type-chart/" className="text-primary underline underline-offset-2">Pokémon type chart</Link>.
+              Both widgets are plain HTML + one lightweight script, so they run on
+              any platform that lets you paste your own code —{" "}
+              <strong>WordPress</strong> (Custom HTML block),{" "}
+              <strong>Blogger</strong> (HTML/JavaScript gadget),{" "}
+              <strong>Ghost</strong>, <strong>Squarespace</strong>,{" "}
+              <strong>Wix</strong>, <strong>Weebly</strong>, most forum systems with
+              HTML enabled, and of course any hand-built site. If a platform strips
+              <code className="font-mono text-xs bg-secondary px-1.5 py-0.5 rounded">&lt;script&gt;</code>{" "}
+              tags, it unfortunately cannot run the widget — it needs JavaScript to
+              fetch live Pokémon data from PokeAPI.
             </p>
-
-            <div className="grid gap-6">
-              <div>
-                <h3 className="text-lg font-semibold mb-3">Random generator (iframe)</h3>
-                <CodeBlock code={RANDOM_IFRAME_CODE} label="HTML" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-3">Type chart (iframe)</h3>
-                <CodeBlock code={TYPES_IFRAME_CODE} label="HTML" />
-              </div>
+            <div className="rounded-xl border border-border bg-secondary/30 p-5 text-sm text-muted-foreground leading-relaxed">
+              <h3 className="font-semibold text-foreground mb-2">Sizing &amp; placement tips</h3>
+              <ul className="list-disc pl-5 space-y-1.5">
+                <li>The widgets are <strong>responsive</strong> — they fill the width of their container (up to 560px) and reflow on mobile.</li>
+                <li>To make one narrower, wrap the container: <code className="font-mono text-xs bg-background px-1.5 py-0.5 rounded">&lt;div style="max-width:320px"&gt;…&lt;/div&gt;</code></li>
+                <li>The script loads <code className="font-mono text-xs bg-background px-1.5 py-0.5 rounded">async</code> and never blocks your page rendering — safe above the fold in sidebars and footers.</li>
+                <li>Both widgets automatically match your visitor&apos;s <strong>light or dark</strong> color preference.</li>
+              </ul>
             </div>
           </div>
         </section>
