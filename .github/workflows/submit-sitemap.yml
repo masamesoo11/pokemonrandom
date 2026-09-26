@@ -33,7 +33,7 @@ name: Submit Sitemap
 on:
   # Run after every successful production deploy
   workflow_run:
-    workflows: ["Deploy to Cloudflare Pages", "Deploy to Vercel"]
+    workflows: ["Build and Deploy to Cloudflare Pages"]
     types:
       - completed
     branches: [main, master]
