@@ -5,7 +5,8 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/components/ad-slot";
 import { AbilityDetailView } from "@/components/ability-detail-view";
-import { fetchAbilityList, formatAbilityName } from "@/lib/ability-api";
+import { fetchAbility, fetchAbilityList, formatAbilityName } from "@/lib/ability-api";
+import { getSpriteUrl } from "@/lib/pokemon-api";
 
 interface PageProps {
   params: Promise<{ name: string }>;
@@ -79,6 +80,29 @@ export default async function AbilityDetailPage({ params }: PageProps) {
   const { name: slug } = await params;
   const displayName = formatAbilityName(slug);
 
+  // Server-side fetch at build time — powers the crawlable "Pokémon with
+  // this ability" link section (the client view does NOT render these
+  // links in the static HTML).
+  let holders: { id: number; name: string }[] = [];
+  let holderOverflow = 0;
+  try {
+    const ability = await fetchAbility(slug);
+    const MAX_HOLDERS = 48;
+    const all = (ability.pokemon || [])
+      .map((e) => {
+        const url = e.pokemon?.url || "";
+        const match = url.match(/\/pokemon\/([0-9]+)\//);
+        const pid = match ? parseInt(match[1], 10) : NaN;
+        return { id: pid, name: e.pokemon?.name || "" };
+      })
+      .filter((p) => Number.isInteger(p.id) && p.id >= 1 && p.id <= 1025)
+      .sort((a, b) => a.id - b.id);
+    holderOverflow = Math.max(0, all.length - MAX_HOLDERS);
+    holders = all.slice(0, MAX_HOLDERS);
+  } catch {
+    // If the API call fails we simply render without the holder links.
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
@@ -106,6 +130,41 @@ export default async function AbilityDetailPage({ params }: PageProps) {
 
           {/* Client-side fetched ability detail */}
           <AbilityDetailView slug={slug} />
+
+          {/* Server-rendered crawlable links — Pokémon with this ability */}
+          {holders.length > 0 && (
+            <section className="mt-10">
+              <h2 className="text-2xl font-bold mb-4">Pokémon With the {displayName} Ability</h2>
+              <p className="text-muted-foreground mb-4">
+                These Pokémon can have {displayName} as a standard or hidden ability. Click any
+                Pokémon to view its full Pokédex entry with stats, types, and movepool.
+              </p>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
+                {holders.map((p) => (
+                  <Link
+                    key={p.id}
+                    href={`/pokemon/${p.id}/`}
+                    className="flex flex-col items-center p-2 rounded-xl border border-border bg-card hover:border-primary hover:shadow-sm transition-all"
+                  >
+                    <img
+                      src={getSpriteUrl(p.id)}
+                      alt={`${p.name.replace(/-/g, " ")} Pokémon`}
+                      className="w-14 h-14 object-contain"
+                      loading="lazy"
+                    />
+                    <span className="text-[11px] text-muted-foreground mt-1 text-center capitalize">#{String(p.id).padStart(4, "0")}</span>
+                  </Link>
+                ))}
+              </div>
+              {holderOverflow > 0 && (
+                <p className="text-sm text-muted-foreground mt-4">
+                  …and {holderOverflow} more Pokémon can have this ability. Use our{" "}
+                  <Link href="/pokemon-search/" className="text-primary hover:underline">Pokémon Search</Link>{" "}
+                  tool to explore the complete list.
+                </p>
+              )}
+            </section>
+          )}
 
           {/* SEO Content for ability detail */}
           <section className="mt-12 prose prose-lg dark:prose-invert max-w-none">

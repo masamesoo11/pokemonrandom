@@ -17,10 +17,12 @@ import {
   getEnglishGenus,
   getGenderRatio,
   getGenerationById,
+  getSpriteUrl,
   GENERATIONS,
   type Pokemon,
   type PokemonSpecies,
 } from "@/lib/pokemon-api";
+import typePokemonMap from "@/lib/type-pokemon-map.json";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -168,6 +170,16 @@ export default async function PokemonDetailPage({ params }: PageProps) {
   const artworkUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
   const shinyUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${id}.png`;
 
+  // Internal linking (SEO): prev/next Pokédex entries chain all 1,025 pages
+  const prevPokemon = id > 1 ? id - 1 : null;
+  const nextPokemon = id < 1025 ? id + 1 : null;
+
+  // Internal linking (SEO): same-type Pokémon from the local type map —
+  // no extra API calls, keeps every detail page connected to its type cluster.
+  const sameTypeIds: number[] = ((typePokemonMap as Record<string, number[]>)[primaryType] || [])
+    .filter((pid) => pid !== id)
+    .slice(0, 12);
+
   // If data fetch failed, fall back to client-side view
   if (!pokemon || !species) {
     return (
@@ -265,9 +277,13 @@ export default async function PokemonDetailPage({ params }: PageProps) {
                 <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Abilities</div>
                 <div className="flex flex-wrap gap-2">
                   {abilities.map((a, i) => (
-                    <span key={a} className={`px-3 py-1 rounded-full text-sm font-semibold capitalize ${pokemon.abilities[i].is_hidden ? "bg-purple-100 text-purple-900 dark:bg-purple-900 dark:text-purple-100" : "bg-secondary text-secondary-foreground"}`}>
+                    <Link
+                      key={a}
+                      href={`/abilities/${a}/`}
+                      className={`px-3 py-1 rounded-full text-sm font-semibold capitalize hover:scale-105 transition-transform ${pokemon.abilities[i].is_hidden ? "bg-purple-100 text-purple-900 dark:bg-purple-900 dark:text-purple-100" : "bg-secondary text-secondary-foreground"}`}
+                    >
                       {a.replace(/-/g, " ")}{pokemon.abilities[i].is_hidden && <span className="ml-1 text-xs">(Hidden)</span>}
-                    </span>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -304,9 +320,72 @@ export default async function PokemonDetailPage({ params }: PageProps) {
             </div>
           </section>
 
-          <InContentAd />
+          {/* Prev/Next Pokédex navigation — chains all 1,025 pages for crawlers */}
+          <nav className="mt-8 mb-2 flex items-center justify-between gap-4" aria-label="Pokédex navigation">
+            {prevPokemon ? (
+              <Link
+                href={`/pokemon/${prevPokemon}/`}
+                className="flex-1 flex items-center gap-3 p-3 rounded-xl border border-border bg-card hover:border-primary transition-colors"
+              >
+                <span className="text-xl">←</span>
+                <span className="text-sm">
+                  <span className="block text-xs text-muted-foreground">Previous</span>
+                  #{String(prevPokemon).padStart(4, "0")}
+                </span>
+              </Link>
+            ) : <span className="flex-1" />}
+            <Link
+              href={`/generation/${gen.num}/`}
+              className="flex-1 text-center p-3 rounded-xl border border-border bg-card hover:border-primary transition-colors text-sm font-medium"
+            >
+              All {gen.region} Pokémon
+            </Link>
+            {nextPokemon ? (
+              <Link
+                href={`/pokemon/${nextPokemon}/`}
+                className="flex-1 flex items-center justify-end gap-3 p-3 rounded-xl border border-border bg-card hover:border-primary transition-colors"
+              >
+                <span className="text-sm text-right">
+                  <span className="block text-xs text-muted-foreground">Next</span>
+                  #{String(nextPokemon).padStart(4, "0")}
+                </span>
+                <span className="text-xl">→</span>
+              </Link>
+            ) : <span className="flex-1" />}
+          </nav>
 
-          {/* SEO Content — expanded with detailed, useful text for users and search engines */}
+          {/* More Pokémon of the same type — internal links from local data */}
+          {sameTypeIds.length > 0 && (
+            <section className="mb-10">
+              <h2 className="text-2xl font-bold mb-4 capitalize">More {primaryType} Type Pokémon</h2>
+              <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12 gap-2">
+                {sameTypeIds.map((pid) => (
+                  <Link
+                    key={pid}
+                    href={`/pokemon/${pid}/`}
+                    className="flex flex-col items-center p-2 rounded-xl border border-border bg-card hover:border-primary hover:shadow-sm transition-all"
+                  >
+                    <img
+                      src={getSpriteUrl(pid)}
+                      alt={`Pokémon #${pid}`}
+                      className="w-12 h-12 object-contain"
+                      loading="lazy"
+                    />
+                    <span className="text-[11px] text-muted-foreground mt-1">#{String(pid).padStart(4, "0")}</span>
+                  </Link>
+                ))}
+              </div>
+              <p className="text-sm text-muted-foreground mt-3">
+                Browse the complete list on the{" "}
+                <Link href={`/type/${primaryType}/`} className="text-primary hover:underline capitalize">
+                  {primaryType} type Pokémon
+                </Link>{" "}
+                page.
+              </p>
+            </section>
+          )}
+
+          <InContentAd />
           <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
             <h2>About {name}</h2>
             <p>{name} is a {genus.toLowerCase()} introduced in Generation {gen.num} ({gen.region} region). It is National Pokédex number {id} and has the {primaryType} type{types.length > 1 ? ` combined with ${types[1]}` : ""}.{legendary && " It is classified as a Legendary Pokémon, meaning it possesses exceptional power and plays a significant role in the lore of the Pokémon world."}{mythical && " It is classified as a Mythical Pokémon, an extremely rare creature that is typically only obtainable through special events or distributions."} With a base stat total of {baseStatTotal}, {name} {baseStatTotal > 500 ? "is a powerful Pokémon that can hold its own in battles against most opponents" : "has balanced stats suitable for various roles in casual play"}. The {genus.toLowerCase()} measures {height} tall and weighs {weight}, placing it in a specific ecological niche within the {gen.region} region.</p>
