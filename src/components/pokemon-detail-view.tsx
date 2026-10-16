@@ -106,8 +106,8 @@ export function PokemonDetailView({ id }: { id: number }) {
   const genderRatio = getGenderRatio(species.gender_rate);
   const legendary = isLegendary(id) || species.is_legendary;
   const mythical = species.is_mythical;
-  const artworkUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
-  const shinyUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${pokemon.id}.png`;
+  const artworkUrl = `/artwork/${pokemon.id}.webp`;
+  const shinyUrl = `/artwork/shiny/${pokemon.id}.webp`;
   const baseStatTotal = pokemon.stats.reduce((sum, s) => sum + s.base_stat, 0);
   const maxStat = 255;
   const primaryType = pokemon.types[0]?.type.name ?? "normal";

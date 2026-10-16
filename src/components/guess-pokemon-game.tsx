@@ -109,7 +109,7 @@ export function GuessPokemonGame() {
   };
 
   const spriteUrl = pokemon
-    ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
+    ? `/artwork/${pokemon.id}.webp`
     : null;
 
   return (

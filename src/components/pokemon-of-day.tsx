@@ -76,7 +76,7 @@ export function PokemonOfDay() {
   });
 
   const sprite = pokemon
-    ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
+    ? `/artwork/${pokemon.id}.webp`
     : null;
 
   const gen = pokemon

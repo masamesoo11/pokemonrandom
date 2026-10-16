@@ -100,11 +100,10 @@ export async function fetchRandomTeam(
 
 /**
  * Get the official artwork URL for a Pokemon ID (no API call needed)
+ * Self-hosted WebP (~20KB vs 118KB external PNG) served from own CDN
  */
 export function getArtworkUrl(id: number, shiny = false): string {
-  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
-    shiny ? "shiny/" : ""
-  }${id}.png`;
+  return shiny ? `/artwork/shiny/${id}.webp` : `/artwork/${id}.webp`;
 }
 
 /**

@@ -145,3 +145,24 @@ Stage Summary:
 - New domain: pokemonrandom.com (configured as default, overridable via NEXT_PUBLIC_SITE_URL)
 - Documentation (.env.example + README.md) ready for deployment
 - Domain is EMD (Exact Match Domain) for "pokemon random" keyword → strong SEO advantage
+
+---
+Task ID: 9
+Agent: Super Z (main)
+Task: Round-3 fixes — self-host artwork as WebP (LCP optimization) + fetchPriority
+
+Work Log:
+- User provided fresh fine-grained GitHub token (revoked after push)
+- Full re-audit: build clean, ESLint 0 errors, all 2,413 sitemap URLs return 200 live, no JS console errors on live site, SEO elements complete
+- Found: official artwork still 118KB PNG from raw.githubusercontent.com on all 1,025 pokemon pages; fetchPriority="high" was only on homepage pokemon-of-day, NOT on pokemon detail pages
+- Built scripts/download_artwork.py: downloaded 1,025 regular + 1,025 shiny official artworks, converted PNG->WebP q82 (45MB total on disk, 83% smaller than PNG)
+- Replaced 19 hardcoded artwork URL references across 13 files to local /artwork/{id}.webp (visible imgs + widget.js absolute URLs)
+- og:image/twitter/JSON-LD images now absolute https://pokemonrandom.com/artwork/{id}.webp
+- Added fetchPriority="high" to main artwork img on pokemon detail pages
+- Added /artwork/* immutable cache rule to public/_headers
+- Known issue (out of repo scope): /admin/ login broken — GET /ads_config on poke-admin-api worker strips adminPassword so client-side comparison can never match; PUT route 404s. Needs worker-side fix (Cloudflare access required)
+
+Stage Summary:
+- Pikachu artwork: 118KB external PNG -> 19.7KB local WebP (-83%) served from Cloudflare edge with immutable cache
+- All 2,050 artworks self-hosted; widgets load artwork from own domain
+- Build verified: 2,417 pages, 0 SEO regressions, only api-docs references external artwork (documentation)

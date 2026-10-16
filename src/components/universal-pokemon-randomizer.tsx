@@ -82,7 +82,7 @@ export function UniversalPokemonRandomizer() {
   }, [selectedGens, selectedTypes, legendaryMode]);
 
   const artworkUrl = pokemon
-    ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
+    ? `/artwork/${pokemon.id}.webp`
     : null;
 
   const clearFilters = () => {

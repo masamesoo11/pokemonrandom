@@ -80,7 +80,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: canonical,
       type: "article",
       images: [{
-        url: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
+        url: `https://pokemonrandom.com/artwork/${id}.webp`,
         width: 475, height: 475,
         alt: `${name} official artwork`,
       }],
@@ -89,7 +89,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title,
       description,
-      images: [`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`],
+      images: [`https://pokemonrandom.com/artwork/${id}.webp`],
     },
   };
 }
@@ -116,7 +116,7 @@ const pokemonSchema = (pokemon: Pokemon, species: PokemonSpecies, name: string, 
   description: getEnglishFlavorText(species),
   identifier: `#${String(pokemon.id).padStart(4, "0")}`,
   url: `https://pokemonrandom.com/pokemon/${pokemon.id}/`,
-  image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`,
+  image: `https://pokemonrandom.com/artwork/${pokemon.id}.webp`,
   additionalType: pokemon.types.map((t) => t.type.name).join("/"),
   category: getEnglishGenus(species),
   isPartOf: { "@type": "CreativeWork", name: `Generation ${gen.num} (${gen.region})` },
@@ -167,8 +167,8 @@ export default async function PokemonDetailPage({ params }: PageProps) {
   const baseStatTotal = baseStats.reduce((sum, s) => sum + s.value, 0);
   const primaryType = types[0] || "normal";
   const typeColor = getTypeColor(primaryType);
-  const artworkUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
-  const shinyUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${id}.png`;
+  const artworkUrl = `/artwork/${id}.webp`;
+  const shinyUrl = `/artwork/shiny/${id}.webp`;
 
   // Internal linking (SEO): prev/next Pokédex entries chain all 1,025 pages
   const prevPokemon = id > 1 ? id - 1 : null;
@@ -245,7 +245,7 @@ export default async function PokemonDetailPage({ params }: PageProps) {
           <div className="grid md:grid-cols-2 gap-8 mb-10">
             <div className="space-y-4">
               <div className="rounded-3xl border-2 border-border p-8" style={{ background: `linear-gradient(135deg, ${typeColor}22 0%, transparent 60%)` }}>
-                <img src={artworkUrl} alt={`${name} official artwork`} className="w-full h-auto drop-shadow-2xl" width={475} height={475} loading="eager" />
+                <img src={artworkUrl} alt={`${name} official artwork`} className="w-full h-auto drop-shadow-2xl" width={475} height={475} loading="eager" fetchPriority="high" />
               </div>
               <div className="rounded-2xl border border-border p-4">
                 <div className="text-xs font-semibold uppercase tracking-wider text-yellow-500 mb-2">Shiny Form</div>

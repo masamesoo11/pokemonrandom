@@ -17,8 +17,7 @@
 
   var BASE = "https://pokemonrandom.com/";
   var API = "https://pokeapi.co/api/v2/pokemon/";
-  var ART =
-    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
+  var ART = "https://pokemonrandom.com/artwork/";
 
   var TYPE_COLORS = {
     normal: "#9099A1", fire: "#FF9D55", water: "#5090D6", electric: "#F9D94C",
@@ -187,7 +186,7 @@
     container.appendChild(credit(t));
 
     function render(p) {
-      img.src = ART + p.id + ".png";
+      img.src = ART + p.id + ".webp";
       img.alt = fmt(p.name);
       nameEl.innerHTML =
         '<a href="' + BASE + "pokemon/" + p.id + '/" target="_blank" rel="noopener" ' +

@@ -260,7 +260,7 @@ function RandomizerResult({
   onReroll: () => void;
 }) {
   const primaryType = pokemon.types?.[0]?.type?.name ?? "normal";
-  const spriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
+  const spriteUrl = `/artwork/${pokemon.id}.webp`;
   const legendary = isLegendary(pokemon.id);
   const gen = GENERATIONS.find(
     (g) => pokemon.id >= g.range[0] && pokemon.id <= g.range[1]

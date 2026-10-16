@@ -108,10 +108,10 @@ export function ShinyPokemonBrowser() {
   };
 
   const normalUrl = pokemon
-    ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
+    ? `/artwork/${pokemon.id}.webp`
     : null;
   const shinyUrl = pokemon
-    ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${pokemon.id}.png`
+    ? `/artwork/shiny/${pokemon.id}.webp`
     : null;
 
   return (

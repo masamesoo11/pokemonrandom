@@ -131,7 +131,7 @@ export function PokemonTypeWheel() {
           results.map((p) => ({
             id: p.id,
             name: formatPokemonName(p.name),
-            sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${p.id}.png`,
+            sprite: `/artwork/${p.id}.webp`,
           }))
         );
       } catch (e) {

@@ -182,7 +182,7 @@ function TeamMember({
   index: number;
 }) {
   const primaryType = pokemon.types?.[0]?.type?.name ?? "normal";
-  const spriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
+  const spriteUrl = `/artwork/${pokemon.id}.webp`;
 
   return (
     <div

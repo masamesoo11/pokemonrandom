@@ -139,9 +139,7 @@ export function RandomPokemonGenerator() {
   };
 
   const artworkUrl = pokemon
-    ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
-        showShiny ? "shiny/" : ""
-      }${pokemon.id}.png`
+    ? `/artwork/${showShiny ? "shiny/" : ""}${pokemon.id}.webp`
     : null;
 
   const primaryType = pokemon?.types?.[0]?.type?.name ?? "normal";
