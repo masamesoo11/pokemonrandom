@@ -9,6 +9,26 @@
 # Status 301 = permanent redirect (passes all link equity to canonical URL).
 https://www.pokemonrandom.com/* https://pokemonrandom.com/:splat 301
 
+# === forums subdomain → main site (PA=20 backlink preservation) ===
+# forums.pokemonrandom.com was previously indexed by Moz with PA=20.
+# Without a forums feature, redirect all traffic to the main site
+# to preserve link equity and prevent 404s on backlinks pointing here.
+https://forums.pokemonrandom.com/* https://pokemonrandom.com/:splat 301
+
+# === Legacy WordPress-style feed URLs (Moz PA=15 backlink preservation) ===
+# Old backlinks point to /03/214/feed/ and similar WordPress-style paths
+# that no longer exist (Next.js static export uses /feed.xml).
+# Redirect all such URLs to the actual RSS feed to preserve link equity.
+/03/214/feed/  /feed.xml  301
+/03/214/feed   /feed.xml  301
+/03/*/feed/    /feed.xml  301
+/feed/         /feed.xml  301
+/feed          /feed.xml  301
+
+# === Catch-all RSS/feed variants from legacy platforms ===
+/*/*/feed/     /feed.xml  301
+/*/*/feed      /feed.xml  301
+
 # Note: We intentionally do NOT add a SPA-style rewrite (/* /index.html 200).
 # This is a fully static export: every published URL is a real file, and
 # Cloudflare Pages serves 404.html (with proper 404 status) for unknown paths.
