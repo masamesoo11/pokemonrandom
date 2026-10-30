@@ -23,6 +23,7 @@ import {
   type PokemonSpecies,
 } from "@/lib/pokemon-api";
 import typePokemonMap from "@/lib/type-pokemon-map.json";
+import { getPokemonOriginalContent } from "@/data/original-content";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -58,7 +59,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const gen = getGenerationById(id);
   const canonical = `https://pokemonrandom.com/pokemon/${id}/`;
+  const original = getPokemonOriginalContent(id);
   const title = `${name} #${String(id).padStart(4, "0")} — Stats, Type & Abilities`;
+  if (original) {
+    description = `${name} — ${original.tagline}. Stats, evolution, shiny form, battle guide & trivia.`;
+  }
 
   return {
     title,
@@ -128,6 +133,9 @@ export default async function PokemonDetailPage({ params }: PageProps) {
   if (isNaN(id) || id < 1 || id > 1025) notFound();
 
   const gen = getGenerationById(id);
+
+  // Hand-written editorial content for the 65 most-searched Pokémon
+  const originalContent = getPokemonOriginalContent(id);
 
   // Try to fetch real data for SSR/SSG content
   let pokemon: Pokemon | null = null;
@@ -230,7 +238,7 @@ export default async function PokemonDetailPage({ params }: PageProps) {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-sm font-mono text-muted-foreground">#{String(id).padStart(4, "0")}</span>
-                <h1 className="text-4xl font-bold tracking-tight">{name} <span className="text-lg text-muted-foreground font-normal">Pokédex Entry &amp; Stats</span></h1>
+                <h1 className="text-4xl font-bold tracking-tight">{name} <span className="text-lg text-muted-foreground font-normal">{originalContent ? "Pokédex Entry, Battle Guide & Lore" : "Pokédex Entry & Stats"}</span></h1>
                 {legendary && <span className="px-2 py-0.5 rounded-full bg-yellow-400 text-yellow-950 text-xs font-bold">Legendary</span>}
                 {mythical && <span className="px-2 py-0.5 rounded-full bg-pink-400 text-pink-950 text-xs font-bold">Mythical</span>}
               </div>
@@ -238,6 +246,9 @@ export default async function PokemonDetailPage({ params }: PageProps) {
                 {genus} · {gen.name} ({gen.region}) ·
                 <Link href={`/type/${primaryType}/`} className="text-primary hover:underline capitalize ml-1">{primaryType} type</Link>
               </p>
+              {originalContent && (
+                <p className="mt-2 text-lg italic text-foreground/80">{originalContent.tagline}</p>
+              )}
             </div>
           </div>
 
@@ -388,7 +399,23 @@ export default async function PokemonDetailPage({ params }: PageProps) {
           <InContentAd />
           <section className="mb-10 prose prose-lg dark:prose-invert max-w-none">
             <h2>About {name}</h2>
+            {originalContent ? (
+              <>
+                {originalContent.overview.map((para, i) => (
+                  <p key={`ov-${id}-${i}`}>{para}</p>
+                ))}
+                <h3>Battle Guide: How to Use {name}</h3>
+                <p>{originalContent.battleGuide}</p>
+                <h3>Trivia &amp; Fun Facts About {name}</h3>
+                <ul>
+                  {originalContent.trivia.map((fact, i) => (
+                    <li key={`tr-${id}-${i}`}>{fact}</li>
+                  ))}
+                </ul>
+              </>
+            ) : (
             <p>{name} is a {genus.toLowerCase()} introduced in Generation {gen.num} ({gen.region} region). It is National Pokédex number {id} and has the {primaryType} type{types.length > 1 ? ` combined with ${types[1]}` : ""}.{legendary && " It is classified as a Legendary Pokémon, meaning it possesses exceptional power and plays a significant role in the lore of the Pokémon world."}{mythical && " It is classified as a Mythical Pokémon, an extremely rare creature that is typically only obtainable through special events or distributions."} With a base stat total of {baseStatTotal}, {name} {baseStatTotal > 500 ? "is a powerful Pokémon that can hold its own in battles against most opponents" : "has balanced stats suitable for various roles in casual play"}. The {genus.toLowerCase()} measures {height} tall and weighs {weight}, placing it in a specific ecological niche within the {gen.region} region.</p>
+            )}
 
             <h3>Type Effectiveness and Battle Strategy</h3>
             <p>As a {types.join("/")} type Pokémon, {name} has specific strengths and weaknesses that determine its effectiveness in battle. {types.length > 1 ? `The dual ${types.join("/")} typing gives ${name} a unique defensive profile that can surprise opponents who are not familiar with the matchup. ` : ""}Understanding type matchups is essential for getting the most out of {name} in both casual playthroughs and competitive battles. {primaryType.charAt(0).toUpperCase() + primaryType.slice(1)} type moves deal increased damage to certain types while being resisted by others. To master the full type effectiveness chart and plan your battles, check our comprehensive <Link href="/type-chart/">Type Chart</Link> page which shows all 18 type interactions in an easy to read matrix.</p>
@@ -408,8 +435,12 @@ export default async function PokemonDetailPage({ params }: PageProps) {
             <h3>Using {name} in Nuzlocke Challenges</h3>
             <p>Nuzlocke challenges are a popular way to add difficulty to Pokémon games by enforcing rules like only catching the first Pokémon encountered in each route and releasing any Pokémon that faints. {name} {baseStatTotal > 450 ? "is a solid choice for Nuzlocke runs thanks to its strong base stats and reliable movepool" : "can be a useful team member in Nuzlocke runs, especially in the early to mid game"}, though its effectiveness depends heavily on the moves it learns and the matchups it faces. If you are planning a Nuzlocke run and want to randomize your encounters, our <Link href="/pokemon-randomizer/">Pokémon Randomizer</Link> tool supports advanced filtering by generation, type, and legendary status.</p>
 
+            {!originalContent && (
+            <>
             <h3>Trivia and Fun Facts</h3>
             <p>{name} is Pokémon number {id} in the National Pokédex, which {id <= 151 ? "places it among the original 151 Kanto Pokémon that started the franchise in 1996" : id <= 251 ? "was introduced in Generation 2 Johto region" : id <= 386 ? "was introduced in Generation 3 Hoenn region" : id <= 493 ? "was introduced in Generation 4 Sinnoh region" : id <= 649 ? "was introduced in Generation 5 Unova region" : id <= 721 ? "was introduced in Generation 6 Kalos region" : id <= 809 ? "was introduced in Generation 7 Alola region" : id <= 905 ? "was introduced in Generation 8 Galar region" : "was introduced in Generation 9 Paldea region"}. The {genus.toLowerCase()} has appeared in multiple Pokémon games, the animated series, trading cards, and merchandise. Its design draws inspiration from real world animals, mythology, or concepts that reflect the region it comes from. Fans of the franchise often debate the best designs, strongest battle strategies, and most memorable appearances of each Pokémon across the various media.</p>
+            </>
+            )}
 
             <h3>Related Pokémon and Evolution</h3>
             <p>{name} may be part of an evolution chain, meaning it can evolve into or from another Pokémon when certain conditions are met. Evolution can occur through leveling up, using evolution stones, trading, friendship, or special location based methods. To explore the full evolution tree and discover related Pokémon, browse our complete <Link href="/pokemon/">Pokédex</Link> with all 1,025 Pokémon across all nine generations. You can also use the <Link href="/pokemon-compare/">Pokémon Comparison Tool</Link> to compare {name} side by side with any other Pokémon to see which one has better stats, typing, or abilities for your specific needs.</p>
@@ -426,8 +457,12 @@ export default async function PokemonDetailPage({ params }: PageProps) {
             <h3>Tips for Catching and Training</h3>
             <p>If you are trying to catch {name} in the games, there are a few tips that can improve your chances. First, lower its HP to the red zone using moves like False Swipe, which will always leave the target with at least 1 HP. Second, inflict a status condition like Sleep or Paralysis, which significantly increases the catch rate. Third, use the appropriate Poké Ball for the situation: Ultra Balls have a higher catch rate than standard Poké Balls, Dusk Balls work better in caves and at night, and Quick Balls are effective on the first turn of battle. Once you have caught {name}, you can train it by battling wild Pokémon to gain Experience Points (EXP) and level up. EV training, which involves battling specific Pokémon to boost particular stats, is essential for competitive play. The {genus.toLowerCase()} can also be taught new moves via TMs, move tutors, and breeding.</p>
 
+            {!originalContent && (
+            <>
             <h3>Fun Facts and Trivia</h3>
             <p>Here are some interesting facts about {name}: it is Pokémon number {id} in the National Pokédex, {id <= 151 ? "making it one of the original 151 Kanto Pokémon that have been part of the franchise since 1996" : `introduced in Generation ${gen.num}`}. Its design was created by the team at Game Freak, the studio behind the mainline Pokémon games, and is based on real world animals, mythological creatures, or concepts that reflect the region it comes from. The name {name} is a portmanteau or reference that often relates to its appearance, type, or behavior. Pokémon names vary across different languages, with each localization team adapting the name to fit the cultural context while maintaining the spirit of the original. The {genus.toLowerCase()} has been featured in various Pokémon media including the games, anime, manga, and merchandise, contributing to its recognition among fans worldwide.</p>
+            </>
+            )}
           </section>
 
           <section className="mt-12 p-6 rounded-2xl border border-border bg-card">
