@@ -6,9 +6,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/components/ad-slot";
 
 export const metadata: Metadata = {
-  title: "Random Pok\u00e9mon Generator 2026 \u2014 Free, Instant, No Signup",
-  description: "Generate random Pokémon instantly from all 1,025. Filter by generation, type, and rarity. Free generator with stats, cries, and shiny forms.",
-  keywords: ["random pokemon generator", "generate random pokemon", "pokemon generator online", "free pokemon generator", "random pokemon picker"],
+  title: "Random Pokémon Generator — Free No-Signup Tool (1,025 Pokémon)",
+  description: "Generate random Pokémon instantly. Filter by type, generation, or rarity. Free online random Pokémon generator with 1,025 Pokémon, no signup required.",
+  keywords: ["random pokemon generator", "pokemon random generator", "generate random pokemon", "pokemon generator online", "free pokemon generator", "random pokemon picker"],
   alternates: { canonical: "https://pokemonrandom.com/random-pokemon/" },
   openGraph: {
     images: [
@@ -16,18 +16,18 @@ export const metadata: Metadata = {
         url: "https://pokemonrandom.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "PokéRandom — Pokémon Tools & Database",
+        alt: "Random Pokémon Generator — Free Online Tool",
       },
     ],
-    title: "Random Pok\u00e9mon Generator 2026 \u2014 Free, Instant, No Signup",
-    description: "Generate random Pok\u00e9mon instantly. Filter by generation, type, or rarity. Free online random Pok\u00e9mon generator with high-quality artwork. No login required.",
+    title: "Random Pokémon Generator — Free No-Signup Tool (1,025 Pokémon)",
+    description: "Generate random Pokémon instantly. Filter by type, generation, or rarity. Free online random Pokémon generator with 1,025 Pokémon, no signup required.",
     url: "https://pokemonrandom.com/random-pokemon/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Random Pok\u00e9mon Generator 2026 \u2014 Free, Instant, No Signup",
-    description: "Generate random Pok\u00e9mon instantly. Filter by generation, type, or rarity. Free online random Pok\u00e9mon generator with high-quality artwork. No login required.",
+    title: "Random Pokémon Generator — Free No-Signup Tool (1,025 Pokémon)",
+    description: "Generate random Pokémon instantly. Filter by type, generation, or rarity. Free online random Pokémon generator with 1,025 Pokémon, no signup required.",
   },
 };
 
@@ -42,7 +42,7 @@ export default function RandomPokemonPage() {
       <HeaderBannerAd />
       <main className="flex-1" id="main-content" tabIndex={-1}>
         <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 space-y-8">
-          <h1 className="text-4xl font-bold tracking-tight">Generate a Random Pokémon Instantly</h1>
+          <h1 className="text-4xl font-bold tracking-tight">Random Pokémon Generator</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">Generate random Pokémon instantly with our free online tool. Filter by generation, type, or rarity to discover Pokémon you have never used before. Our random Pokémon generator pulls real-time data from the PokéAPI to give you accurate information about every Pokémon, including base stats, abilities, types, and official artwork.</p>
 
           <RandomPokemonGenerator />

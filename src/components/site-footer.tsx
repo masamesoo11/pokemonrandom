@@ -26,6 +26,7 @@ export function SiteFooter() {
           <div>
             <div className="font-semibold text-sm mb-3">Database</div>
             <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link href="/pokemon-database/" className="hover:text-foreground transition-colors">Pokémon Database</Link></li>
               <li><Link href="/pokemon/" className="hover:text-foreground transition-colors">Pokédex (1,025)</Link></li>
               <li><Link href="/moves/" className="hover:text-foreground transition-colors">Moves (938+)</Link></li>
               <li><Link href="/abilities/" className="hover:text-foreground transition-colors">Abilities (374+)</Link></li>
@@ -40,6 +41,7 @@ export function SiteFooter() {
             <div className="font-semibold text-sm mb-3">Tools</div>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/random-pokemon/" className="hover:text-foreground transition-colors">Generator</Link></li>
+              <li><Link href="/pokemon-type-generator/" className="hover:text-foreground transition-colors">Type Generator</Link></li>
               <li><Link href="/random-team/" className="hover:text-foreground transition-colors">Team Builder</Link></li>
               <li><Link href="/random-starter/" className="hover:text-foreground transition-colors">Starter Picker</Link></li>
               <li><Link href="/random-pokemon-picker/" className="hover:text-foreground transition-colors">Quick Picker</Link></li>

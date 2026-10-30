@@ -41,6 +41,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/tier-lists/", priority: 0.7, freq: "weekly" as const },
     { path: "/widgets/", priority: 0.8, freq: "weekly" as const },
     { path: "/api-docs/", priority: 0.5, freq: "monthly" as const },
+    { path: "/pokemon-type-generator/", priority: 0.9, freq: "weekly" as const },
+    { path: "/pokemon-database/", priority: 0.9, freq: "weekly" as const },
   ].map((p) => ({ ...p, section: "tools" }));
 
   // Pokédex
