@@ -53,6 +53,8 @@ export interface PokemonListResult {
 
 const POKEAPI_BASE = "https://pokeapi.co/api/v2";
 
+import { fetchWithRetry } from "./fetch-retry";
+
 // Cache to avoid refetching the same Pokemon
 const pokemonCache = new Map<number, Pokemon>();
 const listCache = new Map<string, PokemonListResult>();
@@ -63,9 +65,11 @@ const listCache = new Map<string, PokemonListResult>();
 export async function fetchPokemon(id: number): Promise<Pokemon> {
   if (pokemonCache.has(id)) return pokemonCache.get(id)!;
 
-  const res = await fetch(`${POKEAPI_BASE}/pokemon/${id}`, {
-    next: { revalidate: 86400 }, // cache for 24h
-  });
+  const res = await fetchWithRetry(
+    `${POKEAPI_BASE}/pokemon/${id}`,
+    { next: { revalidate: 86400 } }, // cache for 24h
+    `Pokemon #${id}`
+  );
   if (!res.ok) throw new Error(`Failed to fetch Pokemon #${id}`);
   const data: Pokemon = await res.json();
   pokemonCache.set(id, data);
@@ -131,9 +135,10 @@ export async function fetchPokemonList(
   const cacheKey = `${limit}-${offset}`;
   if (listCache.has(cacheKey)) return listCache.get(cacheKey)!;
 
-  const res = await fetch(
+  const res = await fetchWithRetry(
     `${POKEAPI_BASE}/pokemon?limit=${limit}&offset=${offset}`,
-    { next: { revalidate: 86400 } }
+    { next: { revalidate: 86400 } },
+    "Pokemon list"
   );
   if (!res.ok) throw new Error("Failed to fetch Pokemon list");
   const data: PokemonListResult = await res.json();
@@ -328,9 +333,11 @@ export interface PokemonSpecies {
  * Fetch species data for a given Pokémon ID. Cached for 24h.
  */
 export async function fetchSpecies(id: number): Promise<PokemonSpecies> {
-  const res = await fetch(`${POKEAPI_BASE}/pokemon-species/${id}`, {
-    next: { revalidate: 86400 },
-  });
+  const res = await fetchWithRetry(
+    `${POKEAPI_BASE}/pokemon-species/${id}`,
+    { next: { revalidate: 86400 } },
+    `Species #${id}`
+  );
   if (!res.ok) throw new Error(`Failed to fetch species #${id}`);
   return res.json();
 }
@@ -367,7 +374,7 @@ export interface EvolutionChain {
  * Fetch the evolution chain for a Pokémon species URL.
  */
 export async function fetchEvolutionChain(url: string): Promise<EvolutionChain> {
-  const res = await fetch(url, { next: { revalidate: 86400 } });
+  const res = await fetchWithRetry(url, { next: { revalidate: 86400 } }, "Evolution chain");
   if (!res.ok) throw new Error(`Failed to fetch evolution chain`);
   return res.json();
 }

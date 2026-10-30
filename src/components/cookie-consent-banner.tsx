@@ -42,6 +42,28 @@ function writeConsent(data: ConsentData) {
   }
 }
 
+/**
+ * Push a Google Consent Mode v2 "update" command onto the dataLayer.
+ * gtag.js processes these entries live, so GA4 cookies are only written
+ * after the visitor explicitly grants analytics/ad storage. A plain array
+ * is pushed (equivalent to gtag('consent','update',...) via arguments).
+ */
+function updateGtagConsent(analytics: boolean, ads: boolean) {
+  if (typeof window === "undefined") return;
+  const w = window as unknown as { dataLayer?: unknown[] };
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push([
+    "consent",
+    "update",
+    {
+      analytics_storage: analytics ? "granted" : "denied",
+      ad_storage: ads ? "granted" : "denied",
+      ad_user_data: ads ? "granted" : "denied",
+      ad_personalization: ads ? "granted" : "denied",
+    },
+  ]);
+}
+
 export function getConsent(): ConsentData {
   return readConsent();
 }
@@ -56,7 +78,11 @@ export function CookieConsentBanner() {
   useEffect(() => {
     setMounted(true);
     const data = readConsent();
-    if (!data.choice) {
+    if (data.choice) {
+      // Returning visitor: re-apply their stored choice to Consent Mode so
+      // GA4 (which starts with everything denied) can use cookies again.
+      updateGtagConsent(data.analytics, data.ads);
+    } else {
       // Show banner after a small delay so it doesn't appear instantly
       const timer = setTimeout(() => setVisible(true), 1200);
       return () => clearTimeout(timer);
@@ -71,6 +97,7 @@ export function CookieConsentBanner() {
       ads: choice === "all" ? true : adsEnabled,
     };
     writeConsent(data);
+    updateGtagConsent(data.analytics, data.ads);
     setVisible(false);
     setShowSettings(false);
     trackEvent("cookie_consent", {
@@ -88,6 +115,7 @@ export function CookieConsentBanner() {
       ads: adsEnabled,
     };
     writeConsent(data);
+    updateGtagConsent(data.analytics, data.ads);
     setVisible(false);
     setShowSettings(false);
     trackEvent("cookie_consent", {

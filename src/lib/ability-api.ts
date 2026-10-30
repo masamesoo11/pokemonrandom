@@ -5,6 +5,8 @@
 
 const POKEAPI_BASE = "https://pokeapi.co/api/v2";
 
+import { fetchWithRetry } from "./fetch-retry";
+
 const abilityCache = new Map<string, Ability>();
 const abilityListCache = new Map<string, AbilityListResult>();
 
@@ -49,9 +51,11 @@ export async function fetchAbility(nameOrId: string | number): Promise<Ability> 
   const key = String(nameOrId).toLowerCase();
   if (abilityCache.has(key)) return abilityCache.get(key)!;
 
-  const res = await fetch(`${POKEAPI_BASE}/ability/${key}`, {
-    next: { revalidate: 86400 },
-  });
+  const res = await fetchWithRetry(
+    `${POKEAPI_BASE}/ability/${key}`,
+    { next: { revalidate: 86400 } },
+    `Ability ${nameOrId}`
+  );
   if (!res.ok) throw new Error(`Failed to fetch ability ${nameOrId}`);
   const data: Ability = await res.json();
   abilityCache.set(key, data);
@@ -70,9 +74,11 @@ export async function fetchAbilityList(
   const cacheKey = `${limit}-${includeNonMainSeries}`;
   if (abilityListCache.has(cacheKey)) return abilityListCache.get(cacheKey)!;
 
-  const res = await fetch(`${POKEAPI_BASE}/ability?limit=${limit}`, {
-    next: { revalidate: 86400 },
-  });
+  const res = await fetchWithRetry(
+    `${POKEAPI_BASE}/ability?limit=${limit}`,
+    { next: { revalidate: 86400 } },
+    "Ability list"
+  );
   if (!res.ok) throw new Error("Failed to fetch ability list");
   const data: AbilityListResult = await res.json();
 

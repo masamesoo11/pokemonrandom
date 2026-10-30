@@ -4,7 +4,6 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { HeaderBannerAd, InContentAd, FooterAd, MobileAnchorAd } from "@/components/ad-slot";
-import { PokemonDetailView } from "@/components/pokemon-detail-view";
 import {
   fetchPokemon,
   fetchSpecies,
@@ -40,24 +39,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const id = parseInt(idStr, 10);
   if (isNaN(id) || id < 1 || id > 1025) return { title: "Pokémon Not Found" };
 
-  let name = `Pokémon #${String(id).padStart(4, "0")}`;
-  let description = `View Pokémon #${String(id).padStart(4, "0")} from the National Pokédex.`;
-
-  try {
-    const [pokemon, species] = await Promise.all([
-      fetchPokemon(id),
-      fetchSpecies(id),
-    ]);
-    name = formatPokemonName(pokemon.name);
-    const gen = getGenerationById(id);
-    const genus = getEnglishGenus(species);
-    const types = pokemon.types.map((t) => t.type.name).join("/");
-    description = `${name} (${genus}) — National Pokédex #${id}. ${types} type from ${gen.region}. Base stats, abilities, evolution chain, shiny form, and more.`;
-  } catch {
-    // Fallback to generic if API fails
-  }
-
+  // Build-time data is REQUIRED: a fetch failure (after the retries in
+  // fetch-retry.ts) fails the build instead of shipping a generic page.
+  const [pokemon, species] = await Promise.all([
+    fetchPokemon(id),
+    fetchSpecies(id),
+  ]);
+  const name = formatPokemonName(pokemon.name);
   const gen = getGenerationById(id);
+  const genus = getEnglishGenus(species);
+  const types = pokemon.types.map((t) => t.type.name).join("/");
+  let description = `${name} (${genus}) — National Pokédex #${id}. ${types} type from ${gen.region}. Base stats, abilities, evolution chain, shiny form, and more.`;
+
   const canonical = `https://pokemonrandom.com/pokemon/${id}/`;
   const original = getPokemonOriginalContent(id);
   const title = `${name} #${String(id).padStart(4, "0")} — Stats, Type & Abilities`;
@@ -137,40 +130,24 @@ export default async function PokemonDetailPage({ params }: PageProps) {
   // Hand-written editorial content for the 65 most-searched Pokémon
   const originalContent = getPokemonOriginalContent(id);
 
-  // Try to fetch real data for SSR/SSG content
-  let pokemon: Pokemon | null = null;
-  let species: PokemonSpecies | null = null;
-  let name = `Pokémon #${String(id).padStart(4, "0")}`;
-  let types: string[] = [];
-  let baseStats: { name: string; value: number }[] = [];
-  let abilities: string[] = [];
-  let height = "";
-  let weight = "";
-  let flavorText = "";
-  let genus = "";
-  let legendary = false;
-  let mythical = false;
-  let genderRatio = "";
-
-  try {
-    [pokemon, species] = await Promise.all([
-      fetchPokemon(id),
-      fetchSpecies(id),
-    ]);
-    name = formatPokemonName(pokemon.name);
-    types = pokemon.types.map((t) => t.type.name);
-    baseStats = pokemon.stats.map((s) => ({ name: s.stat.name, value: s.base_stat }));
-    abilities = pokemon.abilities.map((a) => a.ability.name);
-    height = formatHeight(pokemon.height);
-    weight = formatWeight(pokemon.weight);
-    flavorText = getEnglishFlavorText(species);
-    genus = getEnglishGenus(species);
-    legendary = isLegendary(id) || species.is_legendary;
-    mythical = species.is_mythical;
-    genderRatio = getGenderRatio(species.gender_rate);
-  } catch {
-    // Fallback: show client-side view
-  }
+  // Build-time data is REQUIRED: a fetch failure (after the retries in
+  // fetch-retry.ts) fails the build instead of shipping a hollow,
+  // client-side-only page.
+  const [pokemon, species] = await Promise.all([
+    fetchPokemon(id),
+    fetchSpecies(id),
+  ]);
+  const name = formatPokemonName(pokemon.name);
+  const types = pokemon.types.map((t) => t.type.name);
+  const baseStats = pokemon.stats.map((s) => ({ name: s.stat.name, value: s.base_stat }));
+  const abilities = pokemon.abilities.map((a) => a.ability.name);
+  const height = formatHeight(pokemon.height);
+  const weight = formatWeight(pokemon.weight);
+  const flavorText = getEnglishFlavorText(species);
+  const genus = getEnglishGenus(species);
+  const legendary = isLegendary(id) || species.is_legendary;
+  const mythical = species.is_mythical;
+  const genderRatio = getGenderRatio(species.gender_rate);
 
   const baseStatTotal = baseStats.reduce((sum, s) => sum + s.value, 0);
   const primaryType = types[0] || "normal";
@@ -187,34 +164,6 @@ export default async function PokemonDetailPage({ params }: PageProps) {
   const sameTypeIds: number[] = ((typePokemonMap as Record<string, number[]>)[primaryType] || [])
     .filter((pid) => pid !== id)
     .slice(0, 12);
-
-  // If data fetch failed, fall back to client-side view
-  if (!pokemon || !species) {
-    return (
-      <div className="min-h-screen flex flex-col bg-background">
-        <SiteHeader />
-        <HeaderBannerAd />
-        <main className="flex-1" id="main-content" tabIndex={-1}>
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8">
-            <nav className="text-sm text-muted-foreground mb-6">
-              <Link href="/" className="hover:text-foreground">Home</Link>
-              <span className="mx-2">/</span>
-              <Link href="/pokemon/" className="hover:text-foreground">Pokédex</Link>
-              <span className="mx-2">/</span>
-              <Link href={`/generation/${gen.num}/`} className="hover:text-foreground">{gen.region}</Link>
-              <span className="mx-2">/</span>
-              <span className="text-foreground">#{String(id).padStart(4, "0")}</span>
-            </nav>
-            <InContentAd />
-            <PokemonDetailView id={id} />
-          </div>
-        </main>
-        <FooterAd />
-        <SiteFooter />
-        <MobileAnchorAd />
-      </div>
-    );
-  }
 
   // Full SSG page with real data
   return (

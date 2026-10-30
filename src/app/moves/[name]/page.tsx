@@ -15,13 +15,10 @@ interface PageProps {
 // Pre-generate all ~920 move page slugs (just names, one API call at build time).
 // The actual move data is fetched client-side after hydration.
 export async function generateStaticParams() {
-  try {
-    const list = await fetchMoveList(1000);
-    return list.results.map((m) => ({ name: m.name }));
-  } catch (e) {
-    console.error("Failed to fetch move list for static params:", e);
-    return [];
-  }
+  // Build-time data is REQUIRED: returning [] on failure would silently
+  // drop ~920 move pages from the export — fail the build instead.
+  const list = await fetchMoveList(1000);
+  return list.results.map((m) => ({ name: m.name }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -98,21 +95,16 @@ export default async function MoveDetailPage({ params }: PageProps) {
 
   // Server-side fetch at build time — powers the crawlable "Pokémon that can
   // learn this move" link section (the client view does NOT render these
-  // links in the static HTML).
-  let learners: { id: number; name: string }[] = [];
-  let learnerOverflow = 0;
-  try {
-    const move = await fetchMove(slug);
-    const MAX_LEARNERS = 60;
-    const all = (move.learned_by_pokemon || [])
-      .map((p) => ({ id: extractPokemonIdFromUrl(p.url), name: p.name }))
-      .filter((p) => Number.isInteger(p.id) && p.id >= 1 && p.id <= 1025)
-      .sort((a, b) => a.id - b.id);
-    learnerOverflow = Math.max(0, all.length - MAX_LEARNERS);
-    learners = all.slice(0, MAX_LEARNERS);
-  } catch {
-    // If the API call fails we simply render without the learner links.
-  }
+  // links in the static HTML). Build-time data is REQUIRED: a fetch failure
+  // (after retries) fails the build instead of shipping a linkless page.
+  const move = await fetchMove(slug);
+  const MAX_LEARNERS = 60;
+  const all = (move.learned_by_pokemon || [])
+    .map((p) => ({ id: extractPokemonIdFromUrl(p.url), name: p.name }))
+    .filter((p) => Number.isInteger(p.id) && p.id >= 1 && p.id <= 1025)
+    .sort((a, b) => a.id - b.id);
+  const learnerOverflow = Math.max(0, all.length - MAX_LEARNERS);
+  const learners = all.slice(0, MAX_LEARNERS);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">

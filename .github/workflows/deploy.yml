@@ -22,7 +22,7 @@ jobs:
           node-version: '24'
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm ci --legacy-peer-deps
 
       - name: Regenerate sitemap lastmod dates from git history
         run: node scripts/generate-sitemap-dates.mjs

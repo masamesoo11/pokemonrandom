@@ -12,10 +12,12 @@
     .login-card { background: #1a1a2e; border: 2px solid #fbbf24; border-radius: 16px; padding: 40px; max-width: 400px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
     .login-card h1 { text-align: center; font-size: 24px; margin-bottom: 8px; color: #fbbf24; }
     .login-card p { text-align: center; color: #888; font-size: 14px; margin-bottom: 24px; }
+    .login-card .secure { text-align: center; color: #10b981; font-size: 12px; margin-bottom: 16px; }
     .login-card input { width: 100%; padding: 12px 16px; background: #0f0a07; border: 1px solid #333; border-radius: 8px; color: #fff; font-size: 16px; margin-bottom: 16px; }
     .login-card input:focus { outline: none; border-color: #fbbf24; }
     .login-card button { width: 100%; padding: 12px; background: #f59e0b; color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; transition: all 0.2s; }
     .login-card button:hover { background: #fbbf24; transform: translateY(-1px); }
+    .login-card button:disabled { background: #666; color: #999; cursor: wait; transform: none; }
     .login-card .error { color: #ef4444; font-size: 14px; text-align: center; margin-top: 12px; min-height: 20px; }
     .login-card .back { text-align: center; margin-top: 20px; }
     .login-card .back a { color: #888; text-decoration: none; font-size: 13px; }
@@ -60,7 +62,7 @@
     .tab:hover { color: #f5f5f5; }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
-    .toast { position: fixed; bottom: 20px; right: 20px; padding: 16px 24px; background: #10b981; color: #fff; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transform: translateX(400px); transition: transform 0.3s; z-index: 1000; }
+    .toast { position: fixed; bottom: 20px; right: 20px; padding: 16px 24px; background: #10b981; color: #fff; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transform: translateX(400px); transition: transform 0.3s; z-index: 1000; max-width: 340px; }
     .toast.show { transform: translateX(0); }
     .toast.error { background: #ef4444; }
     .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-bottom: 20px; }
@@ -75,9 +77,10 @@
 <div id="loginScreen" class="login-screen">
   <div class="login-card">
     <h1>Admin Dashboard</h1>
-    <p>Pokemon Random — Ads & Settings</p>
+    <p>Pokemon Random — Ads &amp; Settings</p>
+    <div class="secure">🔐 JWT session · expires after 24h</div>
     <input type="password" id="passwordInput" placeholder="Enter admin password" autofocus />
-    <button onclick="login()">Login</button>
+    <button id="loginBtn" onclick="login()">Login</button>
     <div id="loginError" class="error"></div>
     <div class="back"><a href="/">Back to site</a></div>
   </div>
@@ -112,7 +115,8 @@
     </div>
     <div class="form-group">
       <label>Admin Password</label>
-      <input type="text" id="adminPassword" placeholder="Leave empty to keep current" />
+      <input type="password" id="adminPassword" placeholder="Leave empty to keep current" autocomplete="new-password" />
+      <div class="hint">Changing the password requires logging in again afterwards.</div>
     </div>
   </div>
 
@@ -133,7 +137,22 @@
 <div id="toast" class="toast"></div>
 
 <script>
+/* ============================================================
+ * Admin panel — Worker v2 (JWT) flow
+ *
+ *   POST /admin/auth/login   { password }            -> { token }
+ *   GET  /admin/ads_config   Authorization: Bearer   -> full config
+ *   PUT  /admin/ads_config   Authorization: Bearer   -> save config
+ *
+ * The JWT lives in sessionStorage (cleared when the tab closes,
+ * never persisted to disk). All privileged calls go through
+ * authedFetch(), which signs every request and logs the user out
+ * the moment the token is rejected (401).
+ * ============================================================ */
 const API_BASE = "https://poke-admin-api.sodanefs.workers.dev";
+const TOKEN_KEY = "poke_admin_jwt";
+const RL_KEY = "poke_admin_rl";
+
 const AD_SLOTS = [
   { name: "headerBanner", label: "Header Banner", desc: "728x90 above the fold" },
   { name: "inContent", label: "In-Content", desc: "Between content sections" },
@@ -142,9 +161,40 @@ const AD_SLOTS = [
   { name: "mobileAnchor", label: "Mobile Anchor", desc: "320x50 sticky on mobile" },
 ];
 
+let authToken = sessionStorage.getItem(TOKEN_KEY);
 let currentConfig = null;
-let sessionAuth = sessionStorage.getItem("poke_admin_auth");
-const RL_KEY = "poke_admin_rl";
+
+/* ---------- auth plumbing ---------- */
+
+function authHeaders() {
+  const h = { "Content-Type": "application/json" };
+  if (authToken) h["Authorization"] = "Bearer " + authToken;
+  return h;
+}
+
+async function authedFetch(path, opts) {
+  opts = opts || {};
+  const res = await fetch(API_BASE + path, {
+    ...opts,
+    headers: { ...authHeaders(), ...(opts.headers || {}) },
+  });
+  if (res.status === 401 || res.status === 403) {
+    handleSessionExpired();
+    throw new Error("Session expired — please log in again.");
+  }
+  return res;
+}
+
+function handleSessionExpired() {
+  authToken = null;
+  sessionStorage.removeItem(TOKEN_KEY);
+  showLogin();
+  document.getElementById("loginError").textContent = "Session expired. Please log in again.";
+}
+
+/* ---------- client-side rate limiting (UX layer; the Worker also
+ * enforces a server-side limit, so this cannot be bypassed into
+ * unlimited guessing) ---------- */
 
 function checkRateLimit() {
   const data = JSON.parse(sessionStorage.getItem(RL_KEY) || '{"attempts":0,"lockUntil":0}');
@@ -163,48 +213,91 @@ function recordFailedAttempt() {
 }
 function resetRateLimit() { sessionStorage.setItem(RL_KEY, JSON.stringify({ attempts: 0, lockUntil: 0 })); }
 
-function login() {
+/* ---------- login / logout ---------- */
+
+async function login() {
+  const loginBtn = document.getElementById("loginBtn");
+  const errEl = document.getElementById("loginError");
   const rl = checkRateLimit();
-  if (rl.blocked) { document.getElementById("loginError").textContent = rl.msg; return; }
+  if (rl.blocked) { errEl.textContent = rl.msg; return; }
+
   const password = document.getElementById("passwordInput").value;
-  fetch(`${API_BASE}/ads_config`)
-  .then(r => { if (!r.ok) throw new Error("Failed"); return r.json(); })
-  .then(config => {
-    if (password === config.adminPassword) {
-      sessionStorage.setItem("poke_admin_auth", "true");
-      resetRateLimit();
-      currentConfig = config;
-      showDashboard();
-    } else {
+  if (!password) { errEl.textContent = "Enter the admin password."; return; }
+
+  loginBtn.disabled = true;
+  loginBtn.textContent = "Logging in…";
+  errEl.textContent = "";
+
+  try {
+    const res = await fetch(`${API_BASE}/admin/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password }),
+    });
+
+    if (res.status === 401 || res.status === 403) {
       const data = recordFailedAttempt();
       const remaining = 5 - data.attempts;
-      document.getElementById("loginError").textContent = remaining > 0
-        ? "Wrong password. " + remaining + " attempts left."
+      errEl.textContent = remaining > 0
+        ? "Wrong password. " + remaining + " attempt" + (remaining === 1 ? "" : "s") + " left."
         : "Locked. Try again in 15 min.";
+      return;
     }
-  })
-  .catch(err => document.getElementById("loginError").textContent = "Error: " + err.message);
+    if (res.status === 429) {
+      errEl.textContent = "Server rate limit reached. Please wait a minute and retry.";
+      return;
+    }
+    if (!res.ok) throw new Error("Login failed (HTTP " + res.status + ")");
+
+    const data = await res.json();
+    // Accept the common token field names so the panel keeps working
+    // even if the Worker response shape drifts slightly.
+    const token = data.token || data.jwt || data.accessToken || data.access_token;
+    if (!token) throw new Error("Login succeeded but no token was returned.");
+
+    authToken = token;
+    sessionStorage.setItem(TOKEN_KEY, token);
+    resetRateLimit();
+    showDashboard();
+  } catch (err) {
+    errEl.textContent = "Error: " + err.message;
+  } finally {
+    loginBtn.disabled = false;
+    loginBtn.textContent = "Login";
+  }
 }
 
 function logout() {
-  sessionStorage.removeItem("poke_admin_auth");
-  document.getElementById("dashboard").style.display = "none";
-  document.getElementById("loginScreen").style.display = "flex";
+  authToken = null;
+  sessionStorage.removeItem(TOKEN_KEY);
+  currentConfig = null;
+  showLogin();
   document.getElementById("passwordInput").value = "";
 }
 
+function showLogin() {
+  document.getElementById("loginScreen").style.display = "flex";
+  document.getElementById("dashboard").style.display = "none";
+}
 function showDashboard() {
+  document.getElementById("loginError").textContent = "";
   document.getElementById("loginScreen").style.display = "none";
   document.getElementById("dashboard").style.display = "block";
   loadConfig();
 }
 
-function loadConfig() {
-  if (currentConfig) { renderAdSlots(currentConfig); populateForm(currentConfig); return; }
-  fetch(`${API_BASE}/ads_config`)
-  .then(r => r.json())
-  .then(config => { currentConfig = config; renderAdSlots(config); populateForm(config); })
-  .catch(err => showToast("Error: " + err.message, true));
+/* ---------- config load / render ---------- */
+
+async function loadConfig() {
+  try {
+    const res = await authedFetch("/admin/ads_config");
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    currentConfig = await res.json();
+    renderAdSlots(currentConfig);
+    populateForm(currentConfig);
+  } catch (err) {
+    showToast("Error: " + err.message, true);
+  }
 }
 
 function escapeHtml(text) {
@@ -287,6 +380,8 @@ function populateForm(config) {
     ? new Date(config.updatedAt).toLocaleDateString() : "—";
 }
 
+/* ---------- save / reset ---------- */
+
 function collectConfig() {
   const ads = {};
   AD_SLOTS.forEach(slot => {
@@ -298,59 +393,64 @@ function collectConfig() {
     };
   });
   const newPassword = document.getElementById("adminPassword").value.trim();
-  return {
+  // Preserve any field the Worker owns that this form does not edit
+  // (searchConsoleToken, future fields, ...) by spreading currentConfig.
+  const payload = { ...(currentConfig || {}), ...{
     adsenseClient: document.getElementById("adsenseClient").value.trim(),
     gaId: document.getElementById("gaId").value.trim(),
-    searchConsoleToken: currentConfig.searchConsoleToken || "",
-    adminPassword: newPassword || currentConfig.adminPassword,
     ads: ads,
-    updatedAt: new Date().toISOString()
-  };
+    updatedAt: new Date().toISOString(),
+  }};
+  if (newPassword) payload.adminPassword = newPassword;
+  return payload;
 }
 
-function saveAll() {
+async function saveAll() {
   const config = collectConfig();
-  fetch(`${API_BASE}/ads_config`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(config)
-  })
-  .then(r => r.json())
-  .then(data => {
-    if (data.success) {
-      currentConfig = config;
-      populateForm(config);
-      showToast("Settings saved! Ads will appear on site.");
-    } else {
-      showToast("Failed to save", true);
+  try {
+    const res = await authedFetch("/admin/ads_config", {
+      method: "PUT",
+      body: JSON.stringify(config),
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || "HTTP " + res.status);
     }
-  })
-  .catch(err => showToast("Error: " + err.message, true));
+    showToast("Settings saved! Ads appear on the next page load.");
+    await loadConfig();
+  } catch (err) {
+    showToast("Error: " + err.message, true);
+  }
 }
 
-function resetSettings() {
+async function resetSettings() {
   if (!confirm("Reset all settings?")) return;
-  const defaultConfig = {
-    adsenseClient: "", gaId: "G-GJ6BBMYYTF",
-    searchConsoleToken: currentConfig.searchConsoleToken,
-    ads: {},
-    adminPassword: currentConfig.adminPassword,
-    updatedAt: new Date().toISOString()
-  };
+  const ads = {};
   AD_SLOTS.forEach(slot => {
-    defaultConfig.ads[slot.name] = { enabled: false, slotId: "", format: "auto", customCode: "" };
+    ads[slot.name] = { enabled: false, slotId: "", format: "auto", customCode: "" };
   });
-  fetch(`${API_BASE}/ads_config`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(defaultConfig)
-  })
-  .then(r => r.json())
-  .then(data => {
-    if (data.success) { currentConfig = defaultConfig; renderAdSlots(defaultConfig); populateForm(defaultConfig); showToast("Reset done!"); }
-    else showToast("Reset failed", true);
-  });
+  const payload = { ...(currentConfig || {}), ...{
+    adsenseClient: "",
+    ads: ads,
+    updatedAt: new Date().toISOString(),
+  }};
+  try {
+    const res = await authedFetch("/admin/ads_config", {
+      method: "PUT",
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || "HTTP " + res.status);
+    }
+    showToast("Reset done!");
+    await loadConfig();
+  } catch (err) {
+    showToast("Error: " + err.message, true);
+  }
 }
+
+/* ---------- misc ---------- */
 
 function showToast(msg, isError) {
   const toast = document.getElementById("toast");
@@ -360,7 +460,10 @@ function showToast(msg, isError) {
 }
 
 document.getElementById("passwordInput").addEventListener("keypress", e => { if (e.key === "Enter") login(); });
-if (sessionAuth === "true") showDashboard();
+
+// Auto-resume an existing JWT session (validated on first API call;
+// an expired token bounces back to the login screen via authedFetch).
+if (authToken) showDashboard();
 </script>
 </body>
 </html>

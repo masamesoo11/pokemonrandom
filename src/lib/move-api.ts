@@ -5,6 +5,8 @@
 
 const POKEAPI_BASE = "https://pokeapi.co/api/v2";
 
+import { fetchWithRetry } from "./fetch-retry";
+
 // In-memory cache to avoid refetching the same move
 const moveCache = new Map<string, Move>();
 const moveListCache = new Map<string, MoveListResult>();
@@ -61,9 +63,11 @@ export async function fetchMove(nameOrId: string | number): Promise<Move> {
   const key = String(nameOrId).toLowerCase();
   if (moveCache.has(key)) return moveCache.get(key)!;
 
-  const res = await fetch(`${POKEAPI_BASE}/move/${key}`, {
-    next: { revalidate: 86400 },
-  });
+  const res = await fetchWithRetry(
+    `${POKEAPI_BASE}/move/${key}`,
+    { next: { revalidate: 86400 } },
+    `Move ${nameOrId}`
+  );
   if (!res.ok) throw new Error(`Failed to fetch move ${nameOrId}`);
   const data: Move = await res.json();
   moveCache.set(key, data);
@@ -78,9 +82,11 @@ export async function fetchMoveList(limit = 1000): Promise<MoveListResult> {
   const cacheKey = String(limit);
   if (moveListCache.has(cacheKey)) return moveListCache.get(cacheKey)!;
 
-  const res = await fetch(`${POKEAPI_BASE}/move?limit=${limit}`, {
-    next: { revalidate: 86400 },
-  });
+  const res = await fetchWithRetry(
+    `${POKEAPI_BASE}/move?limit=${limit}`,
+    { next: { revalidate: 86400 } },
+    "Move list"
+  );
   if (!res.ok) throw new Error("Failed to fetch move list");
   const data: MoveListResult = await res.json();
   moveListCache.set(cacheKey, data);

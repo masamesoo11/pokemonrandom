@@ -14,13 +14,10 @@ interface PageProps {
 
 // Pre-generate all ~298 ability page slugs (just names, one API call at build time).
 export async function generateStaticParams() {
-  try {
-    const list = await fetchAbilityList(500);
-    return list.results.map((a) => ({ name: a.name }));
-  } catch (e) {
-    console.error("Failed to fetch ability list for static params:", e);
-    return [];
-  }
+  // Build-time data is REQUIRED: returning [] on failure would silently
+  // drop ~298 ability pages from the export — fail the build instead.
+  const list = await fetchAbilityList(500);
+  return list.results.map((a) => ({ name: a.name }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -95,26 +92,21 @@ export default async function AbilityDetailPage({ params }: PageProps) {
 
   // Server-side fetch at build time — powers the crawlable "Pokémon with
   // this ability" link section (the client view does NOT render these
-  // links in the static HTML).
-  let holders: { id: number; name: string }[] = [];
-  let holderOverflow = 0;
-  try {
-    const ability = await fetchAbility(slug);
-    const MAX_HOLDERS = 48;
-    const all = (ability.pokemon || [])
-      .map((e) => {
-        const url = e.pokemon?.url || "";
-        const match = url.match(/\/pokemon\/([0-9]+)\//);
-        const pid = match ? parseInt(match[1], 10) : NaN;
-        return { id: pid, name: e.pokemon?.name || "" };
-      })
-      .filter((p) => Number.isInteger(p.id) && p.id >= 1 && p.id <= 1025)
-      .sort((a, b) => a.id - b.id);
-    holderOverflow = Math.max(0, all.length - MAX_HOLDERS);
-    holders = all.slice(0, MAX_HOLDERS);
-  } catch {
-    // If the API call fails we simply render without the holder links.
-  }
+  // links in the static HTML). Build-time data is REQUIRED: a fetch failure
+  // (after retries) fails the build instead of shipping a linkless page.
+  const ability = await fetchAbility(slug);
+  const MAX_HOLDERS = 48;
+  const all = (ability.pokemon || [])
+    .map((e) => {
+      const url = e.pokemon?.url || "";
+      const match = url.match(/\/pokemon\/([0-9]+)\//);
+      const pid = match ? parseInt(match[1], 10) : NaN;
+      return { id: pid, name: e.pokemon?.name || "" };
+    })
+    .filter((p) => Number.isInteger(p.id) && p.id >= 1 && p.id <= 1025)
+    .sort((a, b) => a.id - b.id);
+  const holderOverflow = Math.max(0, all.length - MAX_HOLDERS);
+  const holders = all.slice(0, MAX_HOLDERS);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">

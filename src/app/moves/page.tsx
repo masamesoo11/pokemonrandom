@@ -70,13 +70,10 @@ function groupByLetter(moves: { name: string; url: string }[]): Record<string, {
 }
 
 export default async function MovesIndexPage() {
-  let moves: { name: string; url: string }[] = [];
-  try {
-    const list = await fetchMoveList(1000);
-    moves = list.results;
-  } catch (e) {
-    console.error("Failed to fetch move list:", e);
-  }
+  // Build-time data is REQUIRED: failing here fails the build instead of
+  // publishing an empty index page.
+  const list = await fetchMoveList(1000);
+  const moves = list.results;
 
   const grouped = groupByLetter(moves);
   const letters = Object.keys(grouped).sort();

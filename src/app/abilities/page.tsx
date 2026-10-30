@@ -66,13 +66,10 @@ function groupByLetter(abilities: { name: string; url: string }[]): Record<strin
 }
 
 export default async function AbilitiesIndexPage() {
-  let abilities: { name: string; url: string }[] = [];
-  try {
-    const list = await fetchAbilityList(500);
-    abilities = list.results;
-  } catch (e) {
-    console.error("Failed to fetch ability list:", e);
-  }
+  // Build-time data is REQUIRED: failing here fails the build instead of
+  // publishing an empty index page.
+  const list = await fetchAbilityList(500);
+  const abilities = list.results;
 
   const grouped = groupByLetter(abilities);
   const letters = Object.keys(grouped).sort();

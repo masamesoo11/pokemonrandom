@@ -9,7 +9,6 @@
  *   NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-XXXXXXXXXXXXXXXX  (AdSense publisher ID)
  *   NEXT_PUBLIC_SEARCH_CONSOLE=XXXXXXXXXXXXXXXXXXXXXXXX  (Search Console verification token)
  *   NEXT_PUBLIC_SITE_URL=https://pokemonrandom.com       (canonical site URL)
- *   ADMIN_PASSWORD=changeme                              (admin panel password)
  */
 
 export const siteConfig = {
@@ -28,8 +27,10 @@ export const siteConfig = {
   // Search Console verification token
   searchConsoleToken:
     process.env.NEXT_PUBLIC_SEARCH_CONSOLE ?? "",
-  // Admin
-  adminPassword: process.env.ADMIN_PASSWORD ?? "",
+  // NOTE: the admin password is intentionally NOT read here. Authentication
+  // for the ads admin panel is handled entirely server-side by the
+  // poke-admin-api Cloudflare Worker (JWT flow) — the static site never
+  // needs (and must never see) the password.
 };
 
 /**
